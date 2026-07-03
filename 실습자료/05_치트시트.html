@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Claude Code 치트시트 (1장)</title>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--brand:#4f46e5;--cyan:#0e7490;--emerald:#047857;--rose:#be123c;}
+  *{box-sizing:border-box;}
+  body{font-family:'Pretendard',system-ui,sans-serif;color:var(--ink);margin:0;padding:24px;background:#f8fafc;}
+  .sheet{max-width:900px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 32px;}
+  h1{font-size:24px;margin:0 0 2px;}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:18px;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .box{border:1px solid var(--line);border-radius:12px;padding:14px 16px;}
+  .box h2{font-size:15px;margin:0 0 8px;display:flex;align-items:center;gap:6px;}
+  code,pre{font-family:'JetBrains Mono',monospace;font-size:12.5px;}
+  pre{background:#0f172a;color:#e2e8f0;border-radius:8px;padding:10px 12px;margin:6px 0;overflow:auto;white-space:pre-wrap;}
+  .c{color:#64748b;}
+  ul{margin:6px 0 0;padding-left:18px;}
+  li{font-size:13px;line-height:1.7;}
+  .tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;}
+  .t-brand{background:#eef2ff;color:var(--brand);}
+  .t-cyan{background:#ecfeff;color:var(--cyan);}
+  .t-emerald{background:#ecfdf5;color:var(--emerald);}
+  .t-rose{background:#fff1f2;color:var(--rose);}
+  kbd{background:#f1f5f9;border:1px solid #cbd5e1;border-radius:5px;padding:1px 6px;font-family:'JetBrains Mono',monospace;font-size:12px;}
+  .foot{margin-top:16px;font-size:11px;color:var(--muted);text-align:center;}
+  @media print{body{background:#fff;padding:0;}.sheet{border:none;border-radius:0;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <h1>🚀 Claude Code 치트시트</h1>
+  <div class="sub">책상에 붙여두고 쓰세요 · 인쇄: <kbd>Ctrl/⌘ + P</kbd></div>
+
+  <div class="grid">
+    <div class="box">
+      <h2><span class="tag t-cyan">설치</span> 한 번만 하면 끝</h2>
+      <pre><span class="c"># 엔진/도구 확인</span>
+node --version
+git --version
+<span class="c"># Claude Code 설치</span>
+npm install -g @anthropic-ai/claude-code
+<span class="c"># 실행 (다음부터 이 한 줄)</span>
+claude</pre>
+    </div>
+
+    <div class="box">
+      <h2><span class="tag t-brand">명령어</span> 이 3개만</h2>
+      <ul>
+        <li><code>/help</code> — 명령 목록 보기</li>
+        <li><code>/clear</code> — 대화 초기화(새 작업)</li>
+        <li><code>/exit</code> — 종료</li>
+      </ul>
+      <div style="font-size:12px;color:#64748b;margin-top:8px;">나머지는 <b>한국어로 그냥 말하기</b></div>
+    </div>
+
+    <div class="box">
+      <h2><span class="tag t-emerald">프롬프트</span> 3원칙</h2>
+      <ul>
+        <li><b>구체성</b> — "정리해줘"❌ → "월별 합계 표로"✅</li>
+        <li><b>맥락</b> — "팀장 보고용, 존댓말로"</li>
+        <li><b>단계</b> — "조회 → 요약 → .md 저장" 순서로</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2><span class="tag t-brand">Dooray MCP</span> 연동</h2>
+      <ul>
+        <li>① Dooray 설정 → API 토큰 발급</li>
+        <li>② <code>.env</code> 에 <code>DOORAY_TOKEN=...</code></li>
+        <li>③ "Dooray 내 프로젝트 목록 보여줘"</li>
+      </ul>
+      <div style="font-size:11px;color:#be123c;margin-top:6px;">⚠️ 토큰은 비밀번호! 노출 금지</div>
+    </div>
+
+    <div class="box">
+      <h2><span class="tag t-emerald">자주 쓰는 요청</span></h2>
+      <pre><span class="c"># 파일 확인</span>
+이 폴더에 어떤 파일 있는지 알려줘
+<span class="c"># 주간보고</span>
+Dooray 이번주 내 태스크로
+주간보고.md 만들어줘
+<span class="c"># 대시보드</span>
+이 CSV로 차트 대시보드 html 만들어줘</pre>
+    </div>
+
+    <div class="box">
+      <h2><span class="tag t-rose">막힐 때</span></h2>
+      <ul>
+        <li>에러 → <code>방금 에러 났어. 원인과 해결법 알려줘</code></li>
+        <li>안 열림 → 터미널의 URL 복사해 브라우저에</li>
+        <li>경고(warn) → 대부분 무시 OK</li>
+        <li><b>5분 넘게 막히면 손 들기 🙋</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot">실습자료: github.com/ariri48 · 입문 2h(설치) → 기초 3h(자동화)</div>
+</div>
+</body>
+</html>

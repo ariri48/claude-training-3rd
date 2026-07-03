@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>[입문] 초보자를 위한 클로드 코드 설치 가이드 · 2h</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{
+    --ink:#0f172a; --ink2:#1e293b; --muted:#64748b; --line:#e2e8f0;
+    --brand:#4f46e5; --brand2:#7c3aed; --accent:#06b6d4;
+    --ok:#10b981; --warn:#f59e0b; --bad:#ef4444; --bg:#f8fafc;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{zoom:1.5;}
+  html,body{margin:0;padding:0;height:100%;overflow:hidden;font-family:'Pretendard',system-ui,-apple-system,sans-serif;color:var(--ink);background:#0f172a;}
+  code,pre,.mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;}
+  /* Deck container */
+  #deck{position:fixed;inset:0;background:var(--bg);}
+  .slide{position:absolute;inset:0;padding:64px 32px 80px;display:none;align-items:center;justify-content:center;overflow-y:auto;}
+  .slide.active{display:flex;animation:fadeIn .35s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  .card{width:100%;max-width:1180px;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 30px 80px -40px rgba(15,23,42,.35);padding:48px 56px;max-height:calc(100vh - 144px);overflow-y:auto;}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:600;}
+  .chip-brand{background:#eef2ff;color:var(--brand);}
+  .chip-cyan{background:#ecfeff;color:#0e7490;}
+  .chip-emerald{background:#ecfdf5;color:#047857;}
+  .chip-amber{background:#fffbeb;color:#b45309;}
+  .chip-rose{background:#fff1f2;color:#be123c;}
+  .chip-violet{background:#f5f3ff;color:#6d28d9;}
+  .chip-slate{background:#f1f5f9;color:#334155;}
+  h1.slide-title{font-size:44px;font-weight:800;letter-spacing:-0.02em;line-height:1.15;}
+  h2.slide-h2{font-size:32px;font-weight:800;letter-spacing:-0.02em;}
+  .lead{color:var(--muted);font-size:18px;line-height:1.6;}
+  .kbd{font-family:'JetBrains Mono',monospace;background:#0f172a;color:#e2e8f0;padding:2px 8px;border-radius:6px;font-size:13px;}
+  .pre{background:#0f172a;color:#e2e8f0;border-radius:14px;padding:18px 22px;font-size:14px;line-height:1.7;overflow-x:auto;white-space:pre-wrap;word-break:break-word;}
+  .pre .c{color:#64748b;}
+  .pre .k{color:#22d3ee;}
+  .pre .s{color:#86efac;}
+  .pre .y{color:#fde047;}
+  .grid-cards{display:grid;gap:16px;}
+  .gc-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .gc-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .gc-4{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .gc-5{grid-template-columns:repeat(5,minmax(0,1fr));}
+  .tile{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;}
+  .tile-soft{background:#f8fafc;border:1px solid var(--line);border-radius:16px;padding:18px;}
+  .tile-brand{background:linear-gradient(135deg,#eef2ff,#f5f3ff);border:1px solid #ddd6fe;border-radius:16px;padding:18px;}
+  .tile-cyan{background:linear-gradient(135deg,#ecfeff,#f0fdfa);border:1px solid #a5f3fc;border-radius:16px;padding:18px;}
+  .tile-emerald{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:16px;padding:18px;}
+  .tile-rose{background:#fff1f2;border:1px solid #fecdd3;border-radius:16px;padding:18px;}
+  .tile-amber{background:#fffbeb;border:1px solid #fcd34d;border-radius:16px;padding:18px;}
+  .num{display:inline-flex;width:32px;height:32px;border-radius:10px;background:#4f46e5;color:#fff;font-weight:700;align-items:center;justify-content:center;}
+  table.t{width:100%;border-collapse:collapse;font-size:14px;}
+  table.t th{background:#f1f5f9;text-align:left;padding:10px 12px;border:1px solid var(--line);font-weight:700;color:var(--ink2);}
+  table.t td{padding:10px 12px;border:1px solid var(--line);vertical-align:top;}
+  .pillrow{display:flex;flex-wrap:wrap;gap:8px;}
+  .pill{background:#fff;border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;color:#334155;}
+  .ok::before{content:"✅ ";} .no::before{content:"❌ ";} .warn::before{content:"⚠️ ";} .star::before{content:"★ ";}
+  .nav{position:fixed;top:0;left:0;right:0;height:52px;backdrop-filter:blur(14px);background:rgba(255,255,255,.85);border-bottom:1px solid var(--line);z-index:50;display:flex;align-items:center;gap:14px;padding:0 18px;}
+  .nav-title{font-weight:800;font-size:14px;color:var(--ink);white-space:nowrap;}
+  .nav-tag{font-size:12px;color:var(--muted);}
+  .nav-breadcrumb{display:flex;align-items:center;gap:8px;padding:5px 12px;background:linear-gradient(90deg,#eef2ff,#ecfeff);border:1px solid #c7d2fe;border-radius:999px;font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60vw;}
+  .nav-bc-part{font-weight:700;color:#4f46e5;flex-shrink:0;}
+  .nav-bc-sep{color:#94a3b8;font-weight:600;flex-shrink:0;}
+  .nav-bc-title{color:var(--ink2);font-weight:500;overflow:hidden;text-overflow:ellipsis;}
+  .nav-actions{margin-left:auto;display:flex;gap:6px;align-items:center;flex-shrink:0;}
+  .nav-btn{font-size:12px;padding:6px 10px;border-radius:8px;background:#f1f5f9;color:#334155;font-weight:600;text-decoration:none;border:none;cursor:pointer;}
+  .nav-btn:hover{background:#e2e8f0;}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;background:#fef3c7;color:#b45309;letter-spacing:0.04em;}
+  .badge-new{background:#dcfce7;color:#15803d;}
+  .arrow{color:var(--brand);font-weight:800;}
+  .quote{border-left:4px solid var(--brand);padding:10px 16px;background:#eef2ff;border-radius:0 12px 12px 0;color:var(--ink2);font-weight:500;}
+  .small{font-size:13px;color:var(--muted);}
+  details>summary{cursor:pointer;font-weight:600;color:var(--brand);}
+
+  /* Slide deck controls */
+  .deck-ctrl{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:rgba(15,23,42,.85);backdrop-filter:blur(12px);color:#fff;padding:8px 14px;border-radius:999px;z-index:60;box-shadow:0 20px 40px -20px rgba(0,0,0,.4);}
+  .deck-ctrl button{background:transparent;color:#fff;border:none;cursor:pointer;font-size:18px;width:34px;height:34px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;transition:background .15s;}
+  .deck-ctrl button:hover{background:rgba(255,255,255,.15);}
+  .deck-ctrl button:disabled{opacity:.3;cursor:not-allowed;}
+  .deck-counter{font-size:13px;font-weight:600;min-width:64px;text-align:center;letter-spacing:0.04em;}
+  .deck-arrow{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:96px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border:1px solid var(--line);cursor:pointer;z-index:55;color:var(--ink);font-size:22px;transition:background .15s;border-radius:12px;}
+  .deck-arrow:hover{background:#fff;}
+  .deck-arrow.prev{left:18px;}
+  .deck-arrow.next{right:18px;}
+  .deck-arrow:disabled{opacity:.3;cursor:not-allowed;}
+
+  /* Progress bar */
+  .deck-progress{position:fixed;top:52px;left:0;right:0;height:3px;background:transparent;z-index:55;}
+  .deck-progress-bar{height:100%;background:linear-gradient(90deg,#4f46e5,#06b6d4);width:0%;transition:width .25s ease;}
+
+  /* Overview mode */
+  #overview{position:fixed;inset:0;background:rgba(15,23,42,.92);z-index:100;display:none;padding:60px 24px 24px;overflow-y:auto;}
+  #overview.active{display:block;}
+  #overview-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;}
+  .ov-card{background:#fff;border-radius:12px;padding:14px;cursor:pointer;border:2px solid transparent;transition:transform .15s,border-color .15s;min-height:130px;display:flex;flex-direction:column;justify-content:space-between;}
+  .ov-card:hover{transform:translateY(-3px);border-color:#4f46e5;}
+  .ov-card .ov-num{font-size:18px;font-weight:800;color:#4f46e5;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;}
+  .ov-card .ov-title{font-size:14px;font-weight:700;color:#0f172a;margin-top:4px;line-height:1.3;}
+  .ov-card .ov-part{font-size:11px;color:#4f46e5;font-weight:600;margin-top:auto;padding-top:6px;}
+  #overview-close{position:fixed;top:14px;right:18px;color:#fff;background:rgba(255,255,255,.15);border:none;width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:18px;}
+
+  /* 슬라이드 번호 배지 */
+  .slide-num-badge{position:absolute;top:14px;right:18px;z-index:5;display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:6px 14px;border-radius:999px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 6px 16px -4px rgba(79,70,229,.45);transition:transform .15s,box-shadow .15s;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;}
+  .slide-num-badge:hover{transform:translateY(-2px);box-shadow:0 10px 24px -6px rgba(79,70,229,.6);}
+  .slide-num-badge .total{opacity:.65;font-weight:600;}
+  .slide-num-badge .label{font-size:10px;font-family:'Pretendard',sans-serif;font-weight:600;letter-spacing:0;opacity:.85;margin-left:2px;}
+  .card{position:relative;}
+
+  /* Jump-to 입력 */
+  .deck-jump{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border-radius:999px;padding:4px 10px;}
+  .deck-jump input{background:transparent;border:none;color:#fff;width:42px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;outline:none;}
+  .deck-jump input::placeholder{color:rgba(255,255,255,.4);}
+  .deck-jump-label{font-size:11px;color:#94a3b8;}
+
+  /* 코드 블록 복사 버튼 */
+  .pre{position:relative;}
+  .pre-copy-btn{position:absolute;top:6px;right:6px;background:rgba(255,255,255,.1);color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:3px 8px;font-size:11px;cursor:pointer;font-family:'Pretendard',sans-serif;opacity:.4;transition:opacity .15s,background .15s;}
+  .pre:hover .pre-copy-btn{opacity:1;}
+  .pre-copy-btn:hover{background:rgba(255,255,255,.2);color:#fff;}
+  .pre-copy-btn.copied{background:#10b981;color:#fff;border-color:#10b981;opacity:1;}
+
+  /* 강사 리모컨 모드 */
+  body.remote-mode{overflow:auto;}
+  body.remote-mode #deck,body.remote-mode .deck-arrow,body.remote-mode .deck-ctrl,body.remote-mode .deck-progress{display:none !important;}
+  body.remote-mode .nav{position:static;}
+  #remote-panel{display:none;padding:80px 20px 20px;max-width:900px;margin:0 auto;}
+  body.remote-mode #remote-panel{display:block;}
+  #remote-status{background:#0f172a;color:#86efac;padding:14px 18px;border-radius:12px;font-family:'JetBrains Mono',monospace;margin-bottom:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  #remote-status .label{color:#64748b;font-size:11px;text-transform:uppercase;}
+  .remote-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;}
+  .remote-slide-btn{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px;cursor:pointer;text-align:left;transition:all .15s;font-size:12.5px;}
+  .remote-slide-btn:hover{border-color:#4f46e5;background:#eef2ff;}
+  .remote-slide-btn.current{background:#4f46e5;color:#fff;border-color:#4f46e5;font-weight:700;}
+  .remote-slide-btn .num{font-size:10px;opacity:.6;}
+  .remote-controls{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+  .remote-controls button{background:#4f46e5;color:#fff;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:600;font-size:14px;}
+  .remote-controls button:hover{background:#4338ca;}
+  .remote-controls button.secondary{background:#e2e8f0;color:#334155;}
+  .remote-controls button.secondary:hover{background:#cbd5e1;}
+
+  @media print{
+    .nav,.deck-ctrl,.deck-arrow,.deck-progress,#overview,.pre-copy-btn{display:none !important;}
+    body,html{overflow:visible;background:#fff;}
+    #deck{position:static;}
+    .slide{display:flex !important;position:static !important;page-break-after:always;padding:24px 0;max-height:none;}
+    .card{box-shadow:none;border:none;padding:24px;max-width:none;max-height:none;}
+  }
+  @media (max-width:768px){
+    .card{padding:24px 20px;border-radius:16px;}
+    .gc-3,.gc-4,.gc-5{grid-template-columns:repeat(2,minmax(0,1fr));}
+    h1.slide-title{font-size:32px;}
+    h2.slide-h2{font-size:24px;}
+    .deck-arrow{width:36px;height:64px;font-size:18px;}
+  }
+</style>
+</head>
+<body class="text-slate-900">
+
+<!-- TOP NAV -->
+<nav class="nav">
+  <span class="nav-title">Claude Code 비개발자 교육</span>
+  <span class="nav-breadcrumb" id="breadcrumb">
+    <span class="nav-bc-part" id="bc-part">인트로</span>
+    <span class="nav-bc-sep">›</span>
+    <span class="nav-bc-title" id="bc-title">표지</span>
+  </span>
+  <span class="nav-actions">
+    <button class="nav-btn" id="btn-overview" title="모든 슬라이드 (O)">⊞ 전체 보기</button>
+    <button class="nav-btn" id="btn-print" title="인쇄/PDF (P)">🖨 인쇄</button>
+    <button class="nav-btn" id="btn-fullscreen" title="전체화면 (F)">⛶ 전체화면</button>
+  </span>
+</nav>
+<div class="deck-progress"><div class="deck-progress-bar" id="progress-bar"></div></div>
+
+<!-- 강사 리모컨 패널 (?remote=1 일 때만 표시) -->
+<div id="remote-panel">
+  <div id="remote-status">
+    <span class="label">현재 슬라이드</span>
+    <span id="remote-current">-</span>
+    <span class="label" style="margin-left:auto;">총</span>
+    <span id="remote-total">-</span>
+    <button onclick="remoteOpenMain()" class="secondary" style="margin-left:10px;font-size:12px;padding:6px 12px;background:#fff;color:#0f172a;border:1px solid #cbd5e1;border-radius:6px;cursor:pointer;">🖥 빔 화면 새 창으로 열기</button>
+  </div>
+
+  <div class="remote-controls">
+    <button onclick="remoteGo('prev')">◀ 이전</button>
+    <button onclick="remoteGo('next')">다음 ▶</button>
+    <button onclick="remoteGo('first')" class="secondary">⏮ 처음</button>
+    <button onclick="remoteGo('last')" class="secondary">⏭ 마지막</button>
+  </div>
+
+  <p style="font-size:13px;color:#64748b;margin-bottom:14px;">💡 휴대폰에서 이 페이지 열면 키보드 없이 슬라이드 넘기기 가능. 빔 화면 노트북은 mirror 모드여도 OK.</p>
+
+  <div class="remote-grid" id="remote-grid"></div>
+</div>
+
+<div id="deck">
+
+<!-- SLIDE 1: COVER -->
+<!-- ============ COVER ============ -->
+<section class="slide" id="cover" style="background:linear-gradient(135deg,#eef2ff 0%, #f5f3ff 50%, #ecfeff 100%);">
+  <div class="card" style="background:linear-gradient(160deg,#4f46e5,#7c3aed);color:#fff;border:none;">
+    <div class="flex flex-col gap-6">
+      <div class="flex items-center gap-3">
+        <span class="chip" style="background:rgba(255,255,255,.18);color:#fff;">입문 · 2시간</span>
+        <span class="chip" style="background:rgba(255,255,255,.18);color:#fff;">정원 50명 · 비개발 직군</span>
+      </div>
+      <h1 class="slide-title" style="color:#fff;font-size:58px;">
+        초보자를 위한<br/>
+        <span style="color:#fde047;">클로드 코드 설치 가이드</span>
+      </h1>
+      <p class="lead" style="color:#e0e7ff;font-size:22px;">터미널이 처음이어도 괜찮습니다. 오늘 설치부터 첫 실행까지 함께 끝냅니다.</p>
+      <div class="grid-cards gc-3 mt-6">
+        <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;">
+          <div class="text-3xl mb-2">⚙️</div>
+          <div class="font-bold text-lg">설치</div>
+          <div class="text-sm opacity-80">Node·Git·Claude Code</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;">
+          <div class="text-3xl mb-2">🔌</div>
+          <div class="font-bold text-lg">연동</div>
+          <div class="text-sm opacity-80">Skills · Dooray MCP</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;">
+          <div class="text-3xl mb-2">💬</div>
+          <div class="font-bold text-lg">첫 대화</div>
+          <div class="text-sm opacity-80">한국어 한 줄로 시작</div>
+        </div>
+      </div>
+      <div class="mt-4 text-sm opacity-80">오늘의 약속 · 나갈 때 <b>내 노트북에서 <span class="kbd" style="color:#0f172a">claude</span> 가 실행</b>됩니다</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 00:00 오프닝 ============ -->
+<section class="slide" id="opening">
+  <div class="card">
+    <span class="chip chip-brand">00:00–00:05 · 오프닝</span>
+    <h2 class="slide-h2 mt-3">오늘 2시간이 끝나면 이걸 할 수 있습니다</h2>
+    <div class="grid-cards gc-2 mt-6">
+      <div class="tile-brand">
+        <div class="text-2xl">✅</div>
+        <div class="font-bold mt-2">내 PC에 Claude Code 설치 · 실행 확인</div>
+        <div class="small mt-1">Windows·Mac 모두. 설치는 오늘 딱 한 번.</div>
+      </div>
+      <div class="tile">
+        <div class="text-2xl">🧭</div>
+        <div class="font-bold mt-2">채팅형 AI와 CLI형 AI의 차이를 설명</div>
+        <div class="small mt-1">왜 Claude Code가 "업무"에 강한지 이해</div>
+      </div>
+      <div class="tile-cyan">
+        <div class="text-2xl">🗣️</div>
+        <div class="font-bold mt-2">터미널에서 한국어로 질문하고 파일 읽기</div>
+        <div class="small mt-1">코드 한 줄 몰라도 됩니다</div>
+      </div>
+      <div class="tile-emerald">
+        <div class="text-2xl">🚀</div>
+        <div class="font-bold mt-2">기초 과정 참여 준비 완료 상태</div>
+        <div class="small mt-1">Skills · Dooray MCP까지 연동</div>
+      </div>
+    </div>
+    <div class="quote mt-6">막히면 언제든 손을 들어주세요. 보조강사가 자리로 갑니다. 🙋</div>
+  </div>
+</section>
+
+<!-- ============ PART 1 divider ============ -->
+<section class="slide" id="part1" style="background:linear-gradient(135deg,#eef2ff,#f5f3ff);">
+  <div class="card">
+    <div class="flex items-center gap-3"><span class="chip chip-brand">이론 1</span></div>
+    <h1 class="slide-title mt-4">왜 Claude Code인가?</h1>
+    <p class="lead mt-4 text-xl" style="color:#4f46e5;"><b>채팅창이 아니라, 내 컴퓨터에서 직접 일하는 AI</b></p>
+    <p class="text-slate-600 mt-2">00:05–00:15 · 채팅형 AI vs CLI형 AI</p>
+  </div>
+</section>
+
+<!-- 채팅형 vs CLI형 -->
+<section class="slide" id="chat-vs-cli">
+  <div class="card">
+    <span class="chip chip-brand">이론 1</span>
+    <h2 class="slide-h2 mt-3">같은 AI, 어디서 쓰느냐에 따라 완전히 다릅니다</h2>
+    <div class="grid-cards gc-2 mt-6">
+      <div class="tile">
+        <div class="font-bold">💬 채팅형 AI (ChatGPT, Claude.ai)</div>
+        <div class="small mt-2">브라우저 대화창. 물어보면 <b>글로 답</b>해 줍니다.</div>
+        <ul class="small mt-2" style="line-height:1.8">
+          <li>• 파일은 매번 <b>업로드·복사·붙여넣기</b></li>
+          <li>• 대화창이 바뀌면 맥락이 사라짐</li>
+          <li>• 내 컴퓨터의 파일을 직접 못 만짐</li>
+        </ul>
+      </div>
+      <div class="tile-brand">
+        <div class="font-bold">⌨️ CLI형 AI (Claude Code)</div>
+        <div class="small mt-2">내 컴퓨터 안에서 <b>파일을 직접 읽고 만듭니다.</b></div>
+        <ul class="small mt-2" style="line-height:1.8">
+          <li>• "이 폴더 엑셀 정리해줘" → <b>바로 실행</b></li>
+          <li>• 프로젝트 맥락을 계속 기억</li>
+          <li>• Dooray 같은 업무툴과 연동 가능</li>
+        </ul>
+      </div>
+    </div>
+    <div class="quote mt-6">채팅형 = <b>말로 조언</b>해주는 컨설턴트 · CLI형 = <b>내 옆에서 직접 일하는</b> 비서</div>
+  </div>
+</section>
+
+<!-- 용어 정리 1 -->
+<section class="slide" id="terms-1" style="background:linear-gradient(135deg,#fffbeb,#fef3c7);">
+  <div class="card">
+    <span class="chip chip-amber">용어 정리 · 겁먹지 않기</span>
+    <h2 class="slide-h2 mt-3">오늘 나오는 낯선 단어, 딱 이 정도만</h2>
+    <div class="grid-cards gc-2 mt-6">
+      <div class="tile"><div class="font-bold">🖥️ CLI / 터미널</div><div class="small mt-1">마우스 대신 <b>키보드로 컴퓨터에 명령</b>하는 검은 창. 무서운 게 아니라 "말 거는 창".</div></div>
+      <div class="tile"><div class="font-bold">📦 Node.js</div><div class="small mt-1">Claude Code가 돌아가려면 필요한 <b>엔진</b>. 자동차의 엔진이라 생각하세요.</div></div>
+      <div class="tile"><div class="font-bold">🌿 Git</div><div class="small mt-1">파일 <b>버전을 관리·내려받는</b> 도구. 실습자료도 Git으로 받습니다.</div></div>
+      <div class="tile"><div class="font-bold">🧩 Skill</div><div class="small mt-1">Claude Code에 <b>기능을 추가</b>하는 확장팩. "풀옵션"으로 만들어 줍니다.</div></div>
+      <div class="tile"><div class="font-bold">🔌 MCP</div><div class="small mt-1">Model Context Protocol. Claude를 <b>외부 도구(Dooray 등)에 연결</b>하는 표준 케이블.</div></div>
+      <div class="tile"><div class="font-bold">📝 CLAUDE.md</div><div class="small mt-1">"내 업무는 이렇습니다"를 적어두는 <b>나만의 설명서</b>. (기초 과정에서 작성)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 이론2 divider ============ -->
+<section class="slide" id="part2" style="background:linear-gradient(135deg,#ecfeff,#f0fdfa);">
+  <div class="card">
+    <div class="flex items-center gap-3"><span class="chip chip-cyan">이론 2</span></div>
+    <h1 class="slide-title mt-4">그래서 무엇이 가능한가?</h1>
+    <p class="lead mt-4 text-xl" style="color:#0e7490;"><b>핵심은 "반복되는 업무 자동화"</b></p>
+    <p class="text-slate-600 mt-2">00:15–00:25 · Before / After 로 보기</p>
+  </div>
+</section>
+
+<!-- 무엇이 가능한가 -->
+<section class="slide" id="usecases">
+  <div class="card">
+    <span class="chip chip-cyan">이론 2 · 업무 자동화가 핵심</span>
+    <h2 class="slide-h2 mt-3">매일 반복하는 일을 한국어 한 줄로</h2>
+    <div class="grid-cards gc-2 mt-6">
+      <div class="tile-cyan"><div class="text-2xl">📊</div><div class="font-bold mt-1">엑셀 데이터 정리·분석</div><div class="small mt-1">"이 매출 파일 월별로 합계 내고 표로 정리해줘"</div></div>
+      <div class="tile"><div class="text-2xl">✉️</div><div class="font-bold mt-1">메일 초안 작성·검토</div><div class="small mt-1">"이 내용으로 정중한 안내 메일 초안 써줘"</div></div>
+      <div class="tile"><div class="text-2xl">🧾</div><div class="font-bold mt-1">회의록 요약·정리</div><div class="small mt-1">"이 녹취 텍스트에서 결정사항·할일만 뽑아줘"</div></div>
+      <div class="tile-emerald"><div class="text-2xl">🔁</div><div class="font-bold mt-1">반복 업무 자동화</div><div class="small mt-1">"매주 하는 이 정리 작업을 한 번에 되게 해줘"</div></div>
+    </div>
+    <div class="quote mt-5">기본은 <b>내 업무 자동화</b>. 익숙해지면 부업·사이드 프로젝트에도 쓸 수 있습니다. (예시일 뿐, 오늘 목표는 아님)</div>
+  </div>
+</section>
+
+<!-- Before / After -->
+<section class="slide" id="before-after">
+  <div class="card">
+    <span class="chip chip-cyan">이론 2 · Before / After</span>
+    <h2 class="slide-h2 mt-3">시간이 이렇게 줄어듭니다</h2>
+    <div class="grid-cards gc-2 mt-6">
+      <div class="tile" style="border-color:#fecaca;background:#fff5f5;">
+        <div class="font-bold" style="color:#be123c;">Before — 손으로</div>
+        <ul class="small mt-2" style="line-height:1.9">
+          <li>• 주간보고 취합·정리: <b>40분</b></li>
+          <li>• 매출 엑셀 월별 집계: <b>30분</b></li>
+          <li>• 안내 메일 10명 개인화: <b>25분</b></li>
+        </ul>
+      </div>
+      <div class="tile-emerald">
+        <div class="font-bold" style="color:#047857;">After — Claude Code로</div>
+        <ul class="small mt-2" style="line-height:1.9">
+          <li>• 태스크 조회→보고 생성: <b>3분</b></li>
+          <li>• "월별 합계 표로": <b>1분</b></li>
+          <li>• 10명 개인화 메일: <b>2분</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="quote mt-6">숫자는 예시입니다. 핵심은 <b>"매번 다시 하던 일"을 한 번 세팅으로 줄인다</b>는 것.</div>
+  </div>
+</section>
+
+<!-- 부업 예시 (곁가지) -->
+<section class="slide" id="side-note" style="background:linear-gradient(135deg,#f5f3ff,#eef2ff);">
+  <div class="card">
+    <span class="chip chip-violet">참고 · "이런 것도 가능해요"</span>
+    <h2 class="slide-h2 mt-3">업무를 넘어, 개인 프로젝트까지 (오늘 목표는 아닙니다)</h2>
+    <div class="grid-cards gc-3 mt-6">
+      <div class="tile"><div class="text-2xl">🌐</div><div class="font-bold mt-1">간단한 홈페이지</div><div class="small mt-1">개인 소개·모임 안내 페이지를 뚝딱</div></div>
+      <div class="tile"><div class="text-2xl">🎬</div><div class="font-bold mt-1">반복 편집 자동화</div><div class="small mt-1">영상·이미지 일괄 처리 스크립트</div></div>
+      <div class="tile"><div class="text-2xl">✍️</div><div class="font-bold mt-1">블로그·콘텐츠 정리</div><div class="small mt-1">자료 요약·초안 자동 생성</div></div>
+    </div>
+    <div class="quote mt-6"><b>오늘의 초점은 "회사 업무 자동화"</b>입니다. 부업은 "가능성의 예시"로만 알아두세요.</div>
+  </div>
+</section>
+
+<!-- ============ PART 설치1 divider ============ -->
+<section class="slide" id="part-install1" style="background:linear-gradient(135deg,#ecfdf5,#ecfeff);">
+  <div class="card">
+    <div class="flex items-center gap-3"><span class="chip chip-emerald">실습 1</span></div>
+    <h1 class="slide-title mt-4">설치하기 — Node · Git · Claude Code</h1>
+    <p class="lead mt-4 text-xl" style="color:#047857;"><b>천천히, 한 줄씩 같이 칩니다</b></p>
+    <p class="text-slate-600 mt-2">00:25–01:10 · 보조강사가 순회하며 1:1 지원</p>
+  </div>
+</section>
+
+<!-- 터미널 안심 -->
+<section class="slide" id="terminal">
+  <div class="card">
+    <span class="chip chip-emerald">STEP 0 · 터미널 열기</span>
+    <h2 class="slide-h2 mt-3">"터미널"은 컴퓨터에 말 거는 창입니다</h2>
+    <div class="grid-cards gc-2 mt-6">
+      <div class="tile"><div class="font-bold">🪟 Windows</div><div class="small mt-2">시작 버튼 → <b>PowerShell</b> 검색 → 실행</div></div>
+      <div class="tile-brand"><div class="font-bold">🍎 Mac</div><div class="small mt-2">Spotlight(⌘+Space) → <b>터미널</b> 입력 → 실행</div></div>
+    </div>
+    <div class="quote mt-6">검은 창이 떠도 놀라지 마세요. 아무거나 쳐도 컴퓨터는 안 망가집니다. ✋</div>
+  </div>
+</section>
+
+<!-- 설치 명령 -->
+<section class="slide" id="install">
+  <div class="card">
+    <span class="chip chip-cyan">STEP 1~3 · 엔진 확인 → 도구 설치</span>
+    <h2 class="slide-h2 mt-3">한 줄씩 복사해서 붙여넣기</h2>
+    <div class="grid-cards gc-2 mt-6">
+      <div class="tile">
+        <div class="font-bold">① Node.js = 엔진</div>
+        <div class="pre mt-3"><span class="c"># 버전이 뜨면 이미 설치됨</span>
+$ <span class="k">node --version</span>
+v22.15.0
+<span class="c"># 안 뜨면 → nodejs.org 에서 설치</span></div>
+      </div>
+      <div class="tile">
+        <div class="font-bold">② Git = 파일 관리·다운로드</div>
+        <div class="pre mt-3">$ <span class="k">git --version</span>
+git version 2.45.0
+<span class="c"># 안 뜨면 → git-scm.com 에서 설치</span></div>
+      </div>
+    </div>
+    <div class="tile-brand mt-4">
+      <div class="font-bold">③ Claude Code = 자동차</div>
+      <div class="pre mt-3"><span class="c"># 1~2분 소요, 빨간 글씨는 대부분 무시해도 됨</span>
+$ <span class="k">npm install -g <span class="s">@anthropic-ai/claude-code</span></span>
+added 312 packages  <span class="c"># = 성공</span></div>
+    </div>
+    <div class="quote mt-4">설치는 오늘 한 번만. 다음부터는 <span class="kbd">claude</span> 한 단어면 켜집니다.</div>
+  </div>
+</section>
+
+<!-- 로그인 + 첫 대화 -->
+<section class="slide" id="first-run">
+  <div class="card">
+    <span class="chip chip-emerald">STEP 4~5 · 로그인 & 첫 대화</span>
+    <h2 class="slide-h2 mt-3">실행 → 브라우저 로그인 → 첫 질문</h2>
+    <div class="pre mt-4"><span class="c"># 아무 폴더에서나 실행</span>
+$ <span class="k">claude</span>
+<span class="c"># 브라우저가 자동으로 열립니다 → Claude 유료 계정으로 로그인</span>
+<span class="c"># (Pro / Team / Max 중 하나 필요)</span></div>
+    <div class="tile-cyan mt-5">
+      <div class="font-bold">🗣️ 첫 대화 — 이렇게 던져보세요</div>
+      <div class="pre mt-2">> <span class="s">지금 이 폴더에 어떤 파일이 있는지 한국어로 알려줘</span>
+> <span class="s">오늘 날짜와 요일 알려줘</span></div>
+    </div>
+    <div class="quote mt-5">대화창이 뜨고 한국어로 답하면 <b>설치 성공</b>입니다. 🎉 (손 들어서 조교 확인받기)</div>
+  </div>
+</section>
+
+<!-- 트러블슈팅 -->
+<section class="slide" id="troubleshoot" style="background:linear-gradient(135deg,#fff1f2,#fef3c7);">
+  <div class="card">
+    <span class="chip chip-rose">에러가 나도 당황 금지</span>
+    <h2 class="slide-h2 mt-3">자주 나는 문제 · 바로 이렇게</h2>
+    <div class="grid-cards gc-2 mt-6">
+      <div class="tile"><div class="font-bold">❓ command not found: claude</div><div class="small mt-1">터미널을 <b>완전히 닫고 다시</b> 열기. 그래도면 설치 명령 재실행.</div></div>
+      <div class="tile"><div class="font-bold">❓ node/npm 이 없다고 나옴</div><div class="small mt-1">nodejs.org LTS 설치 후 <b>터미널 재시작</b>.</div></div>
+      <div class="tile"><div class="font-bold">❓ 빨간 경고(warn)가 잔뜩</div><div class="small mt-1">경고(warning)는 대부분 <b>무시 OK</b>. 마지막에 added…가 뜨면 성공.</div></div>
+      <div class="tile"><div class="font-bold">❓ 로그인 브라우저가 안 열림</div><div class="small mt-1">터미널에 뜬 <b>URL을 직접 복사</b>해서 브라우저에 붙여넣기.</div></div>
+      <div class="tile"><div class="font-bold">❓ 권한 오류(EACCES) — Mac</div><div class="small mt-1">가이드의 <b>권한 명령</b> 그대로 복사. 모르면 조교 호출.</div></div>
+      <div class="tile-rose"><div class="font-bold">🆘 그래도 안 되면</div><div class="small mt-1">손 들기 → 보조강사 1:1. 혼자 오래 붙들지 마세요.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART 설치2 divider ============ -->
+<section class="slide" id="part-install2" style="background:linear-gradient(135deg,#f5f3ff,#eef2ff);">
+  <div class="card">
+    <div class="flex items-center gap-3"><span class="chip chip-violet">실습 2</span></div>
+    <h1 class="slide-title mt-4">Skills + Dooray MCP 연동</h1>
+    <p class="lead mt-4 text-xl" style="color:#6d28d9;"><b>Claude Code를 "풀옵션"으로, 그리고 Dooray와 연결</b></p>
+    <p class="text-slate-600 mt-2">01:10–01:50 · 보조강사 순회 1:1 지원</p>
+  </div>
+</section>
+
+<!-- Skills 설치 -->
+<section class="slide" id="skills">
+  <div class="card">
+    <span class="chip chip-violet">STEP 6 · Skills 설치</span>
+    <h2 class="slide-h2 mt-3">Skill = Claude Code 확장팩</h2>
+    <p class="text-slate-600 mt-2">자주 쓰는 기능 묶음을 한 번에 추가합니다 (예: oh-my-skills).</p>
+    <div class="pre mt-4"><span class="c"># 가이드에 적힌 설치 명령을 그대로 복사 → 실행</span>
+<span class="c"># 설치 후 Claude Code 안에서 확인</span>
+> <span class="s">사용 가능한 skill 목록 보여줘</span></div>
+    <div class="quote mt-5">Skill은 "기능 추가"일 뿐. 지금 다 이해 못 해도 됩니다 — <b>설치되어 있으면 성공</b>.</div>
+  </div>
+</section>
+
+<!-- MCP 개념 -->
+<section class="slide" id="mcp-concept">
+  <div class="card">
+    <span class="chip chip-violet">개념 · MCP</span>
+    <h2 class="slide-h2 mt-3">MCP = Claude와 외부 도구를 잇는 표준 케이블</h2>
+    <div class="grid-cards gc-2 mt-6">
+      <div class="tile"><div class="font-bold">🔌 MCP가 없으면</div><div class="small mt-2">Dooray 내용을 <b>내가 복사해서</b> Claude에 붙여넣어야 함</div></div>
+      <div class="tile-violet" style="background:#f5f3ff;border:1px solid #ddd6fe;"><div class="font-bold">🔗 MCP가 있으면</div><div class="small mt-2">Claude가 <b>Dooray를 직접 조회</b>해서 태스크·프로젝트를 읽어옴</div></div>
+    </div>
+    <div class="quote mt-6">Model Context Protocol — 어떤 도구든 같은 방식으로 연결하는 "USB 규격" 같은 것.</div>
+  </div>
+</section>
+
+<!-- Dooray MCP 연동 -->
+<section class="slide" id="dooray-mcp">
+  <div class="card">
+    <span class="chip chip-violet">STEP 7 · Dooray MCP 토큰 → .env → 연동</span>
+    <h2 class="slide-h2 mt-3">Dooray를 터미널에서 조회하기</h2>
+    <div class="grid-cards gc-2 mt-5">
+      <div class="tile">
+        <div class="font-bold">① 토큰 발급</div>
+        <div class="small mt-1">Dooray → 설정 → <b>API/개인 인증 토큰</b> 발급 (가이드의 화면 순서대로)</div>
+      </div>
+      <div class="tile">
+        <div class="font-bold">② .env 에 저장</div>
+        <div class="pre mt-2"><span class="c"># .env 파일에 붙여넣기</span>
+DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
+      </div>
+    </div>
+    <div class="tile-brand mt-4">
+      <div class="font-bold">③ 연동 확인</div>
+      <div class="pre mt-2">> <span class="s">Dooray에서 내 프로젝트 목록 보여줘</span>
+<span class="c"># 목록이 나오면 연동 성공 🎉</span></div>
+    </div>
+    <div class="quote mt-4">⚠️ 토큰은 <b>비밀번호</b>입니다. 화면 공유·채팅에 노출 금지, .env 밖으로 복사 금지.</div>
+  </div>
+</section>
+
+<!-- 기본 명령어 -->
+<section class="slide" id="commands">
+  <div class="card">
+    <span class="chip chip-brand">기본 명령어 3개만</span>
+    <h2 class="slide-h2 mt-3">이것만 알면 오늘은 충분합니다</h2>
+    <div class="grid-cards gc-3 mt-6">
+      <div class="tile"><div class="font-bold mono">/help</div><div class="small mt-2">쓸 수 있는 명령 목록 보기</div></div>
+      <div class="tile"><div class="font-bold mono">/clear</div><div class="small mt-2">대화 맥락 초기화 (새 작업 시작할 때)</div></div>
+      <div class="tile"><div class="font-bold mono">/exit</div><div class="small mt-2">Claude Code 종료</div></div>
+    </div>
+    <div class="quote mt-6">나머지는 그냥 <b>한국어로 말하면</b> 됩니다. 명령어를 외울 필요 없어요.</div>
+  </div>
+</section>
+
+<!-- ============ 기초 미리보기 ============ -->
+<section class="slide" id="preview" style="background:linear-gradient(135deg,#ecfeff,#eef2ff);">
+  <div class="card">
+    <span class="chip chip-cyan">01:50–01:55 · 기초 과정 미리보기</span>
+    <h2 class="slide-h2 mt-3">다음 시간엔 "내 자동화 도구"를 완성합니다</h2>
+    <div class="grid-cards gc-3 mt-6">
+      <div class="tile"><div class="text-2xl">📝</div><div class="font-bold mt-1">CLAUDE.md</div><div class="small mt-1">나만의 업무 설명서를 직접 작성</div></div>
+      <div class="tile"><div class="text-2xl">🎯</div><div class="font-bold mt-1">프롬프트 설계 3원칙</div><div class="small mt-1">구체성 · 맥락 · 단계</div></div>
+      <div class="tile"><div class="text-2xl">⚙️</div><div class="font-bold mt-1">A/B 실습</div><div class="small mt-1">Dooray 자동화 or 대시보드 완성</div></div>
+    </div>
+    <div class="quote mt-6">오늘 <b>설치 완료 = 기초 과정 입장권</b>. 나갈 때 꼭 실행 확인받고 가세요!</div>
+  </div>
+</section>
+
+<!-- ============ 클로징 ============ -->
+<section class="slide" id="closing" style="background:linear-gradient(135deg,#4f46e5,#7c3aed);">
+  <div class="card" style="background:transparent;border:none;box-shadow:none;color:#fff;">
+    <span class="chip" style="background:rgba(255,255,255,.18);color:#fff;">01:55–02:00 · 클로징</span>
+    <h1 class="slide-title mt-4" style="color:#fff;">수고하셨습니다 🎉</h1>
+    <p class="lead mt-4" style="color:#e0e7ff;">오늘 나가기 전 체크: <b style="color:#fde047;">claude 실행 + Dooray 연동 확인</b></p>
+    <div class="grid-cards gc-3 mt-6">
+      <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">📋 사후 설문</div><div class="small mt-1" style="opacity:.85">안내 링크로 참여</div></div>
+      <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">🎴 치트시트</div><div class="small mt-1" style="opacity:.85">1장 배포 — 책상에 붙여두기</div></div>
+      <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">🙋 Q&A</div><div class="small mt-1" style="opacity:.85">궁금한 건 지금 물어보기</div></div>
+    </div>
+    <p class="mt-6 text-sm" style="opacity:.8">실습자료: github.com/ariri48 · 강사/보조강사 순회 지원</p>
+  </div>
+</section>
+</div>
+<div id="overview">
+  <button id="overview-close" title="닫기 (Esc)">✕</button>
+  <div id="overview-grid"></div>
+</div>
+
+<script>
+(function(){
+  const deck = document.getElementById('deck');
+  const slides = Array.from(deck.querySelectorAll('.slide'));
+  const total = slides.length;
+  const counter = document.getElementById('counter');
+  const progressBar = document.getElementById('progress-bar');
+  const arrowPrev = document.getElementById('arrow-prev');
+  const arrowNext = document.getElementById('arrow-next');
+  const btnPrev = document.getElementById('prev-slide');
+  const btnNext = document.getElementById('next-slide');
+  const btnFirst = document.getElementById('first-slide');
+  const btnLast = document.getElementById('last-slide');
+  const overview = document.getElementById('overview');
+  const overviewGrid = document.getElementById('overview-grid');
+  const overviewClose = document.getElementById('overview-close');
+  const btnOverview = document.getElementById('btn-overview');
+  const btnPrint = document.getElementById('btn-print');
+  const btnFullscreen = document.getElementById('btn-fullscreen');
+
+  // Part labels by section id prefix
+  const partOf = (id) => {
+    if(['cover','instructor','toc','ta','ai-era','materials'].includes(id)) return '인트로';
+    if(id.startsWith('part1')||['opening','ai-usage','needs-top5','live-demo','literacy-1','literacy-2','literacy-3','web-vs-code','which-claude','security-1','security-2','security-3'].includes(id)) return '1부 · Part 1 왜 Claude Code인가?';
+    if(id.startsWith('part2')||['terminal-anxiety','terminal','prereqs','install','install-troubleshoot','first-login','first-chat','skills-install','notion-mcp-install','env-file'].includes(id)) return '1부 · Part 2 설치하기';
+    if(id==='break') return '☕ 쉬는시간';
+    if(id.startsWith('part3')||['markdown','structure','skills-concept','token-concept','git-concept'].includes(id)) return '2부 · Part 3 핵심 개념';
+    if(id.startsWith('part4')||['open-files','excel','report','mail-basic','mail-html','mail-auto','prompt-tips','scenario-a','scenario-b'].includes(id)) return '2부 · Part 4 실전 활용';
+    if(['notion','notion-install','notion-practice','notion-troubleshoot'].includes(id)) return '2부 · Part 4 (Notion MCP)';
+    if(id.startsWith('part5')||['cli-basic','slash','permission','plan-mode','ralph-omc'].includes(id)) return '2부 · Part 5 명령어 & 도구';
+    if(id.startsWith('part6')||['claude-md','token-save','roadmap','glossary','faq','cheatsheet','clawd','assignment'].includes(id)) return '2부 · Part 6 내일부터 쓰기';
+    if(['qna','next-steps','thanks'].includes(id)) return '마무리';
+    return '';
+  };
+
+  // Extract title for overview
+  const titleOf = (slide) => {
+    const h1 = slide.querySelector('h1.slide-title');
+    const h2 = slide.querySelector('h2.slide-h2');
+    return (h1 && h1.textContent.trim()) || (h2 && h2.textContent.trim()) || slide.id;
+  };
+
+  // Build overview grid
+  slides.forEach((s, i)=>{
+    const card = document.createElement('div');
+    card.className = 'ov-card';
+    card.innerHTML = `
+      <div>
+        <div class="ov-num">${String(i+1).padStart(2,'0')} / ${total}</div>
+        <div class="ov-title">${titleOf(s).replace(/\s+/g,' ').slice(0,60)}</div>
+      </div>
+      <div class="ov-part">${partOf(s.id)}</div>`;
+    card.addEventListener('click', ()=>{ goTo(i); closeOverview(); });
+    overviewGrid.appendChild(card);
+  });
+
+  // Determine initial index from hash
+  let idx = 0;
+  const hashIdx = () => {
+    if(!location.hash) return 0;
+    const id = location.hash.slice(1);
+    const i = slides.findIndex(s=>s.id===id);
+    return i >= 0 ? i : 0;
+  };
+  idx = hashIdx();
+
+  const bcPart = document.getElementById('bc-part');
+  const bcTitle = document.getElementById('bc-title');
+
+  function render(){
+    slides.forEach((s,i)=>s.classList.toggle('active', i===idx));
+    counter.textContent = `${idx+1} / ${total}`;
+    progressBar.style.width = ((idx+1)/total*100)+'%';
+    arrowPrev.disabled = btnPrev.disabled = btnFirst.disabled = idx===0;
+    arrowNext.disabled = btnNext.disabled = btnLast.disabled = idx===total-1;
+    const targetId = slides[idx].id;
+    if(location.hash.slice(1) !== targetId){
+      history.replaceState(null, '', '#'+targetId);
+    }
+    // Breadcrumb update
+    bcPart.textContent = partOf(targetId) || ' ';
+    bcTitle.textContent = titleOf(slides[idx]).replace(/\s+/g,' ').slice(0,80);
+    // Reset scroll inside the card so each slide starts at the top
+    const card = slides[idx].querySelector('.card');
+    if(card) card.scrollTop = 0;
+    slides[idx].scrollTop = 0;
+  }
+  function goTo(i){ idx = Math.max(0, Math.min(total-1, i)); render(); }
+  function next(){ goTo(idx+1); }
+  function prev(){ goTo(idx-1); }
+  function openOverview(){ overview.classList.add('active'); }
+  function closeOverview(){ overview.classList.remove('active'); }
+
+  arrowPrev.addEventListener('click', prev);
+  arrowNext.addEventListener('click', next);
+  btnPrev.addEventListener('click', prev);
+  btnNext.addEventListener('click', next);
+  btnFirst.addEventListener('click', ()=>goTo(0));
+  btnLast.addEventListener('click', ()=>goTo(total-1));
+  btnOverview.addEventListener('click', openOverview);
+  overviewClose.addEventListener('click', closeOverview);
+  btnPrint.addEventListener('click', ()=>window.print());
+  btnFullscreen.addEventListener('click', ()=>{
+    if(!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  });
+
+  window.addEventListener('keydown', (e)=>{
+    if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return;
+    if(overview.classList.contains('active')){
+      if(e.key==='Escape'){ closeOverview(); e.preventDefault(); }
+      return;
+    }
+    switch(e.key){
+      case 'ArrowRight': case 'PageDown': case ' ': next(); e.preventDefault(); break;
+      case 'ArrowLeft': case 'PageUp': prev(); e.preventDefault(); break;
+      case 'Home': goTo(0); e.preventDefault(); break;
+      case 'End': goTo(total-1); e.preventDefault(); break;
+      case 'o': case 'O': openOverview(); e.preventDefault(); break;
+      case 'f': case 'F':
+        if(!document.fullscreenElement) document.documentElement.requestFullscreen();
+        else document.exitFullscreen();
+        e.preventDefault(); break;
+      case 'p': case 'P': window.print(); e.preventDefault(); break;
+      case 'Escape': closeOverview(); break;
+    }
+  });
+
+  // Swipe gestures for touch
+  let touchStartX = 0;
+  window.addEventListener('touchstart', e=>{ touchStartX = e.touches[0].clientX; }, {passive:true});
+  window.addEventListener('touchend', e=>{
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if(Math.abs(dx) > 60){ dx > 0 ? prev() : next(); }
+  });
+
+  // Hash-link clicks inside slides (목차)
+  deck.addEventListener('click', (e)=>{
+    const a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    const id = a.getAttribute('href').slice(1);
+    const i = slides.findIndex(s=>s.id===id);
+    if(i>=0){ e.preventDefault(); goTo(i); }
+  });
+
+  window.addEventListener('hashchange', ()=>{ const i=hashIdx(); if(i!==idx) goTo(i); });
+
+  // ======================================================
+  // 슬라이드 번호 배지 자동 주입 (각 슬라이드에)
+  // ======================================================
+  slides.forEach((s, i) => {
+    const card = s.querySelector('.card');
+    if (!card || card.querySelector('.slide-num-badge')) return;
+    const badge = document.createElement('div');
+    badge.className = 'slide-num-badge';
+    badge.title = '클릭 = 전체 보기';
+    badge.innerHTML = `<span>${String(i+1).padStart(2,'0')}</span><span class="total">/ ${total}</span><span class="label">전체보기</span>`;
+    badge.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openOverview();
+    });
+    card.appendChild(badge);
+  });
+
+  // ======================================================
+  // 페이지 번호 점프 입력
+  // ======================================================
+  const jumpInput = document.getElementById('jump-input');
+  if (jumpInput) {
+    jumpInput.max = String(total);
+    jumpInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const n = parseInt(jumpInput.value, 10);
+        if (!isNaN(n) && n >= 1 && n <= total) {
+          goTo(n - 1);
+          jumpInput.value = '';
+          jumpInput.blur();
+        }
+      }
+    });
+  }
+
+  // ======================================================
+  // 코드 블록 복사 버튼 자동 주입
+  // ======================================================
+  document.querySelectorAll('.pre').forEach(pre=>{
+    if(pre.querySelector('.pre-copy-btn')) return;
+    const btn = document.createElement('button');
+    btn.className = 'pre-copy-btn';
+    btn.textContent = '📋 복사';
+    btn.addEventListener('click', async (e)=>{
+      e.stopPropagation();
+      // 텍스트만 추출 (HTML 태그 제거)
+      const text = pre.innerText.replace(/📋 복사\s*$/,'').trim();
+      try{
+        await navigator.clipboard.writeText(text);
+        btn.textContent = '✅ 복사됨';
+        btn.classList.add('copied');
+        setTimeout(()=>{ btn.textContent = '📋 복사'; btn.classList.remove('copied'); }, 1500);
+      }catch(err){
+        btn.textContent = '❌ 실패';
+        setTimeout(()=>{ btn.textContent = '📋 복사'; }, 1500);
+      }
+    });
+    pre.appendChild(btn);
+  });
+
+  // ======================================================
+  // 강사 리모컨 (?remote=1) + 메인-리모컨 동기화
+  // ======================================================
+  const REMOTE_KEY = 'deck-current-slide';
+  const params = new URLSearchParams(location.search);
+  const isRemote = params.get('remote') === '1';
+
+  // BroadcastChannel (같은 브라우저 내 창끼리 실시간 통신)
+  const channel = ('BroadcastChannel' in window) ? new BroadcastChannel('deck-sync') : null;
+
+  if(isRemote){
+    // ---- 리모컨 모드 ----
+    document.body.classList.add('remote-mode');
+    const grid = document.getElementById('remote-grid');
+    slides.forEach((s,i)=>{
+      const btn = document.createElement('button');
+      btn.className = 'remote-slide-btn';
+      btn.dataset.idx = i;
+      btn.innerHTML = `<div class="num">${String(i+1).padStart(2,'0')} · ${partOf(s.id)||''}</div><div>${titleOf(s).replace(/\s+/g,' ').slice(0,40)}</div>`;
+      btn.addEventListener('click', ()=>remoteJump(i));
+      grid.appendChild(btn);
+    });
+    document.getElementById('remote-total').textContent = slides.length;
+
+    function updateRemoteUI(i){
+      document.getElementById('remote-current').textContent = `${i+1} / ${slides.length} · ${titleOf(slides[i]).slice(0,30)}`;
+      grid.querySelectorAll('.remote-slide-btn').forEach(b=>{
+        b.classList.toggle('current', parseInt(b.dataset.idx)===i);
+      });
+      const cur = grid.querySelector('.current');
+      if(cur) cur.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+
+    // 초기 상태 복원
+    const saved = parseInt(localStorage.getItem(REMOTE_KEY)||'0');
+    updateRemoteUI(isNaN(saved)?0:saved);
+
+    // 메인 화면에서 슬라이드 변경 신호 수신
+    if(channel){
+      channel.onmessage = (e)=>{
+        if(e.data?.type==='slide-changed') updateRemoteUI(e.data.idx);
+      };
+    }
+    window.addEventListener('storage', (e)=>{
+      if(e.key===REMOTE_KEY){ updateRemoteUI(parseInt(e.newValue)); }
+    });
+
+    // 리모컨에서 메인으로 명령 전송
+    window.remoteJump = (i)=>{
+      localStorage.setItem(REMOTE_KEY, String(i));
+      if(channel) channel.postMessage({type:'goto', idx:i});
+      updateRemoteUI(i);
+    };
+    window.remoteGo = (dir)=>{
+      const cur = parseInt(localStorage.getItem(REMOTE_KEY)||'0');
+      let next = cur;
+      if(dir==='next') next = Math.min(slides.length-1, cur+1);
+      else if(dir==='prev') next = Math.max(0, cur-1);
+      else if(dir==='first') next = 0;
+      else if(dir==='last') next = slides.length-1;
+      remoteJump(next);
+    };
+    window.remoteOpenMain = ()=>{
+      window.open(location.pathname, '_blank');
+    };
+  } else {
+    // ---- 메인 화면 ----
+    // 슬라이드 변경 시 모든 창에 알림 (리모컨 + 다른 메인 창)
+    const origGoTo = goTo;
+    let syncing = false;  // 무한 루프 방지
+    window.goTo = function(i){
+      origGoTo(i);
+      if(syncing) return;
+      localStorage.setItem(REMOTE_KEY, String(idx));
+      if(channel) channel.postMessage({type:'sync-nav', idx, from:'main'});
+    };
+    // 다른 창(리모컨 OR 다른 메인 창)에서 슬라이드 변경 수신
+    if(channel){
+      channel.onmessage = (e)=>{
+        if(!e.data) return;
+        if((e.data.type==='goto' || e.data.type==='sync-nav') && typeof e.data.idx==='number'){
+          if(e.data.idx !== idx){
+            syncing = true;
+            origGoTo(e.data.idx);
+            syncing = false;
+          }
+        }
+      };
+    }
+    window.addEventListener('storage', (e)=>{
+      if(e.key===REMOTE_KEY){
+        const i = parseInt(e.newValue);
+        if(!isNaN(i) && i!==idx){
+          syncing = true;
+          origGoTo(i);
+          syncing = false;
+        }
+      }
+    });
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
