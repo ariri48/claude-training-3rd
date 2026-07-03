@@ -111,6 +111,28 @@
   .slide-num-badge .label{font-size:10px;font-family:'Pretendard',sans-serif;font-weight:600;letter-spacing:0;opacity:.85;margin-left:2px;}
   .card{position:relative;}
 
+  /* 강사 소개 */
+  .instr-avatar{position:relative;flex-shrink:0;width:180px;height:180px;border-radius:28px;background:linear-gradient(135deg,#4f46e5,#7c3aed,#06b6d4);padding:4px;box-shadow:0 24px 60px -24px rgba(79,70,229,.6);}
+  .instr-avatar>.ph{width:100%;height:100%;border-radius:24px;background:#0f172a url('') center/cover no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#e2e8f0;gap:4px;overflow:hidden;}
+  .instr-avatar .ph .emoji{font-size:52px;line-height:1;}
+  .instr-avatar .ph .cap{font-size:11px;font-weight:600;color:#94a3b8;letter-spacing:.02em;}
+  .instr-avatar .badge{position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);white-space:nowrap;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;font-size:12px;font-weight:800;padding:5px 14px;border-radius:999px;box-shadow:0 8px 20px -8px rgba(79,70,229,.7);}
+  .instr-name{font-size:40px;font-weight:800;letter-spacing:-.02em;line-height:1.1;}
+  .instr-role{font-size:16px;font-weight:700;color:var(--brand);margin-top:4px;}
+  .instr-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .instr-tags .pill{background:#fff;border:1px solid var(--line);padding:6px 13px;border-radius:999px;font-size:13px;font-weight:700;color:#334155;}
+  .instr-quote{margin-top:18px;padding:16px 20px;border-left:4px solid var(--brand);background:linear-gradient(90deg,#eef2ff,#f5f3ff);border-radius:0 14px 14px 0;font-size:16px;line-height:1.6;color:var(--ink2);font-weight:600;}
+  .ta-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;box-shadow:0 18px 50px -34px rgba(15,23,42,.4);}
+  .ta-avatar{width:110px;height:110px;border-radius:24px;background:linear-gradient(135deg,#06b6d4,#4f46e5);padding:3px;}
+  .ta-avatar>.ph{width:100%;height:100%;border-radius:21px;background:#0f172a;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#94a3b8;gap:2px;}
+  .ta-avatar .ph .emoji{font-size:34px;line-height:1;}
+  .ta-avatar .ph .cap{font-size:10px;font-weight:600;}
+  .ta-slot-name{font-size:20px;font-weight:800;color:var(--ink);}
+  .ta-slot-role{font-size:13px;font-weight:700;color:#0e7490;}
+  .ta-slot-bio{font-size:13px;color:var(--muted);line-height:1.55;}
+  .instr-tbd{border-style:dashed !important;border-color:#cbd5e1 !important;background:#f8fafc !important;}
+
+
   /* Jump-to 입력 */
   .deck-jump{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border-radius:999px;padding:4px 10px;}
   .deck-jump input{background:transparent;border:none;color:#fff;width:42px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;outline:none;}
@@ -209,6 +231,7 @@
       <div class="flex items-center gap-3">
         <span class="chip" style="background:rgba(255,255,255,.18);color:#fff;">입문 · 2시간</span>
         <span class="chip" style="background:rgba(255,255,255,.18);color:#fff;">정원 50명 · 비개발 직군</span>
+        <span class="chip" style="background:rgba(255,255,255,.18);color:#fff;">강사 · 정유경</span>
       </div>
       <h1 class="slide-title" style="color:#fff;font-size:58px;">
         초보자를 위한<br/>
@@ -232,7 +255,60 @@
           <div class="text-sm opacity-80">한국어 한 줄로 시작</div>
         </div>
       </div>
-      <div class="mt-4 text-sm opacity-80">오늘의 약속 · 나갈 때 <b>내 노트북에서 <span class="kbd" style="color:#0f172a">claude</span> 가 실행</b>됩니다</div>
+      <div class="mt-4 text-sm opacity-80">오늘의 약속 · 나갈 때 <b>내 노트북에서 <span class="kbd">claude</span> 가 실행</b>됩니다</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 강사 소개 ============ -->
+<section class="slide" id="instructor">
+  <div class="card">
+    <span class="chip chip-brand">강사 소개 · Instructor & TA</span>
+    <h2 class="slide-h2 mt-3">오늘 2시간, 함께할 강사입니다</h2>
+    <div class="flex items-center gap-10 mt-8" style="flex-wrap:wrap;">
+      <div class="instr-avatar">
+        <div class="ph" style="background-image:url('images/instructor-jeong.png');background-size:135%;background-position:center 18%;"></div>
+        <span class="badge">대표 강사</span>
+      </div>
+      <div style="flex:1;min-width:340px;">
+        <div class="instr-name">정유경</div>
+        <div class="instr-role">Claude Code 실무 트레이너</div>
+        <div class="instr-tags">
+          <span class="pill">비개발 직군 온보딩</span>
+          <span class="pill">터미널 첫걸음</span>
+          <span class="pill">업무 자동화</span>
+          <span class="pill">프롬프트 코칭</span>
+        </div>
+        <div class="instr-quote">"코드 한 줄 몰라도 괜찮아요. 오늘 설치부터 첫 실행까지, 한 명도 빠짐없이 끝까지 함께 갑니다."</div>
+      </div>
+    </div>
+    <div class="grid-cards gc-3 mt-8">
+      <div class="tile-brand"><div class="text-2xl">🧭</div><div class="font-bold mt-1">눈높이 진행</div><div class="small mt-1">터미널이 처음인 분 기준으로 천천히</div></div>
+      <div class="tile-cyan"><div class="text-2xl">🙋</div><div class="font-bold mt-1">질문 대환영</div><div class="small mt-1">막히면 손드세요 — 바로 화면 공유로 확인</div></div>
+      <div class="tile-emerald"><div class="text-2xl">🎯</div><div class="font-bold mt-1">완주 목표</div><div class="small mt-1">나갈 때 내 노트북에서 claude 실행 확인</div></div>
+    </div>
+
+    <div class="flex items-center gap-2 mt-8" style="color:var(--muted);font-weight:700;font-size:14px;">
+      <span>🤝 보조 강사 (TA)</span>
+      <span style="flex:1;height:1px;background:var(--line);"></span>
+      <span style="font-weight:600;color:#94a3b8;">설치·실습 중 1:1 지원</span>
+    </div>
+    <div class="grid-cards gc-2 mt-4">
+      <div class="ta-card">
+        <div class="ta-slot-num">TA 01</div>
+        <div class="ta-avatar"><div class="ph" style="background:url('images/ta-kimsohyun.png') center top/100% no-repeat;"></div></div>
+        <div class="ta-slot-name">김소현 전임</div>
+        <div class="ta-slot-role">NHN Cloud · 플랫폼사업팀</div>
+        <div class="ta-slot-bio">"이번 교육이 AI 기반 업무 혁신을 이끄는 새로운 전환점이 되기를 기대합니다. 수업이 원활하게 진행되도록 열심히 서포트하겠습니다."</div>
+      </div>
+      <div class="ta-card">
+        <div class="ta-slot-num">TA 02</div>
+        <div class="ta-avatar"><div class="ph" style="background:url('images/ta-kimjiwon.png') center top/100% no-repeat;"></div></div>
+        <div class="ta-slot-name">김지원 전임</div>
+        <div class="ta-slot-role">NHN · 구매팀</div>
+        <div class="ta-slot-bio">"실무에 바로 적용되는 시간이 될 수 있도록, 클로드코드 수업을 열심히 보조하겠습니다."</div>
+      </div>
     </div>
   </div>
 </section>
@@ -240,7 +316,7 @@
 <!-- ============ 00:00 오프닝 ============ -->
 <section class="slide" id="opening">
   <div class="card">
-    <span class="chip chip-brand">00:00–00:05 · 오프닝</span>
+    <span class="chip chip-brand">오프닝</span>
     <h2 class="slide-h2 mt-3">오늘 2시간이 끝나면 이걸 할 수 있습니다</h2>
     <div class="grid-cards gc-2 mt-6">
       <div class="tile-brand">
@@ -268,13 +344,45 @@
   </div>
 </section>
 
+<!-- ============ AI 시대 마인드셋 ============ -->
+<section class="slide" id="ai-era" style="background:linear-gradient(135deg,#0f172a,#1e293b);">
+  <div class="card" style="background:#0f172a;border:1px solid #334155;color:#e2e8f0;">
+    <span class="chip" style="background:#312e81;color:#c7d2fe;">시작 전 한 마디</span>
+    <h2 class="slide-h2 mt-3" style="color:#fff;">AI 시대, 진짜 AI가 나를 대체할까?</h2>
+    <p class="lead mt-3" style="color:#cbd5e1;font-size:20px;">그럴 수도 있고, 아닐 수도 있습니다.</p>
+    <div class="quote mt-6" style="background:rgba(99,102,241,.12);border-left-color:#a5b4fc;color:#e0e7ff;line-height:1.7;">
+      <div class="small" style="color:#a5b4fc;margin-bottom:6px;">요즘 많이들 도착하는 결론</div>
+      <span style="font-size:18px;">"AI가 사람을 대체하지는 않습니다.<br/>다만, <b style="color:#fde047;">AI를 쓰는 사람이 안 쓰는 사람의 자리를 가져갑니다.</b>"</span>
+    </div>
+    <div class="grid-cards gc-3 mt-6">
+      <div style="background:rgba(99,102,241,.10);border:1px solid #4f46e5;border-radius:16px;padding:18px;">
+        <div style="font-size:32px;">🎯</div>
+        <div class="font-bold mt-2" style="color:#fff;font-size:17px;">AI는 도구, 운전대는 사람</div>
+        <div class="small mt-2" style="color:#cbd5e1;line-height:1.6;">판단·맥락·책임은 사람의 영역. AI는 그 사이를 메꿔주는 도구입니다.</div>
+      </div>
+      <div style="background:rgba(6,182,212,.10);border:1px solid #06b6d4;border-radius:16px;padding:18px;">
+        <div style="font-size:32px;">🌀</div>
+        <div class="font-bold mt-2" style="color:#fff;font-size:17px;">이론보다 손</div>
+        <div class="small mt-2" style="color:#cbd5e1;line-height:1.6;">1년 전 방식이 벌써 옛것. 매일 바뀌는 도구는 <b>직접 만져봐야</b> 늘어요.</div>
+      </div>
+      <div style="background:rgba(245,158,11,.10);border:1px solid #f59e0b;border-radius:16px;padding:18px;">
+        <div style="font-size:32px;">💼</div>
+        <div class="font-bold mt-2" style="color:#fff;font-size:17px;">지금이 가장 빠른 때</div>
+        <div class="small mt-2" style="color:#fef3c7;line-height:1.6;">이직·승진에서도 <b>'AI를 어떻게 쓰는가'</b>가 점점 차이를 만들고 있어요.</div>
+      </div>
+    </div>
+    <div class="small mt-6 text-center" style="color:#94a3b8;">정답이 아니라 하나의 시선입니다 — 오늘 같이 만져보고, 본인의 답을 찾아가셨으면 해요.</div>
+  </div>
+</section>
+
+
 <!-- ============ PART 1 divider ============ -->
 <section class="slide" id="part1" style="background:linear-gradient(135deg,#eef2ff,#f5f3ff);">
   <div class="card">
     <div class="flex items-center gap-3"><span class="chip chip-brand">이론 1</span></div>
     <h1 class="slide-title mt-4">왜 Claude Code인가?</h1>
     <p class="lead mt-4 text-xl" style="color:#4f46e5;"><b>채팅창이 아니라, 내 컴퓨터에서 직접 일하는 AI</b></p>
-    <p class="text-slate-600 mt-2">00:05–00:15 · 채팅형 AI vs CLI형 AI</p>
+    <p class="text-slate-600 mt-2">채팅형 AI vs CLI형 AI</p>
   </div>
 </section>
 
@@ -291,6 +399,7 @@
           <li>• 파일은 매번 <b>업로드·복사·붙여넣기</b></li>
           <li>• 대화창이 바뀌면 맥락이 사라짐</li>
           <li>• 내 컴퓨터의 파일을 직접 못 만짐</li>
+          <li>• 여러 파일을 한 번에 다루기 번거로움</li>
         </ul>
       </div>
       <div class="tile-brand">
@@ -298,14 +407,42 @@
         <div class="small mt-2">내 컴퓨터 안에서 <b>파일을 직접 읽고 만듭니다.</b></div>
         <ul class="small mt-2" style="line-height:1.8">
           <li>• "이 폴더 엑셀 정리해줘" → <b>바로 실행</b></li>
-          <li>• 프로젝트 맥락을 계속 기억</li>
+          <li>• 프로젝트 맥락을 계속 기억 (CLAUDE.md)</li>
           <li>• Dooray 같은 업무툴과 연동 가능</li>
+          <li>• 폴더째 여러 파일을 한 번에 처리</li>
         </ul>
       </div>
     </div>
-    <div class="quote mt-6">채팅형 = <b>말로 조언</b>해주는 컨설턴트 · CLI형 = <b>내 옆에서 직접 일하는</b> 비서</div>
+    <div class="grid-cards gc-3 mt-5">
+      <div class="tile-soft"><div class="font-bold">🙋 이럴 땐 채팅형</div><div class="small mt-1">가벼운 질문·아이디어·글 다듬기</div></div>
+      <div class="tile-soft"><div class="font-bold">🛠️ 이럴 땐 CLI형</div><div class="small mt-1">내 파일·데이터를 실제로 처리·저장</div></div>
+      <div class="tile-soft"><div class="font-bold">🤝 둘 다 병행 OK</div><div class="small mt-1">경쟁이 아니라 용도가 다른 도구</div></div>
+    </div>
+    <div class="quote mt-4">채팅형 = <b>말로 조언</b>해주는 컨설턴트 · CLI형 = <b>내 옆에서 직접 일하는</b> 비서</div>
   </div>
 </section>
+
+<!-- 웹 vs 앱 vs CLI 비교 + 유료 안내 -->
+<section class="slide" id="web-app-cli">
+  <div class="card">
+    <span class="chip chip-brand">이론 1·5</span>
+    <h2 class="slide-h2 mt-3">Claude, 쓰는 창은 3가지 — 웹 · 앱 · CLI</h2>
+    <p class="text-slate-600 mt-2">같은 Claude라도 <b>어디서 여느냐</b>에 따라 할 수 있는 일이 다릅니다. 오늘 배우는 건 맨 오른쪽 <b>CLI(Claude Code)</b>예요.</p>
+    <table class="t mt-5">
+      <thead><tr><th width="22%">구분</th><th>🌐 웹 (claude.ai)</th><th>💻 데스크톱·모바일 앱</th><th>⌨️ CLI (Claude Code)</th></tr></thead>
+      <tbody>
+        <tr><td><b>실행 위치</b></td><td>브라우저</td><td>설치형 앱</td><td>터미널(검은 창)</td></tr>
+        <tr><td><b>주 용도</b></td><td>대화·질문·글쓰기</td><td>대화 + 자료 첨부</td><td><b>내 파일·폴더를 직접 작업</b></td></tr>
+        <tr><td><b>내 컴퓨터 파일</b></td><td>❌ 업로드만 가능</td><td>❌ 업로드만 가능</td><td>✅ 직접 읽고 만들고 저장</td></tr>
+        <tr><td><b>업무툴 연동(MCP)</b></td><td>제한적</td><td>일부</td><td>✅ Dooray 등 풀 연동</td></tr>
+        <tr><td><b>요금제</b></td><td>무료 플랜 있음</td><td>무료 플랜 있음</td><td>⚠️ <b>유료 전용</b> (Pro/Team/Max)</td></tr>
+      </tbody>
+    </table>
+    <div class="quote mt-5">🔑 <b>Claude Code(CLI)는 무료 플랜으로 로그인되지 않습니다.</b> Pro·Team·Max 중 하나의 유료 구독이 있어야 실행돼요. (웹·앱은 무료로도 맛보기 가능)</div>
+  </div>
+</section>
+
+
 
 <!-- 용어 정리 1 -->
 <section class="slide" id="terms-1" style="background:linear-gradient(135deg,#fffbeb,#fef3c7);">
@@ -323,13 +460,34 @@
   </div>
 </section>
 
+<!-- ============ 파일 확장자 5종 ============ -->
+<section class="slide" id="file-types">
+  <div class="card">
+    <span class="chip chip-slate">파일 형식 기초</span>
+    <h2 class="slide-h2 mt-3">자주 보게 될 파일 확장자 5종</h2>
+    <p class="lead mt-2">파일 이름 끝에 붙는 <span class="mono">.html</span>·<span class="mono">.md</span> 같은 건 "이 파일은 이런 용도"라는 표시예요. 외울 필요 없습니다.</p>
+    <table class="t mt-6">
+      <thead><tr><th width="12%">확장자</th><th width="18%">역할</th><th width="24%">어디서 열리나요?</th><th>언제 보게 되나요?</th></tr></thead>
+      <tbody>
+        <tr><td><b>.html</b></td><td>웹 페이지</td><td>크롬 같은 <b>브라우저</b></td><td>대시보드·디자인 메일 만들기</td></tr>
+        <tr><td><b>.md</b></td><td>마크다운 문서</td><td>메모장·VS Code</td><td>보고서, CLAUDE.md 규칙 파일, 스킬 파일</td></tr>
+        <tr><td><b>.xlsx</b></td><td>엑셀 파일</td><td><b>엑셀</b></td><td>분석 대상 데이터, 명단</td></tr>
+        <tr><td><b>.py</b></td><td>파이썬 스크립트</td><td><b>터미널</b>에서 실행</td><td>자동화 스크립트</td></tr>
+        <tr><td><b>.env</b></td><td>비밀 값 보관</td><td>메모장(숨김 파일)</td><td>토큰·API 키 저장 (예: Dooray 연동)</td></tr>
+      </tbody>
+    </table>
+    <div class="quote mt-5">💡 Claude Code가 만들어주는 파일은 대부분 위 형식 중 하나예요. <b>더블클릭하면 알맞은 앱이 자동으로 열립니다.</b></div>
+  </div>
+</section>
+
+
 <!-- ============ 이론2 divider ============ -->
 <section class="slide" id="part2" style="background:linear-gradient(135deg,#ecfeff,#f0fdfa);">
   <div class="card">
     <div class="flex items-center gap-3"><span class="chip chip-cyan">이론 2</span></div>
     <h1 class="slide-title mt-4">그래서 무엇이 가능한가?</h1>
     <p class="lead mt-4 text-xl" style="color:#0e7490;"><b>핵심은 "반복되는 업무 자동화"</b></p>
-    <p class="text-slate-600 mt-2">00:15–00:25 · Before / After 로 보기</p>
+    <p class="text-slate-600 mt-2">Before / After 로 보기</p>
   </div>
 </section>
 
@@ -338,15 +496,22 @@
   <div class="card">
     <span class="chip chip-cyan">이론 2 · 업무 자동화가 핵심</span>
     <h2 class="slide-h2 mt-3">매일 반복하는 일을 한국어 한 줄로</h2>
-    <div class="grid-cards gc-2 mt-6">
+    <div class="grid-cards gc-3 mt-6">
       <div class="tile-cyan"><div class="text-2xl">📊</div><div class="font-bold mt-1">엑셀 데이터 정리·분석</div><div class="small mt-1">"이 매출 파일 월별로 합계 내고 표로 정리해줘"</div></div>
       <div class="tile"><div class="text-2xl">✉️</div><div class="font-bold mt-1">메일 초안 작성·검토</div><div class="small mt-1">"이 내용으로 정중한 안내 메일 초안 써줘"</div></div>
       <div class="tile"><div class="text-2xl">🧾</div><div class="font-bold mt-1">회의록 요약·정리</div><div class="small mt-1">"이 녹취 텍스트에서 결정사항·할일만 뽑아줘"</div></div>
+      <div class="tile"><div class="text-2xl">📁</div><div class="font-bold mt-1">파일 이름·정리 자동화</div><div class="small mt-1">"이 폴더 사진들 날짜별로 이름 바꿔 정리해줘"</div></div>
+      <div class="tile"><div class="text-2xl">🔎</div><div class="font-bold mt-1">여러 문서에서 찾기·비교</div><div class="small mt-1">"이 계약서 3개에서 금액·기간만 뽑아 표로"</div></div>
       <div class="tile-emerald"><div class="text-2xl">🔁</div><div class="font-bold mt-1">반복 업무 자동화</div><div class="small mt-1">"매주 하는 이 정리 작업을 한 번에 되게 해줘"</div></div>
     </div>
-    <div class="quote mt-5">기본은 <b>내 업무 자동화</b>. 익숙해지면 부업·사이드 프로젝트에도 쓸 수 있습니다. (예시일 뿐, 오늘 목표는 아님)</div>
+    <div class="grid-cards gc-2 mt-5">
+      <div class="tile-soft"><div class="font-bold">🧠 잘 맞는 일</div><div class="small mt-1">반복·규칙이 있는 정리, 요약, 형식 변환, 초안 작성</div></div>
+      <div class="tile-soft"><div class="font-bold">⚠️ 사람이 확인할 일</div><div class="small mt-1">최종 판단·발송·수치 검증은 <b>사람이 한 번 더</b> 확인</div></div>
+    </div>
+    <div class="quote mt-4">기본은 <b>내 업무 자동화</b>. 익숙해지면 부업·사이드 프로젝트에도 쓸 수 있습니다. (예시일 뿐, 오늘 목표는 아님)</div>
   </div>
 </section>
+
 
 <!-- Before / After -->
 <section class="slide" id="before-after">
@@ -386,6 +551,7 @@
       <div class="tile"><div class="text-2xl">✍️</div><div class="font-bold mt-1">블로그·콘텐츠 정리</div><div class="small mt-1">자료 요약·초안 자동 생성</div></div>
     </div>
     <div class="quote mt-6"><b>오늘의 초점은 "회사 업무 자동화"</b>입니다. 부업은 "가능성의 예시"로만 알아두세요.</div>
+    <div class="small mt-3" style="color:#7c3aed;">💡 이런 걸 실제로 만들어 쓰는 사례가 궁금하다면 — <b>goyu.studio</b> 에서 AI로 만든 홈페이지·자동화 결과물을 구경해보세요. (강요 아님, 참고용 😉)</div>
   </div>
 </section>
 
@@ -395,7 +561,7 @@
     <div class="flex items-center gap-3"><span class="chip chip-emerald">실습 1</span></div>
     <h1 class="slide-title mt-4">설치하기 — Node · Git · Claude Code</h1>
     <p class="lead mt-4 text-xl" style="color:#047857;"><b>천천히, 한 줄씩 같이 칩니다</b></p>
-    <p class="text-slate-600 mt-2">00:25–01:10 · 보조강사가 순회하며 1:1 지원</p>
+    <p class="text-slate-600 mt-2">보조강사가 순회하며 1:1 지원</p>
   </div>
 </section>
 
@@ -405,12 +571,22 @@
     <span class="chip chip-emerald">STEP 0 · 터미널 열기</span>
     <h2 class="slide-h2 mt-3">"터미널"은 컴퓨터에 말 거는 창입니다</h2>
     <div class="grid-cards gc-2 mt-6">
-      <div class="tile"><div class="font-bold">🪟 Windows</div><div class="small mt-2">시작 버튼 → <b>PowerShell</b> 검색 → 실행</div></div>
-      <div class="tile-brand"><div class="font-bold">🍎 Mac</div><div class="small mt-2">Spotlight(⌘+Space) → <b>터미널</b> 입력 → 실행</div></div>
+      <div class="tile"><div class="font-bold">🪟 Windows</div><div class="small mt-2">시작 버튼 → <b>PowerShell</b> 검색 → 실행</div><div class="small mt-1" style="color:#64748b;">파란/검은 창이 뜨면 정상</div></div>
+      <div class="tile-brand"><div class="font-bold">🍎 Mac</div><div class="small mt-2">Spotlight(<span class="kbd">⌘+Space</span>) → <b>터미널</b> 입력 → 실행</div><div class="small mt-1" style="color:#64748b;">흰/검은 창이 뜨면 정상</div></div>
     </div>
-    <div class="quote mt-6">검은 창이 떠도 놀라지 마세요. 아무거나 쳐도 컴퓨터는 안 망가집니다. ✋</div>
+    <div class="grid-cards gc-3 mt-5">
+      <div class="tile-soft"><div class="font-bold">✅ 안 망가집니다</div><div class="small mt-1">명령을 잘못 쳐도 "그런 명령 없음"이라고 뜰 뿐</div></div>
+      <div class="tile-soft"><div class="font-bold">📋 복붙이 기본</div><div class="small mt-1">직접 타이핑 X — 가이드 명령을 <b>복사·붙여넣기</b></div></div>
+      <div class="tile-soft"><div class="font-bold">↩️ Enter로 실행</div><div class="small mt-1">붙여넣고 <span class="kbd">Enter</span> 를 눌러야 실행됨</div></div>
+    </div>
+    <div class="tile mt-4">
+      <div class="font-bold">🔤 창에 보이는 기호, 겁먹지 마세요</div>
+      <div class="small mt-1"><span class="mono">$</span> 또는 <span class="mono">%</span> = "명령 기다리는 중" 표시(입력 X) · <span class="mono">~</span> = 내 홈 폴더 · 붙여넣을 때 <b>$ 뒤 내용만</b> 복사</div>
+    </div>
+    <div class="quote mt-4">검은 창이 떠도 놀라지 마세요. 아무거나 쳐도 컴퓨터는 안 망가집니다. ✋</div>
   </div>
 </section>
+
 
 <!-- 설치 명령 -->
 <section class="slide" id="install">
@@ -482,35 +658,68 @@ $ <span class="k">claude</span>
     <div class="flex items-center gap-3"><span class="chip chip-violet">실습 2</span></div>
     <h1 class="slide-title mt-4">Skills + Dooray MCP 연동</h1>
     <p class="lead mt-4 text-xl" style="color:#6d28d9;"><b>Claude Code를 "풀옵션"으로, 그리고 Dooray와 연결</b></p>
-    <p class="text-slate-600 mt-2">01:10–01:50 · 보조강사 순회 1:1 지원</p>
+    <p class="text-slate-600 mt-2">보조강사 순회 1:1 지원</p>
   </div>
 </section>
 
 <!-- Skills 설치 -->
 <section class="slide" id="skills">
   <div class="card">
-    <span class="chip chip-violet">STEP 6 · Skills 설치</span>
-    <h2 class="slide-h2 mt-3">Skill = Claude Code 확장팩</h2>
-    <p class="text-slate-600 mt-2">자주 쓰는 기능 묶음을 한 번에 추가합니다 (예: oh-my-skills).</p>
+    <span class="chip chip-violet">STEP 6 · Skill 이해 → 설치</span>
+    <h2 class="slide-h2 mt-3">Skill = "일하는 방법"을 미리 담은 확장팩</h2>
+    <p class="text-slate-600 mt-2">Claude는 원래도 똑똑하지만, Skill은 <b>"이런 일은 이 순서·이 형식으로 해"</b>를 정해둔 묶음입니다. 그래서 결과가 매번 일정하고, 한마디만 해도 알아서 처리합니다 (예: oh-my-skills).</p>
+
+    <div class="grid-cards gc-3 mt-5">
+      <div class="tile"><div class="text-2xl">📊</div><div class="font-bold mt-1">문서·데이터 처리</div><div class="small mt-1">엑셀·PDF·CSV 정리 스킬</div></div>
+      <div class="tile"><div class="text-2xl">🧾</div><div class="font-bold mt-1">보고서 템플릿</div><div class="small mt-1">주간보고·회의록 형식 자동 적용</div></div>
+      <div class="tile"><div class="text-2xl">🔌</div><div class="font-bold mt-1">업무툴 연동 묶음</div><div class="small mt-1">Dooray 등과 함께 쓰는 작업 세트</div></div>
+    </div>
     <div class="pre mt-4"><span class="c"># 가이드에 적힌 설치 명령을 그대로 복사 → 실행</span>
 <span class="c"># 설치 후 Claude Code 안에서 확인</span>
-> <span class="s">사용 가능한 skill 목록 보여줘</span></div>
-    <div class="quote mt-5">Skill은 "기능 추가"일 뿐. 지금 다 이해 못 해도 됩니다 — <b>설치되어 있으면 성공</b>.</div>
+> <span class="s">사용 가능한 skill 목록 보여줘</span>
+> <span class="s">엑셀 정리 skill 써서 이 파일 월별로 합쳐줘</span></div>
+    <div class="grid-cards gc-2 mt-4">
+      <div class="tile-emerald"><div class="font-bold">✅ 오늘의 목표</div><div class="small mt-1">"skill 목록이 뜬다" = 설치 성공. 활용은 기초 과정에서.</div></div>
+      <div class="tile-soft"><div class="font-bold">💡 앱 스토어처럼</div><div class="small mt-1">필요한 기능만 골라 설치·삭제. 안 쓰면 지워도 됨.</div></div>
+    </div>
+    <div class="quote mt-4">Skill은 "기능 추가"일 뿐. 지금 다 이해 못 해도 됩니다 — <b>설치되어 있으면 성공</b>.</div>
   </div>
 </section>
+
 
 <!-- MCP 개념 -->
 <section class="slide" id="mcp-concept">
   <div class="card">
     <span class="chip chip-violet">개념 · MCP</span>
     <h2 class="slide-h2 mt-3">MCP = Claude와 외부 도구를 잇는 표준 케이블</h2>
-    <div class="grid-cards gc-2 mt-6">
-      <div class="tile"><div class="font-bold">🔌 MCP가 없으면</div><div class="small mt-2">Dooray 내용을 <b>내가 복사해서</b> Claude에 붙여넣어야 함</div></div>
-      <div class="tile-violet" style="background:#f5f3ff;border:1px solid #ddd6fe;"><div class="font-bold">🔗 MCP가 있으면</div><div class="small mt-2">Claude가 <b>Dooray를 직접 조회</b>해서 태스크·프로젝트를 읽어옴</div></div>
+    <p class="text-slate-600 mt-2">Model Context Protocol — 어떤 도구든 <b>같은 방식으로 연결</b>하는 "USB-C 규격" 같은 것.</p>
+    <div class="grid-cards gc-2 mt-5">
+      <div class="tile" style="border-color:#fecaca;background:#fff5f5;">
+        <div class="font-bold" style="color:#be123c;">🔌 MCP가 없으면</div>
+        <ul class="small mt-2" style="line-height:1.9">
+          <li>• Dooray 내용을 <b>내가 복사</b>해서 붙여넣어야 함</li>
+          <li>• 최신 상태를 매번 다시 가져와야 함</li>
+          <li>• 결과를 다시 Dooray에 <b>손으로 옮겨</b> 입력</li>
+        </ul>
+      </div>
+      <div class="tile" style="background:#f5f3ff;border:1px solid #ddd6fe;">
+        <div class="font-bold" style="color:#6d28d9;">🔗 MCP가 있으면</div>
+        <ul class="small mt-2" style="line-height:1.9">
+          <li>• Claude가 <b>Dooray를 직접 조회</b>해 태스크·프로젝트를 읽음</li>
+          <li>• 항상 <b>실시간 최신 데이터</b>로 작업</li>
+          <li>• "조회 → 정리 → 저장"이 한 번에 이어짐</li>
+        </ul>
+      </div>
     </div>
-    <div class="quote mt-6">Model Context Protocol — 어떤 도구든 같은 방식으로 연결하는 "USB 규격" 같은 것.</div>
+    <div class="grid-cards gc-3 mt-5">
+      <div class="tile-soft"><div class="font-bold">📋 Dooray MCP</div><div class="small mt-1">태스크·프로젝트·위키 조회 (오늘 연동)</div></div>
+      <div class="tile-soft"><div class="font-bold">📁 파일시스템</div><div class="small mt-1">내 폴더의 문서를 직접 읽고 쓰기 (기본 내장)</div></div>
+      <div class="tile-soft"><div class="font-bold">🌐 그 외 수백 종</div><div class="small mt-1">Slack·GitHub·DB 등 — 필요할 때 붙이면 됨</div></div>
+    </div>
+    <div class="quote mt-5">핵심: MCP는 Claude에게 <b>"손과 눈"을 달아주는 것</b>. 글로 조언하던 AI가 실제 도구를 직접 다루게 됩니다.</div>
   </div>
 </section>
+
 
 <!-- Dooray MCP 연동 -->
 <section class="slide" id="dooray-mcp">
@@ -528,33 +737,115 @@ $ <span class="k">claude</span>
 DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
       </div>
     </div>
+    <div class="tile-soft mt-4">
+      <div class="font-bold">❓ .env 파일이 뭐예요?</div>
+      <div class="small mt-1">토큰·비밀번호 같은 <b>민감한 값을 따로 담아두는 메모장 파일</b>이에요. 코드에 직접 적지 않고 <span class="mono">.env</span> 에만 넣어두면, 실수로 남에게 공유되는 걸 막을 수 있어요. (env = environment, 환경설정)</div>
+      <div class="grid-cards gc-3 mt-3">
+        <div class="tile"><div class="font-bold">📁 어디에 저장?</div><div class="small mt-1"><b>claude를 실행하는 그 폴더</b>(작업 폴더) 맨 위에, 파일 이름을 딱 <span class="mono">.env</span> 로 (앞에 점 하나, 확장자 없음)</div></div>
+        <div class="tile"><div class="font-bold">✍️ 어떻게 작성?</div><div class="small mt-1">한 줄에 <span class="mono">이름=값</span> 형식. 예: <span class="mono">DOORAY_TOKEN=abc123</span> · 값에 따옴표·띄어쓰기 불필요</div></div>
+        <div class="tile"><div class="font-bold">🛠️ 만드는 법</div><div class="small mt-1">claude에게 "<b>.env 파일 만들고 DOORAY_TOKEN 넣어줘</b>" 라고 말하거나, 메모장으로 만들어 저장</div></div>
+      </div>
+      <div class="small mt-2 opacity-80">💡 파일 이름이 점(.)으로 시작하면 평소엔 숨겨져 안 보일 수 있어요 — 정상입니다.</div>
+    </div>
+
     <div class="tile-brand mt-4">
       <div class="font-bold">③ 연동 확인</div>
-      <div class="pre mt-2">> <span class="s">Dooray에서 내 프로젝트 목록 보여줘</span>
-<span class="c"># 목록이 나오면 연동 성공 🎉</span></div>
+      <div class="pre mt-2">> <span class="s">Dooray에서 내가 속한 프로젝트 하나만 알려줘</span>
+<span class="c"># 이름이 하나라도 나오면 연동 성공 🎉</span></div>
     </div>
     <div class="quote mt-4">⚠️ 토큰은 <b>비밀번호</b>입니다. 화면 공유·채팅에 노출 금지, .env 밖으로 복사 금지.</div>
   </div>
 </section>
 
+<!-- 가벼운 실습: 설치 확인 & 첫 사용 -->
+<section class="slide" id="mcp-practice">
+  <div class="card">
+    <span class="chip chip-emerald">STEP 8 · 가벼운 실습</span>
+    <h2 class="slide-h2 mt-3">진짜 되는지 — 30초 만에 직접 써보기</h2>
+    <p class="text-slate-600 mt-2">설치·연동이 끝났으면, <b>실제로 한 번씩 굴려봐야</b> 내 것이 됩니다. 아래를 순서대로 던져보세요.</p>
+    <div class="grid-cards gc-2 mt-5">
+      <div class="tile-brand">
+        <div class="font-bold">🧩 실습 A · Skill 써보기</div>
+        <div class="pre mt-2"><span class="c"># 1) 설치 확인</span>
+> <span class="s">사용 가능한 skill 목록 보여줘</span>
+<span class="c"># 2) 하나 골라 실제로 시켜보기</span>
+> <span class="s">이 폴더 내용을 표로 정리하는 skill 있으면 써서 정리해줘</span></div>
+        <div class="small mt-2">✅ 확인점: 목록이 뜨고, 스킬 이름이 답변에 언급되면 성공</div>
+      </div>
+      <div class="tile" style="background:#f5f3ff;border:1px solid #ddd6fe;">
+        <div class="font-bold">🔗 실습 B · Dooray MCP 써보기</div>
+        <div class="pre mt-2"><span class="c"># 1) 연결 확인 (가볍게)</span>
+> <span class="s">Dooray에서 내가 속한 프로젝트 하나만 알려줘</span>
+<span class="c"># 2) 한 걸음 더 — 직접 써보기</span>
+> <span class="s">내 개인 프로젝트에 "MCP 테스트" 업무 글 하나 작성해줘</span></div>
+        <div class="small mt-2">✅ 확인점: Dooray에 실제로 글이 하나 생기면 성공</div>
+      </div>
+    </div>
+    <div class="grid-cards gc-3 mt-4">
+      <div class="tile-soft"><div class="font-bold">💬 이렇게 쓰는 겁니다</div><div class="small mt-1">"조회해줘 → 정리해줘 → 저장해줘"를 <b>말로 이어서</b></div></div>
+      <div class="tile-soft"><div class="font-bold">🔁 안 되면</div><div class="small mt-1">터미널 재시작 → 그래도면 손 들기 (조교 1:1)</div></div>
+      <div class="tile-emerald"><div class="font-bold">🎯 여기까지 됐다면</div><div class="small mt-1">기초 과정 준비 <b>완료</b> — 실전은 다음 시간에</div></div>
+    </div>
+    <div class="quote mt-4">"설치했다"보다 중요한 건 <b>"한 번 써봤다"</b>. 오늘 이 두 줄만 성공하면 충분합니다. 🙌</div>
+  </div>
+</section>
+
+
 <!-- 기본 명령어 -->
 <section class="slide" id="commands">
   <div class="card">
-    <span class="chip chip-brand">기본 명령어 3개만</span>
-    <h2 class="slide-h2 mt-3">이것만 알면 오늘은 충분합니다</h2>
-    <div class="grid-cards gc-3 mt-6">
+    <span class="chip chip-brand">기본 명령어 · 이것만</span>
+    <h2 class="slide-h2 mt-3">외울 건 4개, 나머지는 그냥 한국어</h2>
+    <div class="grid-cards gc-4 mt-6">
       <div class="tile"><div class="font-bold mono">/help</div><div class="small mt-2">쓸 수 있는 명령 목록 보기</div></div>
       <div class="tile"><div class="font-bold mono">/clear</div><div class="small mt-2">대화 맥락 초기화 (새 작업 시작할 때)</div></div>
+      <div class="tile"><div class="font-bold mono">/init</div><div class="small mt-2">이 폴더에 CLAUDE.md 만들기 (기초에서 사용)</div></div>
       <div class="tile"><div class="font-bold mono">/exit</div><div class="small mt-2">Claude Code 종료</div></div>
     </div>
-    <div class="quote mt-6">나머지는 그냥 <b>한국어로 말하면</b> 됩니다. 명령어를 외울 필요 없어요.</div>
+    <div class="grid-cards gc-2 mt-5">
+      <div class="tile-brand">
+        <div class="font-bold">⌨️ 알아두면 편한 키</div>
+        <ul class="small mt-2" style="line-height:1.9">
+          <li>• <span class="kbd">Esc</span> — 실행 중인 답변 중단</li>
+          <li>• <span class="kbd">↑</span> — 직전에 보낸 프롬프트 다시 불러오기</li>
+          <li>• <span class="kbd">Shift+Enter</span> — 줄바꿈(여러 줄 프롬프트)</li>
+          <li>• 파일 경로는 <span class="kbd">@</span> 로 자동완성</li>
+        </ul>
+      </div>
+      <div class="tile-cyan">
+        <div class="font-bold">🗣️ 명령어 대신, 이렇게 말하면 됩니다</div>
+        <div class="pre mt-2">> <span class="s">이 폴더 파일 목록 보여줘</span>
+> <span class="s">report.xlsx 열어서 요약해줘</span>
+> <span class="s">방금 만든 파일 이름 바꿔줘</span></div>
+      </div>
+    </div>
+    <div class="quote mt-5">명령어는 "도구 조작", 실제 일은 <b>한국어 문장</b>으로. 슬래시(/)는 도구용, 그냥 글자는 업무용이라고 기억하세요.</div>
+    <details class="mt-4" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:14px 18px;">
+      <summary style="cursor:pointer;font-weight:700;color:#4f46e5;">📚 조금 더 — 자주 쓰는 슬래시 명령어 8종 (펼쳐보기)</summary>
+      <table class="t mt-3" style="font-size:13px;">
+        <thead><tr><th width="16%">명령어</th><th width="26%">용도</th><th>쉽게 말하면</th></tr></thead>
+        <tbody>
+          <tr><td><span class="kbd">/usage</span></td><td>토큰 사용량 확인</td><td>"내가 얼마나 썼지?" → 요금 폭탄 방지</td></tr>
+          <tr><td><span class="kbd">/clear</span></td><td>대화 리셋</td><td>"새 주제 시작할 때" → 토큰 절약</td></tr>
+          <tr><td><span class="kbd">/resume</span></td><td>이전 대화 이어하기</td><td>"터미널 닫았다 다시 열었을 때"</td></tr>
+          <tr><td><span class="kbd">/help</span></td><td>전체 명령어 목록</td><td>"막히면 무조건 여기"</td></tr>
+          <tr><td><span class="kbd">/init</span></td><td>CLAUDE.md 자동 생성</td><td>"내 규칙집 만들기" (기초에서 사용)</td></tr>
+          <tr><td><span class="kbd">/review</span></td><td>작업 검토 요청</td><td>"방금 한 작업 한 번 더 봐줘"</td></tr>
+          <tr><td><span class="kbd">/memory</span></td><td>기억 파일 확인</td><td>"나에 대해 뭘 기억하고 있지?"</td></tr>
+          <tr><td><span class="kbd">/plan</span></td><td>계획 모드 진입</td><td>"큰 작업 전에 계획부터"</td></tr>
+        </tbody>
+      </table>
+      <div class="small mt-2">처음엔 <span class="kbd">/usage</span> <span class="kbd">/clear</span> <span class="kbd">/resume</span> 3개부터 손에 익히세요.</div>
+    </details>
+
   </div>
 </section>
+
 
 <!-- ============ 기초 미리보기 ============ -->
 <section class="slide" id="preview" style="background:linear-gradient(135deg,#ecfeff,#eef2ff);">
   <div class="card">
-    <span class="chip chip-cyan">01:50–01:55 · 기초 과정 미리보기</span>
+    <span class="chip chip-cyan">기초 과정 미리보기</span>
     <h2 class="slide-h2 mt-3">다음 시간엔 "내 자동화 도구"를 완성합니다</h2>
     <div class="grid-cards gc-3 mt-6">
       <div class="tile"><div class="text-2xl">📝</div><div class="font-bold mt-1">CLAUDE.md</div><div class="small mt-1">나만의 업무 설명서를 직접 작성</div></div>
@@ -565,21 +856,82 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
   </div>
 </section>
 
+<!-- ============ 한 장 요약 (캡처용) ============ -->
+<section class="slide" id="cheatsheet" style="background:linear-gradient(135deg,#f5f3ff,#eef2ff);">
+  <div class="card">
+    <span class="chip chip-brand">가져가는 한 장</span>
+    <h2 class="slide-h2 mt-3">이 한 장만 캡처해 가세요 📸</h2>
+    <div class="grid-cards gc-3 mt-4">
+      <div class="tile-brand">
+        <div class="font-bold">① 시작하기</div>
+        <div class="pre mt-2" style="font-size:12px;line-height:1.6;">$ claude
+<span class="c"># 로그인 → 한국어로 질문</span>
+> 이 폴더 파일 목록 보여줘</div>
+        <div class="small mt-2">막히면 → 손 들기 or <span class="kbd">/help</span></div>
+      </div>
+      <div class="tile-brand">
+        <div class="font-bold">② 잘 시키는 법 (4원칙)</div>
+        <ul class="small mt-2" style="line-height:1.9">
+          <li>• <b>구체적</b>: "B열을 팀별로 합산"</li>
+          <li>• <b>형식 지정</b>: "표로 / 존댓말로"</li>
+          <li>• <b>맥락 제공</b>: "팀장 보고용"</li>
+          <li>• <b>예시 1개</b>: 원하는 결과 한 줄</li>
+        </ul>
+      </div>
+      <div class="tile-brand">
+        <div class="font-bold">③ 반복 줄이기</div>
+        <div class="small mt-2"><b>CLAUDE.md</b>에 한 번 적으면 매번 자동 적용 (기초에서 배웁니다)</div>
+        <div class="pre mt-2" style="font-size:12px;line-height:1.6"># 내 정보
+- 이름·부서
+# 보고서 규칙
+- 존댓말, 천 단위 콤마</div>
+      </div>
+    </div>
+    <div class="tile-soft mt-4">
+      <div class="font-bold">🛠 오늘 익힌 것 — 집에서도 그대로</div>
+      <div class="grid-cards gc-4 mt-3" style="gap:8px;">
+        <div class="tile" style="padding:12px;"><div class="text-lg">⚙️</div><div class="font-bold mt-1" style="font-size:13px;">설치·실행</div><div class="small mt-1"><span class="mono">claude</span> 입력 → 로그인</div></div>
+        <div class="tile" style="padding:12px;"><div class="text-lg">🧩</div><div class="font-bold mt-1" style="font-size:13px;">Skill</div><div class="small mt-1">일하는 방법 확장팩</div></div>
+        <div class="tile" style="padding:12px;"><div class="text-lg">🔌</div><div class="font-bold mt-1" style="font-size:13px;">Dooray MCP</div><div class="small mt-1">토큰 → .env → 연동</div></div>
+        <div class="tile" style="padding:12px;"><div class="text-lg">🗣️</div><div class="font-bold mt-1" style="font-size:13px;">한국어로</div><div class="small mt-1">그냥 말로 시키기</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- ============ 클로징 ============ -->
 <section class="slide" id="closing" style="background:linear-gradient(135deg,#4f46e5,#7c3aed);">
   <div class="card" style="background:transparent;border:none;box-shadow:none;color:#fff;">
-    <span class="chip" style="background:rgba(255,255,255,.18);color:#fff;">01:55–02:00 · 클로징</span>
+    <span class="chip" style="background:rgba(255,255,255,.18);color:#fff;">클로징</span>
     <h1 class="slide-title mt-4" style="color:#fff;">수고하셨습니다 🎉</h1>
     <p class="lead mt-4" style="color:#e0e7ff;">오늘 나가기 전 체크: <b style="color:#fde047;">claude 실행 + Dooray 연동 확인</b></p>
     <div class="grid-cards gc-3 mt-6">
-      <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">📋 사후 설문</div><div class="small mt-1" style="opacity:.85">안내 링크로 참여</div></div>
-      <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">🎴 치트시트</div><div class="small mt-1" style="opacity:.85">1장 배포 — 책상에 붙여두기</div></div>
-      <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">🙋 Q&A</div><div class="small mt-1" style="opacity:.85">궁금한 건 지금 물어보기</div></div>
+      <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">📋 사후 설문</div><div class="small mt-1" style="opacity:.9;color:#e0e7ff">안내 링크로 참여</div></div>
+      <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">🎴 치트시트</div><div class="small mt-1" style="opacity:.9;color:#e0e7ff">1장 배포 — 책상에 붙여두기</div></div>
+      <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">🙋 Q&A</div><div class="small mt-1" style="opacity:.9;color:#e0e7ff">궁금한 건 지금 물어보기</div></div>
     </div>
     <p class="mt-6 text-sm" style="opacity:.8">실습자료: github.com/ariri48 · 강사/보조강사 순회 지원</p>
   </div>
 </section>
 </div>
+<!-- Side arrows -->
+<button class="deck-arrow prev" id="arrow-prev" aria-label="이전 슬라이드">‹</button>
+<button class="deck-arrow next" id="arrow-next" aria-label="다음 슬라이드">›</button>
+
+<!-- Bottom controls -->
+<div class="deck-ctrl">
+  <button id="first-slide" title="처음 (Home)">⏮</button>
+  <button id="prev-slide" title="이전 (←)">◀</button>
+  <span class="deck-counter" id="counter">1 / 1</span>
+  <button id="next-slide" title="다음 (→ / Space)">▶</button>
+  <button id="last-slide" title="마지막 (End)">⏭</button>
+  <div class="deck-jump" title="페이지 번호로 점프">
+    <span class="deck-jump-label">→</span>
+    <input id="jump-input" type="number" min="1" placeholder="번호" />
+  </div>
+</div>
+
 <div id="overview">
   <button id="overview-close" title="닫기 (Esc)">✕</button>
   <div id="overview-grid"></div>
@@ -607,18 +959,16 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
 
   // Part labels by section id prefix
   const partOf = (id) => {
-    if(['cover','instructor','toc','ta','ai-era','materials'].includes(id)) return '인트로';
-    if(id.startsWith('part1')||['opening','ai-usage','needs-top5','live-demo','literacy-1','literacy-2','literacy-3','web-vs-code','which-claude','security-1','security-2','security-3'].includes(id)) return '1부 · Part 1 왜 Claude Code인가?';
-    if(id.startsWith('part2')||['terminal-anxiety','terminal','prereqs','install','install-troubleshoot','first-login','first-chat','skills-install','notion-mcp-install','env-file'].includes(id)) return '1부 · Part 2 설치하기';
-    if(id==='break') return '☕ 쉬는시간';
-    if(id.startsWith('part3')||['markdown','structure','skills-concept','token-concept','git-concept'].includes(id)) return '2부 · Part 3 핵심 개념';
-    if(id.startsWith('part4')||['open-files','excel','report','mail-basic','mail-html','mail-auto','prompt-tips','scenario-a','scenario-b'].includes(id)) return '2부 · Part 4 실전 활용';
-    if(['notion','notion-install','notion-practice','notion-troubleshoot'].includes(id)) return '2부 · Part 4 (Notion MCP)';
-    if(id.startsWith('part5')||['cli-basic','slash','permission','plan-mode','ralph-omc'].includes(id)) return '2부 · Part 5 명령어 & 도구';
-    if(id.startsWith('part6')||['claude-md','token-save','roadmap','glossary','faq','cheatsheet','clawd','assignment'].includes(id)) return '2부 · Part 6 내일부터 쓰기';
-    if(['qna','next-steps','thanks'].includes(id)) return '마무리';
+    if(['cover','instructor','opening','ai-era'].includes(id)) return '인트로';
+    if(id==='part1'||['chat-vs-cli','web-app-cli','terms-1','file-types'].includes(id)) return 'Part 1 · 왜 Claude Code인가?';
+    if(id==='part2'||['usecases','before-after','side-note'].includes(id)) return 'Part 2 · 무엇이 가능한가?';
+    if(id==='part-install1'||['terminal','install','first-run','troubleshoot'].includes(id)) return 'Part 3 · 설치하기';
+    if(id==='part-install2'||['skills','mcp-concept','dooray-mcp','mcp-practice','commands'].includes(id)) return 'Part 4 · Skills & MCP';
+    if(['preview','cheatsheet','closing'].includes(id)) return '마무리';
+
     return '';
   };
+
 
   // Extract title for overview
   const titleOf = (slide) => {
