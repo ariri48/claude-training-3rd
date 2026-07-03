@@ -242,7 +242,7 @@
         <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;">
           <div class="text-3xl mb-2">⚙️</div>
           <div class="font-bold text-lg">설치</div>
-          <div class="text-sm opacity-80">Node·Git·Claude Code</div>
+          <div class="text-sm opacity-80">명령어 한 줄로 설치</div>
         </div>
         <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;">
           <div class="text-3xl mb-2">🔌</div>
@@ -484,6 +484,47 @@
     <div class="quote mt-5">🔑 <b>Claude Code(CLI)는 무료 플랜으로 로그인되지 않습니다.</b> Pro·Team·Max 중 하나의 유료 구독이 있어야 실행돼요. (웹·앱은 무료로도 맛보기 가능)</div>
   </div>
 </section>
+<!-- Claude Code vs Cowork -->
+<section class="slide" id="cc-vs-cowork">
+  <div class="card">
+    <span class="chip chip-brand">자주 받는 질문</span>
+    <h2 class="slide-h2 mt-3">"터미널 없는 Cowork도 있다던데요?"</h2>
+    <p class="text-slate-600 mt-2">2026년 나온 <b>Claude Cowork</b>는 터미널 없이 쓰는 AI 비서예요. 오늘 배우는 Claude Code와 <b>용도가 다릅니다.</b></p>
+    <table class="t mt-5">
+      <thead><tr><th width="20%">구분</th><th>⌨️ Claude Code (오늘)</th><th>🖥️ Claude Cowork</th></tr></thead>
+      <tbody>
+        <tr><td><b>한마디로</b></td><td><b>만드는 도구</b> (AI 건축가)</td><td>처리하는 도구 (AI 비서)</td></tr>
+        <tr><td><b>작동 방식</b></td><td>터미널에서 파일을 <b>직접</b> 읽고 씀</td><td>격리된 샌드박스에서 화면을 조작</td></tr>
+        <tr><td><b>속도·비용</b></td><td>텍스트 처리라 <b>빠르고 저렴</b></td><td>스크린샷 분석이라 느리고 토큰 많이 씀</td></tr>
+        <tr><td><b>내 컴퓨터·업무툴</b></td><td>전체 접근 · <b>Dooray 풀 연동</b></td><td>접근이 제한적</td></tr>
+        <tr><td><b>누구에게</b></td><td>터미널 한 번만 넘으면 압도적</td><td>터미널이 정말 부담스러운 사람</td></tr>
+      </tbody>
+    </table>
+    <div class="quote mt-5">차이는 "능력"이 아니라 <b>"터미널을 여느냐"</b>뿐이에요. 그 허들만 넘으면 업무 자동화는 Claude Code가 훨씬 강력합니다. 오늘 그 한 번을 같이 넘습니다. 💪</div>
+  </div>
+</section>
+
+<!-- 요금제 -->
+<section class="slide" id="pricing" style="background:linear-gradient(135deg,#f0fdf4,#ecfeff);">
+  <div class="card">
+    <span class="chip chip-emerald">요금제 · 어떤 걸 결제하나?</span>
+    <h2 class="slide-h2 mt-3">Pro? Max? — 업무에 쓰려면 얼마짜리가 필요할까</h2>
+    <p class="text-slate-600 mt-2">Claude Code는 <b>유료 구독 전용</b>이에요. 회사 계정이 있으면 그걸 쓰고, 개인이라면 아래를 참고하세요. (최신 가격: claude.com/pricing)</p>
+    <table class="t mt-5">
+      <thead><tr><th width="18%">플랜</th><th>Pro ($20)</th><th>Max ($100 · 5×)</th><th>Max ($200 · 20×)</th></tr></thead>
+      <tbody>
+        <tr><td><b>사용량 한도</b></td><td>기본</td><td>Pro의 5배</td><td>Pro의 20배</td></tr>
+        <tr><td><b>Opus(최강 모델)</b></td><td>사실상 어려움</td><td>✅ 사용 가능</td><td>✅ 넉넉</td></tr>
+        <tr><td><b>적합</b></td><td>맛보기·가벼운 사용</td><td><b>본격 업무 (추천)</b></td><td>하루 종일 헤비 유저</td></tr>
+      </tbody>
+    </table>
+    <div class="grid-cards gc-2 mt-4">
+      <div class="tile-soft"><div class="font-bold">🍯 솔직한 팁</div><div class="small mt-1">Pro는 집중해서 쓰면 <b>1시간 만에 한도</b>가 차기도 해요. 업무에 제대로 쓸 거면 Max $100부터가 현실적입니다.</div></div>
+      <div class="tile-soft"><div class="font-bold">💸 아끼는 법</div><div class="small mt-1">새 작업엔 <span class="mono">/clear</span> · 기본은 Sonnet 모델 · <span class="mono">/usage</span> 로 사용량 확인</div></div>
+    </div>
+    <div class="quote mt-4">오늘 실습은 <b>어떤 플랜이든 로그인만 되면</b> 충분합니다. 요금은 나중에 업무 강도에 맞춰 정하세요.</div>
+  </div>
+</section>
 
 
 
@@ -494,7 +535,7 @@
     <h2 class="slide-h2 mt-3">오늘 나오는 낯선 단어, 딱 이 정도만</h2>
     <div class="grid-cards gc-2 mt-6">
       <div class="tile"><div class="font-bold">🖥️ CLI / 터미널</div><div class="small mt-1">마우스 대신 <b>키보드로 컴퓨터에 명령</b>하는 검은 창. 무서운 게 아니라 "말 거는 창".</div></div>
-      <div class="tile"><div class="font-bold">📦 Node.js</div><div class="small mt-1">Claude Code가 돌아가려면 필요한 <b>엔진</b>. 자동차의 엔진이라 생각하세요.</div></div>
+      <div class="tile"><div class="font-bold">⚡ 네이티브 설치</div><div class="small mt-1">Claude Code는 <b>필요한 걸 스스로 챙겨</b> 설치돼요. 예전처럼 Node.js를 따로 깔 필요 없습니다.</div></div>
       <div class="tile"><div class="font-bold">🌿 Git</div><div class="small mt-1">파일 <b>버전을 관리·내려받는</b> 도구. 실습자료도 Git으로 받습니다.</div></div>
       <div class="tile"><div class="font-bold">🧩 Skill</div><div class="small mt-1">Claude Code에 <b>기능을 추가</b>하는 확장팩. "풀옵션"으로 만들어 줍니다.</div></div>
       <div class="tile"><div class="font-bold">🔌 MCP</div><div class="small mt-1">Model Context Protocol. Claude를 <b>외부 도구(Dooray 등)에 연결</b>하는 표준 케이블.</div></div>
@@ -602,7 +643,7 @@
 <section class="slide" id="part-install1" style="background:linear-gradient(135deg,#ecfdf5,#ecfeff);">
   <div class="card">
     <div class="flex items-center gap-3"><span class="chip chip-emerald">실습 1</span></div>
-    <h1 class="slide-title mt-4">설치하기 — Node · Git · Claude Code</h1>
+    <h1 class="slide-title mt-4">설치하기 — 명령어 한 줄이면 끝</h1>
     <p class="lead mt-4 text-xl" style="color:#047857;"><b>천천히, 한 줄씩 같이 칩니다</b></p>
     <p class="text-slate-600 mt-2">보조강사가 순회하며 1:1 지원</p>
   </div>
@@ -634,28 +675,27 @@
 <!-- 설치 명령 -->
 <section class="slide" id="install">
   <div class="card">
-    <span class="chip chip-cyan">STEP 1~3 · 엔진 확인 → 도구 설치</span>
-    <h2 class="slide-h2 mt-3">한 줄씩 복사해서 붙여넣기</h2>
-    <div class="grid-cards gc-2 mt-6">
-      <div class="tile">
-        <div class="font-bold">① Node.js = 엔진</div>
-        <div class="pre mt-3"><span class="c"># 버전이 뜨면 이미 설치됨</span>
-$ <span class="k">node --version</span>
-v24.13.0
-<span class="c"># 안 뜨면 → nodejs.org 에서 설치</span></div>
+    <span class="chip chip-cyan">STEP 1 · 명령어 한 줄 붙여넣기</span>
+    <h2 class="slide-h2 mt-3">설치는 명령어 한 줄 — 복사해서 붙여넣기</h2>
+    <p class="text-slate-600 mt-2">예전엔 Node.js·npm을 따로 깔았지만, 이제는 <b>Claude Code가 알아서 다 설치</b>합니다. 아래에서 <b>내 OS 줄만</b> 복사하세요. <span style="color:#be123c;">(⚠️ 옛날 <span class="mono">npm install</span> 방식은 이제 안 씁니다)</span></p>
+    <div class="grid-cards gc-2 mt-5">
+      <div class="tile-brand">
+        <div class="font-bold">🍎 Mac / Linux</div>
+        <div class="pre mt-3"><span class="c"># 터미널에 붙여넣고 Enter</span>
+$ <span class="k">curl -fsSL <span class="s">https://claude.ai/install.sh</span> | bash</span></div>
+        <div class="small mt-2">Homebrew를 쓴다면 → <span class="mono">brew install --cask claude-code</span></div>
       </div>
       <div class="tile">
-        <div class="font-bold">② Git = 파일 관리·다운로드</div>
-        <div class="pre mt-3">$ <span class="k">git --version</span>
-git version 2.45.0
-<span class="c"># 안 뜨면 → git-scm.com 에서 설치</span></div>
+        <div class="font-bold">🪟 Windows (PowerShell)</div>
+        <div class="pre mt-3"><span class="c"># PowerShell에 붙여넣고 Enter</span>
+$ <span class="k">irm <span class="s">https://claude.ai/install.ps1</span> | iex</span></div>
+        <div class="small mt-2">로컬 작업엔 <b>Git for Windows</b>가 있어야 해요 (git-scm.com)</div>
       </div>
     </div>
-    <div class="tile-brand mt-4">
-      <div class="font-bold">③ Claude Code = 자동차</div>
-      <div class="pre mt-3"><span class="c"># 1~2분 소요, 빨간 글씨는 대부분 무시해도 됨</span>
-$ <span class="k">npm install -g <span class="s">@anthropic-ai/claude-code</span></span>
-added 312 packages  <span class="c"># = 성공</span></div>
+    <div class="tile-soft mt-4">
+      <div class="font-bold">✅ 설치 확인</div>
+      <div class="pre mt-2">$ <span class="k">claude --version</span>
+2.1.x (Claude Code)  <span class="c"># 버전 번호가 뜨면 성공</span></div>
     </div>
     <div class="quote mt-4">설치는 오늘 한 번만. 다음부터는 <span class="kbd">claude</span> 한 단어면 켜집니다.</div>
   </div>
@@ -686,8 +726,8 @@ $ <span class="k">claude</span>
     <h2 class="slide-h2 mt-3">자주 나는 문제 · 바로 이렇게</h2>
     <div class="grid-cards gc-2 mt-6">
       <div class="tile"><div class="font-bold">❓ command not found: claude</div><div class="small mt-1">터미널을 <b>완전히 닫고 다시</b> 열기. 그래도면 설치 명령 재실행.</div></div>
-      <div class="tile"><div class="font-bold">❓ node/npm 이 없다고 나옴</div><div class="small mt-1">nodejs.org LTS 설치 후 <b>터미널 재시작</b>.</div></div>
-      <div class="tile"><div class="font-bold">❓ 빨간 경고(warn)가 잔뜩</div><div class="small mt-1">경고(warning)는 대부분 <b>무시 OK</b>. 마지막에 added…가 뜨면 성공.</div></div>
+      <div class="tile"><div class="font-bold">❓ Windows에서 실행 정책 오류</div><div class="small mt-1">PowerShell을 <b>관리자 권한</b>으로 다시 열거나, WSL(Ubuntu)에서 설치.</div></div>
+      <div class="tile"><div class="font-bold">❓ 설치 중 빨간 글씨가 잔뜩</div><div class="small mt-1">대부분 <b>경고라 무시 OK</b>. 마지막에 <span class="mono">claude --version</span> 이 되면 성공.</div></div>
       <div class="tile"><div class="font-bold">❓ 로그인 브라우저가 안 열림</div><div class="small mt-1">터미널에 뜬 <b>URL을 직접 복사</b>해서 브라우저에 붙여넣기.</div></div>
       <div class="tile"><div class="font-bold">❓ 권한 오류(EACCES) — Mac</div><div class="small mt-1">가이드의 <b>권한 명령</b> 그대로 복사. 모르면 조교 호출.</div></div>
       <div class="tile-rose"><div class="font-bold">🆘 그래도 안 되면</div><div class="small mt-1">손 들기 → 보조강사 1:1. 혼자 오래 붙들지 마세요.</div></div>
@@ -1000,7 +1040,7 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
   // Part labels by section id prefix
   const partOf = (id) => {
     if(['cover','instructor','opening','ai-era','ai-trends'].includes(id)) return '인트로';
-    if(id==='part1'||['chat-vs-cli','web-app-cli','terms-1','file-types'].includes(id)) return 'Part 1 · 왜 Claude Code인가?';
+    if(id==='part1'||['chat-vs-cli','web-app-cli','cc-vs-cowork','pricing','terms-1','file-types'].includes(id)) return 'Part 1 · 왜 Claude Code인가?';
     if(id==='part2'||['usecases','before-after','side-note'].includes(id)) return 'Part 2 · 무엇이 가능한가?';
     if(id==='part-install1'||['terminal','install','first-run','troubleshoot'].includes(id)) return 'Part 3 · 설치하기';
     if(id==='part-install2'||['skills','mcp-concept','dooray-mcp','mcp-practice','commands'].includes(id)) return 'Part 4 · Skills & MCP';
