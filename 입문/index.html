@@ -375,6 +375,49 @@
   </div>
 </section>
 
+<!-- ============ AI 동향 2026.07 ============ -->
+<section class="slide" id="ai-trends">
+  <div class="card">
+    <span class="chip chip-cyan">쉬어가는 이야기 · AI 동향</span>
+    <h2 class="slide-h2 mt-3">요즘 AI 세상, 이런 일이 벌어지고 있어요 <span class="badge badge-new">2026.07</span></h2>
+    <p class="text-slate-600 mt-2">지난 한 달 실제로 화제가 된 소식들입니다. "매일 바뀐다"는 말이 실감나죠. 우리가 오늘 만지는 도구도 그 흐름 한가운데 있어요.</p>
+    <div class="grid-cards gc-3 mt-5">
+      <div class="tile-brand">
+        <div class="text-2xl">🚀</div>
+        <div class="font-bold mt-1">Claude Sonnet 5 공개</div>
+        <div class="small mt-1">6월 말, 오늘 배우는 <b>Claude</b>의 새 세대 모델이 나왔어요. 도구가 이렇게 빠르게 좋아지는 중.</div>
+      </div>
+      <div class="tile-cyan">
+        <div class="text-2xl">🤖</div>
+        <div class="font-bold mt-1">코딩 에이전트 대중화</div>
+        <div class="small mt-1">Claude Code·Copilot·Cursor 등 "직접 일하는 AI"가 개발자 밖으로 빠르게 퍼지는 중.</div>
+      </div>
+      <div class="tile">
+        <div class="text-2xl">📉</div>
+        <div class="font-bold mt-1">오픈소스 모델의 추격</div>
+        <div class="small mt-1">GLM·Kimi·DeepSeek 등 성능 좋은 무료·저가 모델이 쏟아지며 AI 비용이 계속 내려가요.</div>
+      </div>
+      <div class="tile">
+        <div class="text-2xl">🏠</div>
+        <div class="font-bold mt-1">가정용 로봇 상용화</div>
+        <div class="small mt-1">$7,999짜리 가정용 로봇(Weave Isaac 1)이 올가을 배송 예약 시작 — AI가 집 안까지.</div>
+      </div>
+      <div class="tile-emerald">
+        <div class="text-2xl">🇰🇷</div>
+        <div class="font-bold mt-1">한국, AI 인프라 대규모 투자</div>
+        <div class="small mt-1">메모리 반도체·휴머노이드 로봇에 약 1조 달러 규모 투자 계획이 화제.</div>
+      </div>
+      <div class="tile-amber">
+        <div class="text-2xl">⚖️</div>
+        <div class="font-bold mt-1">AI 저작권·부정행위 논쟁</div>
+        <div class="small mt-1">"AI는 특허 발명자가 될 수 없다"(일본 대법원), 대학 시험 AI 부정 사태 등 규칙도 함께 진화 중.</div>
+      </div>
+    </div>
+    <div class="quote mt-5">💡 결론은 하나 — <b>도구가 빠르게 바뀌니, 직접 써본 사람만 앞서갑니다.</b> 오늘 설치가 그 첫걸음이에요.</div>
+    <div class="small mt-2" style="color:#94a3b8;">* 2026년 7월 초 실제 화제가 된 소식 기준 · 참고용으로 가볍게</div>
+  </div>
+</section>
+
 
 <!-- ============ PART 1 divider ============ -->
 <section class="slide" id="part1" style="background:linear-gradient(135deg,#eef2ff,#f5f3ff);">
@@ -598,7 +641,7 @@
         <div class="font-bold">① Node.js = 엔진</div>
         <div class="pre mt-3"><span class="c"># 버전이 뜨면 이미 설치됨</span>
 $ <span class="k">node --version</span>
-v22.15.0
+v24.13.0
 <span class="c"># 안 뜨면 → nodejs.org 에서 설치</span></div>
       </div>
       <div class="tile">
@@ -959,7 +1002,7 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
 
   // Part labels by section id prefix
   const partOf = (id) => {
-    if(['cover','instructor','opening','ai-era'].includes(id)) return '인트로';
+    if(['cover','instructor','opening','ai-era','ai-trends'].includes(id)) return '인트로';
     if(id==='part1'||['chat-vs-cli','web-app-cli','terms-1','file-types'].includes(id)) return 'Part 1 · 왜 Claude Code인가?';
     if(id==='part2'||['usecases','before-after','side-note'].includes(id)) return 'Part 2 · 무엇이 가능한가?';
     if(id==='part-install1'||['terminal','install','first-run','troubleshoot'].includes(id)) return 'Part 3 · 설치하기';
