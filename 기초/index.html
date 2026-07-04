@@ -246,7 +246,7 @@
         <span style="color:#fde047;">업무 자동화</span>
       </h1>
       <p class="lead" style="color:#e0f2fe;font-size:22px;">오늘, 내 업무 자동화 도구 <b>1개를 실제로 완성</b>하고 퇴장합니다.</p>
-      <div class="grid-cards gc-4 mt-6">
+      <div class="grid-cards gc-5 mt-6">
         <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:14px;">
           <div class="text-lg mb-1">📊</div>
           <div class="font-bold">① 매출 분석</div>
@@ -259,13 +259,18 @@
         </div>
         <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:14px;">
           <div class="text-lg mb-1">📧</div>
-          <div class="font-bold">③ 메일 자동화</div>
-          <div class="text-sm opacity-80">명단 → 메일 초안</div>
+          <div class="font-bold">③ 메일</div>
+          <div class="text-sm opacity-80">명단 → 자동 발송</div>
         </div>
         <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:14px;">
           <div class="text-lg mb-1">🔗</div>
-          <div class="font-bold">④ Dooray 연동</div>
+          <div class="font-bold">④ Dooray</div>
           <div class="text-sm opacity-80">태스크 조회·생성</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:14px;">
+          <div class="text-lg mb-1">📄</div>
+          <div class="font-bold">⑤ 보고서</div>
+          <div class="text-sm opacity-80">design.md → PPT</div>
         </div>
       </div>
     </div>
@@ -307,12 +312,12 @@
     <div class="grid-cards gc-3 mt-6">
       <div class="tile-brand"><div class="text-2xl">📝</div><div class="font-bold mt-1">CLAUDE.md 작성</div><div class="small mt-1">내 업무 맥락을 Claude에 학습</div></div>
       <div class="tile"><div class="text-2xl">🎯</div><div class="font-bold mt-1">프롬프트 3원칙</div><div class="small mt-1">복잡한 지시를 효과적으로 전달</div></div>
-      <div class="tile-emerald"><div class="text-2xl">✅</div><div class="font-bold mt-1">실습 4종 완성</div><div class="small mt-1">매출분석 · 대시보드 · 메일 · Dooray</div></div>
+      <div class="tile-emerald"><div class="text-2xl">✅</div><div class="font-bold mt-1">실습 5종 완성</div><div class="small mt-1">매출분석 · 대시보드 · 메일 · Dooray · 보고서</div></div>
     </div>
     <div class="tile-soft mt-4">
       <div class="font-bold">🗓️ 오늘 3시간 흐름</div>
       <div class="small mt-2" style="line-height:1.9">
-        00:05 환경 점검 · 00:15 <b>이론</b>(CLAUDE.md + 프롬프트 3원칙) · 00:25 <b>실습</b>(① 매출분석 → ② 대시보드 → ③ 메일 → ④ Dooray) · 01:55 완성 확인 & Q&A
+        00:05 환경 점검 · 00:15 <b>이론</b>(CLAUDE.md + 프롬프트 3원칙) · 00:25 <b>실습</b>(① 매출분석 → ② 대시보드 → ③ 메일 → ④ Dooray → ⑤ 보고서/PPT) · 01:55 완성 확인 & Q&A
       </div>
     </div>
     <div class="quote mt-4">실습자료 페이지를 열어두세요 — 단계별로 따라가면 됩니다.</div>
@@ -547,6 +552,44 @@ $ <span class="k">claude</span></div>
 </section>
 
 
+<!-- 실습 ⑤ 보고서 + PPT -->
+<section class="slide" id="lab-report">
+  <div class="card">
+    <span class="chip chip-amber">실습 ⑤ · 보고서 & PPT</span>
+    <h2 class="slide-h2 mt-3">design.md로 사내 템플릿 맞춘 문서 만들기</h2>
+    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#3-I" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 3-I</a>
+    <p class="text-slate-600 mt-2">Claude Code는 <b>PPT(python-pptx)</b>도 만들 수 있습니다. 핵심은 <b>design.md</b>에 사내 템플릿 규칙을 적어두는 것.</p>
+
+    <div class="tile-soft mt-4">
+      <div class="font-bold">📌 design.md = 디자인 설명서</div>
+      <div class="small mt-1">폰트·색상·레이아웃 규칙을 적어두면, Claude가 <b>매번 같은 스타일</b>로 PPT를 만듭니다.</div>
+      <div class="pre mt-2" style="font-size:12px;"><span class="c"># design.md 예시</span>
+## PPT 규칙
+- 폰트: NanumGothic (본문 11pt, 제목 20pt Bold)
+- 색상: 제목 #191919, 강조 #4f46e5
+- 로고: assets/logo.png (우측 하단)
+- 한 슬라이드에 내용 5줄 이내</div>
+    </div>
+
+    <div class="grid-cards gc-2 mt-4">
+      <div class="tile">
+        <div class="font-bold">STEP 1 · 보고서 초안</div>
+        <div class="pre mt-2">> <span class="s">매출 분석 결과로 팀장 보고용 PPT 만들어줘. design.md 규칙 따라서</span></div>
+      </div>
+      <div class="tile-emerald">
+        <div class="font-bold">STEP 2 · 수정 지시</div>
+        <div class="pre mt-2">> <span class="s">3페이지에 월별 추이 차트 추가하고, 표지에 로고 넣어줘</span></div>
+      </div>
+    </div>
+    <div class="grid-cards gc-3 mt-3">
+      <div class="tile-soft"><div class="font-bold">📄 마크다운 보고서</div><div class="small mt-1">"보고서.md로 저장" → 빠른 텍스트 보고</div></div>
+      <div class="tile-soft"><div class="font-bold">📊 PPT 생성</div><div class="small mt-1">"python-pptx로 .pptx 만들어줘" → 실제 파워포인트 파일</div></div>
+      <div class="tile-soft"><div class="font-bold">🎨 템플릿 유지</div><div class="small mt-1">design.md 한 번 작성 → 모든 문서에 일관된 스타일</div></div>
+    </div>
+    <div class="quote mt-3">🎯 핵심: <b>design.md</b>에 우리 팀 규칙을 적어두면, 누가 만들어도 같은 스타일의 문서가 나옵니다.</div>
+  </div>
+</section>
+
 <!-- 막힐 때 -->
 <section class="slide" id="stuck" style="background:linear-gradient(135deg,#fff1f2,#fef3c7);">
   <div class="card">
@@ -628,7 +671,7 @@ $ <span class="k">claude</span></div>
   <div class="card" style="background:transparent;border:none;box-shadow:none;color:#fff;">
     <span class="chip" style="background:rgba(255,255,255,.18);color:#fff;">클로징</span>
     <h1 class="slide-title mt-4" style="color:#fff;">완성하셨나요? 🎉</h1>
-    <p class="lead mt-4" style="color:#e0f2fe;"><b style="color:#fde047;">주간보고.md</b> · <b style="color:#fde047;">대시보드</b> · <b style="color:#fde047;">메일 초안</b> · <b style="color:#fde047;">Dooray 태스크</b> — 확인해보세요!</p>
+    <p class="lead mt-4" style="color:#e0f2fe;"><b style="color:#fde047;">주간보고</b> · <b style="color:#fde047;">대시보드</b> · <b style="color:#fde047;">메일</b> · <b style="color:#fde047;">Dooray</b> · <b style="color:#fde047;">보고서/PPT</b> — 확인해보세요!</p>
     <div class="grid-cards gc-3 mt-6">
       <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">✅ 완성 확인</div><div class="small mt-1" style="opacity:.9;color:#e0f2fe">강사에게 산출물 보여주기</div></div>
       <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">🔧 미완료자</div><div class="small mt-1" style="opacity:.9;color:#e0f2fe">후속 지원 안내</div></div>
