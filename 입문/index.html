@@ -165,6 +165,13 @@
   .remote-controls button.secondary{background:#e2e8f0;color:#334155;}
   .remote-controls button.secondary:hover{background:#cbd5e1;}
 
+  /* 전체화면 시 네비/컨트롤 숨김 */
+  :fullscreen .nav,
+  :fullscreen .deck-ctrl,
+  :fullscreen .deck-arrow,
+  :fullscreen .deck-progress{display:none !important;}
+  :fullscreen .slide{padding-top:24px;}
+
   @media print{
     .nav,.deck-ctrl,.deck-arrow,.deck-progress,#overview,.pre-copy-btn{display:none !important;}
     body,html{overflow:visible;background:#fff;}
