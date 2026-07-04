@@ -15,15 +15,15 @@
     --ok:#10b981; --warn:#f59e0b; --bad:#ef4444; --bg:#f8fafc;
   }
   *,*::before,*::after{box-sizing:border-box;}
-  html{zoom:1.5;}
+  html{font-size:137.5%;}
   html,body{margin:0;padding:0;height:100%;overflow:hidden;font-family:'Pretendard',system-ui,-apple-system,sans-serif;color:var(--ink);background:#0f172a;}
   code,pre,.mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;}
   /* Deck container */
   #deck{position:fixed;inset:0;background:var(--bg);}
-  .slide{position:absolute;inset:0;padding:64px 32px 80px;display:none;align-items:center;justify-content:center;overflow-y:auto;}
+  .slide{position:absolute;inset:0;padding:46px 80px 56px;display:none;align-items:center;justify-content:center;overflow-y:auto;}
   .slide.active{display:flex;animation:fadeIn .35s ease;}
   @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
-  .card{width:100%;max-width:1180px;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 30px 80px -40px rgba(15,23,42,.35);padding:48px 56px;max-height:calc(100vh - 144px);overflow-y:auto;}
+  .card{width:100%;max-width:1180px;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 30px 80px -40px rgba(15,23,42,.35);padding:48px 56px;max-height:calc(100vh - 102px);overflow-y:auto;}
   .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:600;}
   .chip-brand{background:#eef2ff;color:var(--brand);}
   .chip-cyan{background:#ecfeff;color:#0e7490;}
@@ -60,15 +60,15 @@
   .pillrow{display:flex;flex-wrap:wrap;gap:8px;}
   .pill{background:#fff;border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;color:#334155;}
   .ok::before{content:"✅ ";} .no::before{content:"❌ ";} .warn::before{content:"⚠️ ";} .star::before{content:"★ ";}
-  .nav{position:fixed;top:0;left:0;right:0;height:52px;backdrop-filter:blur(14px);background:rgba(255,255,255,.85);border-bottom:1px solid var(--line);z-index:50;display:flex;align-items:center;gap:14px;padding:0 18px;}
-  .nav-title{font-weight:800;font-size:14px;color:var(--ink);white-space:nowrap;}
-  .nav-tag{font-size:12px;color:var(--muted);}
-  .nav-breadcrumb{display:flex;align-items:center;gap:8px;padding:5px 12px;background:linear-gradient(90deg,#eef2ff,#ecfeff);border:1px solid #c7d2fe;border-radius:999px;font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60vw;}
+  .nav{position:fixed;top:0;left:0;right:0;height:38px;backdrop-filter:blur(14px);background:rgba(255,255,255,.85);border-bottom:1px solid var(--line);z-index:50;display:flex;align-items:center;gap:10px;padding:0 14px;font-size:16px;}
+  .nav-title{font-weight:800;font-size:11px;color:var(--ink);white-space:nowrap;}
+  .nav-tag{font-size:10px;color:var(--muted);}
+  .nav-breadcrumb{display:flex;align-items:center;gap:6px;padding:3px 10px;background:linear-gradient(90deg,#eef2ff,#ecfeff);border:1px solid #c7d2fe;border-radius:999px;font-size:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60vw;}
   .nav-bc-part{font-weight:700;color:#4f46e5;flex-shrink:0;}
   .nav-bc-sep{color:#94a3b8;font-weight:600;flex-shrink:0;}
   .nav-bc-title{color:var(--ink2);font-weight:500;overflow:hidden;text-overflow:ellipsis;}
   .nav-actions{margin-left:auto;display:flex;gap:6px;align-items:center;flex-shrink:0;}
-  .nav-btn{font-size:12px;padding:6px 10px;border-radius:8px;background:#f1f5f9;color:#334155;font-weight:600;text-decoration:none;border:none;cursor:pointer;}
+  .nav-btn{font-size:10px;padding:4px 8px;border-radius:6px;background:#f1f5f9;color:#334155;font-weight:600;text-decoration:none;border:none;cursor:pointer;}
   .nav-btn:hover{background:#e2e8f0;}
   .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;background:#fef3c7;color:#b45309;letter-spacing:0.04em;}
   .badge-new{background:#dcfce7;color:#15803d;}
@@ -78,23 +78,23 @@
   details>summary{cursor:pointer;font-weight:600;color:var(--brand);}
 
   /* Slide deck controls */
-  .deck-ctrl{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:rgba(15,23,42,.85);backdrop-filter:blur(12px);color:#fff;padding:8px 14px;border-radius:999px;z-index:60;box-shadow:0 20px 40px -20px rgba(0,0,0,.4);}
-  .deck-ctrl button{background:transparent;color:#fff;border:none;cursor:pointer;font-size:18px;width:34px;height:34px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;transition:background .15s;}
+  .deck-ctrl{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;background:rgba(15,23,42,.85);backdrop-filter:blur(12px);color:#fff;padding:5px 12px;border-radius:999px;z-index:60;box-shadow:0 20px 40px -20px rgba(0,0,0,.4);font-size:16px;}
+  .deck-ctrl button{background:transparent;color:#fff;border:none;cursor:pointer;font-size:14px;width:28px;height:28px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;transition:background .15s;}
   .deck-ctrl button:hover{background:rgba(255,255,255,.15);}
   .deck-ctrl button:disabled{opacity:.3;cursor:not-allowed;}
-  .deck-counter{font-size:13px;font-weight:600;min-width:64px;text-align:center;letter-spacing:0.04em;}
-  .deck-arrow{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:96px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border:1px solid var(--line);cursor:pointer;z-index:55;color:var(--ink);font-size:22px;transition:background .15s;border-radius:12px;}
+  .deck-counter{font-size:11px;font-weight:600;min-width:50px;text-align:center;letter-spacing:0.04em;}
+  .deck-arrow{position:fixed;top:50%;transform:translateY(-50%);width:36px;height:72px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border:1px solid var(--line);cursor:pointer;z-index:55;color:var(--ink);font-size:18px;transition:background .15s;border-radius:10px;}
   .deck-arrow:hover{background:#fff;}
   .deck-arrow.prev{left:18px;}
   .deck-arrow.next{right:18px;}
   .deck-arrow:disabled{opacity:.3;cursor:not-allowed;}
 
   /* Progress bar */
-  .deck-progress{position:fixed;top:52px;left:0;right:0;height:3px;background:transparent;z-index:55;}
+  .deck-progress{position:fixed;top:38px;left:0;right:0;height:3px;background:transparent;z-index:55;}
   .deck-progress-bar{height:100%;background:linear-gradient(90deg,#4f46e5,#06b6d4);width:0%;transition:width .25s ease;}
 
   /* Overview mode */
-  #overview{position:fixed;inset:0;background:rgba(15,23,42,.92);z-index:100;display:none;padding:60px 24px 24px;overflow-y:auto;}
+  #overview{position:fixed;inset:0;background:rgba(15,23,42,.92);z-index:100;display:none;padding:46px 24px 24px;overflow-y:auto;}
   #overview.active{display:block;}
   #overview-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;}
   .ov-card{background:#fff;border-radius:12px;padding:14px;cursor:pointer;border:2px solid transparent;transition:transform .15s,border-color .15s;min-height:130px;display:flex;flex-direction:column;justify-content:space-between;}
@@ -105,7 +105,7 @@
   #overview-close{position:fixed;top:14px;right:18px;color:#fff;background:rgba(255,255,255,.15);border:none;width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:18px;}
 
   /* 슬라이드 번호 배지 */
-  .slide-num-badge{position:absolute;top:14px;right:18px;z-index:5;display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:6px 14px;border-radius:999px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 6px 16px -4px rgba(79,70,229,.45);transition:transform .15s,box-shadow .15s;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;}
+  .slide-num-badge{position:absolute;top:10px;right:14px;z-index:5;display:flex;align-items:center;gap:4px;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:4px 10px;border-radius:999px;font-weight:800;font-size:11px;cursor:pointer;box-shadow:0 6px 16px -4px rgba(79,70,229,.45);transition:transform .15s,box-shadow .15s;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;}
   .slide-num-badge:hover{transform:translateY(-2px);box-shadow:0 10px 24px -6px rgba(79,70,229,.6);}
   .slide-num-badge .total{opacity:.65;font-weight:600;}
   .slide-num-badge .label{font-size:10px;font-family:'Pretendard',sans-serif;font-weight:600;letter-spacing:0;opacity:.85;margin-left:2px;}
@@ -136,9 +136,9 @@
 
   /* Jump-to 입력 */
   .deck-jump{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border-radius:999px;padding:4px 10px;}
-  .deck-jump input{background:transparent;border:none;color:#fff;width:42px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;outline:none;}
+  .deck-jump input{background:transparent;border:none;color:#fff;width:42px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;outline:none;}
   .deck-jump input::placeholder{color:rgba(255,255,255,.4);}
-  .deck-jump-label{font-size:11px;color:#94a3b8;}
+  .deck-jump-label{font-size:9px;color:#94a3b8;}
 
   /* 코드 블록 복사 버튼 */
   .pre{position:relative;}
@@ -151,7 +151,7 @@
   body.remote-mode{overflow:auto;}
   body.remote-mode #deck,body.remote-mode .deck-arrow,body.remote-mode .deck-ctrl,body.remote-mode .deck-progress{display:none !important;}
   body.remote-mode .nav{position:static;}
-  #remote-panel{display:none;padding:80px 20px 20px;max-width:900px;margin:0 auto;}
+  #remote-panel{display:none;padding:50px 20px 20px;max-width:900px;margin:0 auto;}
   body.remote-mode #remote-panel{display:block;}
   #remote-status{background:#0f172a;color:#86efac;padding:14px 18px;border-radius:12px;font-family:'JetBrains Mono',monospace;margin-bottom:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
   #remote-status .label{color:#64748b;font-size:11px;text-transform:uppercase;}
@@ -165,6 +165,13 @@
   .remote-controls button:hover{background:#4338ca;}
   .remote-controls button.secondary{background:#e2e8f0;color:#334155;}
   .remote-controls button.secondary:hover{background:#cbd5e1;}
+
+  /* 전체화면 시 네비/컨트롤 숨김 */
+  :fullscreen .nav,
+  :fullscreen .deck-ctrl,
+  :fullscreen .deck-arrow,
+  :fullscreen .deck-progress{display:none !important;}
+  :fullscreen .slide{padding:16px 80px 16px;}
 
   @media print{
     .nav,.deck-ctrl,.deck-arrow,.deck-progress,#overview,.pre-copy-btn{display:none !important;}
@@ -313,6 +320,7 @@
   <div class="card">
     <span class="chip chip-cyan">설치 환경 점검</span>
     <h2 class="slide-h2 mt-3">시작 전 30초 점검</h2>
+    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#1-A" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 1-A</a>
     <div class="pre mt-4"><span class="c"># ① Claude Code 실행되나</span>
 $ <span class="k">claude --version</span>
 <span class="c"># ② Dooray 연동 살아있나 (A그룹 필수)</span>
@@ -339,6 +347,7 @@ $ <span class="k">claude --version</span>
   <div class="card">
     <span class="chip chip-brand">개념 · CLAUDE.md</span>
     <h2 class="slide-h2 mt-3">CLAUDE.md = 나만의 업무 설명서</h2>
+    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#2-B" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 2-B</a>
     <p class="text-slate-600 mt-2">폴더에 이 파일을 두면 Claude가 <b>매번 자동으로 읽고</b> 내 맥락에 맞게 일합니다.</p>
     <div class="pre mt-4"><span class="c"># CLAUDE.md 예시</span>
 ## 나는 누구
@@ -366,6 +375,7 @@ $ <span class="k">claude --version</span>
   <div class="card">
     <span class="chip chip-amber">개념 · 프롬프트 3원칙</span>
     <h2 class="slide-h2 mt-3">복잡한 지시를 효과적으로 전달하는 법</h2>
+    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#2-A" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 2-A</a>
     <div class="grid-cards gc-3 mt-6">
       <div class="tile-brand"><div class="font-bold">① 구체성</div><div class="small mt-2">"정리해줘"❌ → <b>"월별 합계를 표로, 큰 순서대로"</b>✅</div></div>
       <div class="tile-cyan"><div class="font-bold">② 맥락</div><div class="small mt-2">"이건 <b>팀장 보고용</b>이고, 존댓말로" 처럼 배경을 준다</div></div>
@@ -402,6 +412,7 @@ $ <span class="k">claude --version</span>
   <div class="card">
     <span class="chip chip-brand">🅰️ A그룹 · Dooray 자동화</span>
     <h2 class="slide-h2 mt-3">태스크 조회 → 주간보고 자동 생성</h2>
+    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#3-B" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 3-B, 3-F</a>
     <div class="tile-soft mt-4">
       <div class="font-bold">📌 실습 과제</div>
       <div class="small mt-1">Dooray에 쌓인 <b>내 태스크를 자동으로 불러와</b>, 완료·진행중·계획 3섹션으로 정리한 <b>주간보고 마크다운(.md) 파일</b>을 만든다. 매주 반복하던 취합을 한 번에.</div>
@@ -429,6 +440,7 @@ $ <span class="k">claude --version</span>
   <div class="card">
     <span class="chip chip-cyan">🅱️ B그룹 · 대시보드 만들기</span>
     <h2 class="slide-h2 mt-3">엑셀/CSV → 차트 대시보드 (HTML)</h2>
+    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#3-A" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 3-A, 3-D</a>
     <div class="tile-soft mt-4">
       <div class="font-bold">📌 실습 과제</div>
       <div class="small mt-1">내 <b>엑셀/CSV 데이터를 분석</b>해서, 핵심 지표 카드와 차트를 담은 <b>대시보드 HTML 파일</b>을 만든다. 파일 하나만 열면 팀 누구나 볼 수 있는 형태.</div>
