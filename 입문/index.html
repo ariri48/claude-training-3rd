@@ -164,6 +164,9 @@
   .remote-controls button:hover{background:#4338ca;}
   .remote-controls button.secondary{background:#e2e8f0;color:#334155;}
   .remote-controls button.secondary:hover{background:#cbd5e1;}
+  #remote-notes{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:18px 20px;margin-bottom:14px;font-size:14px;line-height:1.8;color:#1e293b;white-space:pre-wrap;max-height:40vh;overflow-y:auto;}
+  #remote-notes .notes-title{font-weight:700;color:#92400e;font-size:12px;text-transform:uppercase;margin-bottom:8px;letter-spacing:.5px;}
+  #remote-notes .notes-body{}
 
   /* 전체화면 시 네비/컨트롤 숨김 */
   :fullscreen .nav,
@@ -224,6 +227,11 @@
   </div>
 
   <p style="font-size:13px;color:#64748b;margin-bottom:14px;">💡 휴대폰에서 이 페이지 열면 키보드 없이 슬라이드 넘기기 가능. 빔 화면 노트북은 mirror 모드여도 OK.</p>
+
+  <div id="remote-notes">
+    <div class="notes-title">📋 설명 노트</div>
+    <div class="notes-body" id="remote-notes-body">슬라이드를 선택하면 설명 내용이 여기에 표시됩니다.</div>
+  </div>
 
   <div class="remote-grid" id="remote-grid"></div>
 </div>
@@ -292,7 +300,7 @@
     </div>
     <div class="grid-cards gc-3 mt-8">
       <div class="tile-brand"><div class="text-2xl">🧭</div><div class="font-bold mt-1">눈높이 진행</div><div class="small mt-1">터미널이 처음인 분 기준으로 천천히</div></div>
-      <div class="tile-cyan"><div class="text-2xl">🙋</div><div class="font-bold mt-1">질문 대환영</div><div class="small mt-1">막히면 손드세요 — 바로 화면 공유로 확인</div></div>
+      <div class="tile-cyan"><div class="text-2xl">🙋</div><div class="font-bold mt-1">질문 대환영</div><div class="small mt-1">막히면 손 드세요 — 바로 화면 공유로 확인</div></div>
       <div class="tile-emerald"><div class="text-2xl">🎯</div><div class="font-bold mt-1">완주 목표</div><div class="small mt-1">나갈 때 내 노트북에서 claude 실행 확인</div></div>
     </div>
 
@@ -365,7 +373,7 @@
       <div style="background:rgba(99,102,241,.10);border:1px solid #4f46e5;border-radius:16px;padding:18px;">
         <div style="font-size:32px;">🎯</div>
         <div class="font-bold mt-2" style="color:#fff;font-size:17px;">AI는 도구, 운전대는 사람</div>
-        <div class="small mt-2" style="color:#cbd5e1;line-height:1.6;">판단·맥락·책임은 사람의 영역. AI는 그 사이를 메꿔주는 도구입니다.</div>
+        <div class="small mt-2" style="color:#cbd5e1;line-height:1.6;">판단·맥락·책임은 사람의 영역. AI는 그 사이를 메워주는 도구입니다.</div>
       </div>
       <div style="background:rgba(6,182,212,.10);border:1px solid #06b6d4;border-radius:16px;padding:18px;">
         <div style="font-size:32px;">🌀</div>
@@ -736,7 +744,7 @@ $ <span class="k">claude</span>
     <h2 class="slide-h2 mt-3">자주 나는 문제 · 바로 이렇게</h2>
     <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#1-H" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 1-H</a>
     <div class="grid-cards gc-2 mt-6">
-      <div class="tile"><div class="font-bold">❓ command not found: claude</div><div class="small mt-1">터미널을 <b>완전히 닫고 다시</b> 열기. 그래도면 설치 명령 재실행.</div></div>
+      <div class="tile"><div class="font-bold">❓ command not found: claude</div><div class="small mt-1">터미널을 <b>완전히 닫고 다시</b> 열기. 그래도 안 되면 설치 명령 재실행.</div></div>
       <div class="tile"><div class="font-bold">❓ Windows에서 실행 정책 오류</div><div class="small mt-1">PowerShell을 <b>관리자 권한</b>으로 다시 열거나, WSL(Ubuntu)에서 설치.</div></div>
       <div class="tile"><div class="font-bold">❓ 설치 중 빨간 글씨가 잔뜩</div><div class="small mt-1">대부분 <b>경고라 무시 OK</b>. 마지막에 <span class="mono">claude --version</span> 이 되면 성공.</div></div>
       <div class="tile"><div class="font-bold">❓ 로그인 브라우저가 안 열림</div><div class="small mt-1">터미널에 뜬 <b>URL을 직접 복사</b>해서 브라우저에 붙여넣기.</div></div>
@@ -880,7 +888,7 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
     </div>
     <div class="grid-cards gc-3 mt-4">
       <div class="tile-soft"><div class="font-bold">💬 이렇게 쓰는 겁니다</div><div class="small mt-1">"조회해줘 → 정리해줘 → 저장해줘"를 <b>말로 이어서</b></div></div>
-      <div class="tile-soft"><div class="font-bold">🔁 안 되면</div><div class="small mt-1">터미널 재시작 → 그래도면 손 들기 (조교 1:1)</div></div>
+      <div class="tile-soft"><div class="font-bold">🔁 안 되면</div><div class="small mt-1">터미널 재시작 → 그래도 안 되면 손 들기 (조교 1:1)</div></div>
       <div class="tile-emerald"><div class="font-bold">🎯 여기까지 됐다면</div><div class="small mt-1">기초 과정 준비 <b>완료</b> — 실전은 다음 시간에</div></div>
     </div>
     <div class="quote mt-4">"설치했다"보다 중요한 건 <b>"한 번 써봤다"</b>. 오늘 이 두 줄만 성공하면 충분합니다. 🙌</div>
@@ -1246,6 +1254,40 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
   // BroadcastChannel (같은 브라우저 내 창끼리 실시간 통신)
   const channel = ('BroadcastChannel' in window) ? new BroadcastChannel('deck-sync') : null;
 
+  // 슬라이드별 스피커 노트
+  const speakerNotes = {
+    'cover': '인사 → 교육 목표 안내. "오늘 2시간이면 설치부터 첫 실행까지 끝납니다." 긴장 풀어주기. 실습 위주라 편하게.',
+    'instructor': '자기소개 간단히. TA 소개 → "막히면 언제든 손 들어주세요, TA가 바로 갑니다." 분위기 잡기.',
+    'opening': '오늘 나갈 때 할 수 있는 4가지 읽어주기. "코드 몰라도 됩니다"를 강조. 손 들기 독려.',
+    'ai-era': '가벼운 토크. "대체 vs 도구" 논쟁 → 결론은 직접 써본 사람이 유리하다. 분위기 전환용, 길게 안 끌기.',
+    'ai-trends': '최근 AI 소식 훑기. 수강생 관심 끌기용. "이렇게 빠르게 바뀌니까 직접 써봐야 한다"로 마무리.',
+    'part1': '파트 전환 안내. "왜 Claude Code인지 이론 먼저 짧게 보겠습니다."',
+    'chat-vs-cli': '핵심 슬라이드. 좌우 비교하며 설명. "채팅형은 컨설턴트, CLI형은 비서" 비유 강조. 파일을 직접 만진다는 게 핵심.',
+    'web-app-cli': '표 훑기. "웹/앱/CLI 세 가지 방식이 있다. 오늘 배우는 건 CLI." 요금제 유료 전용 언급.',
+    'cc-vs-cowork': 'Cowork와 차이 설명. "터미널 한 번만 넘으면 Claude Code가 훨씬 강력하다. 오늘 그 한 번을 같이 넘는다."',
+    'pricing': '요금 안내. Pro는 1시간이면 한도 참. 업무용은 Max $100 추천. 오늘 실습은 아무 플랜이나 OK.',
+    'terms-1': '용어 6개 빠르게. "외울 필요 없고, 나올 때마다 설명할 거예요." 특히 CLI/터미널은 "말 거는 창"으로.',
+    'file-types': '파일 확장자 표 훑기. ".env는 비밀 값 보관 파일 — 나중에 다시 나옵니다." 가볍게.',
+    'part2': '파트 전환. "이론 끝, 뭘 할 수 있는지 사례 보겠습니다."',
+    'usecases': '활용 사례 6개. 수강생 직무에 맞는 것 1-2개 짚어주기. "이 중에 내 업무에 해당하는 거 있으면 오늘 직접 해볼 수 있어요."',
+    'before-after': 'Before/After 비교. 숫자로 효과 보여주기. "40분 → 3분. 핵심은 매번 하던 걸 한 번 세팅으로 줄인다."',
+    'side-note': '개인 프로젝트 가능성 가볍게 언급. "오늘 초점은 회사 업무." 빠르게 넘기기.',
+    'part-install1': '실습 파트 전환. "이제 직접 합니다. 터미널 열어주세요." 에너지 올리기.',
+    'terminal': '★ 핵심 실습. 천천히. "시작 → PowerShell 검색 → 실행". 검은 창 떠도 놀라지 말라고. TA 돌아다니며 확인.',
+    'install': '★ 설치 명령어 복붙. 화면에 명령어 띄워주고 따라하게. Mac/Windows 나눠서. claude --version으로 확인.',
+    'first-run': '★ 첫 실행. claude 입력 → 브라우저 로그인. 첫 질문 따라하게. "한국어로 답하면 성공!" TA 확인.',
+    'troubleshoot': '에러 대응. "이 슬라이드는 막혔을 때 보는 것. 지금 잘 되는 분은 넘어가도 됩니다." 손 든 분 TA 배정.',
+    'part-install2': '파트 전환. "설치 끝, 이제 확장팩과 Dooray 연동."',
+    'skills': 'Skill 개념 설명. "앱스토어에서 기능 추가하는 것과 같다." 설치 명령 따라하게. 목록 뜨면 성공.',
+    'mcp-concept': 'MCP 개념. "USB-C 케이블 같은 것. Claude에게 손과 눈을 달아준다." 없으면/있으면 비교가 핵심.',
+    'dooray-mcp': '★ Dooray 토큰 발급 실습. 단계별로 천천히. .env 설명 꼼꼼히. "토큰은 비밀번호! 화면 공유에 노출 금지."',
+    'mcp-practice': '★ 실습 A(Skill) + B(Dooray). 직접 시켜보기. "Dooray에 글이 생기면 성공." TA 돌아다니며 확인.',
+    'commands': '기본 명령어 4개 + 단축키 + 슬래시 8종. "/help, /clear, /resume 3개만 기억." /usage로 요금 확인. 나머지는 한국어로.',
+    'preview': '기초 과정 미리보기. "다음 시간에 CLAUDE.md 작성하고 실전 자동화합니다." 기대감.',
+    'cheatsheet': '"이 한 장 캡처하세요" → 잠시 멈추고 캡처 시간. 4원칙 읽어주기.',
+    'closing': '수고 인사. 실행 확인 체크. Q&A 시간. "나갈 때 claude 실행 + Dooray 연동 확인받고 가세요."'
+  };
+
   if(isRemote){
     // ---- 리모컨 모드 ----
     document.body.classList.add('remote-mode');
@@ -1267,6 +1309,10 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
       });
       const cur = grid.querySelector('.current');
       if(cur) cur.scrollIntoView({behavior:'smooth',block:'nearest'});
+      // 스피커 노트 업데이트
+      const notesBody = document.getElementById('remote-notes-body');
+      const slideId = slides[i]?.id || '';
+      notesBody.textContent = speakerNotes[slideId] || '(이 슬라이드에 등록된 노트가 없습니다.)';
     }
 
     // 초기 상태 복원
