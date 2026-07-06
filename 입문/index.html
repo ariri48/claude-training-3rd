@@ -404,6 +404,49 @@
   </div>
 </section>
 
+<!-- ============ 프로그래밍 언어의 진화 ============ -->
+<section class="slide" id="vibe-coding" style="background:linear-gradient(135deg,#fffbeb,#fef3c7);">
+  <div class="card">
+    <span class="chip" style="background:#fbbf24;color:#78350f;">잡학지식</span>
+    <h2 class="slide-h2 mt-3">프로그래밍 언어는 어떻게 "한국어"가 됐을까?</h2>
+    <!-- 타임라인 -->
+    <div style="display:flex;align-items:flex-start;gap:0;margin-top:20px;position:relative;">
+      <div style="position:absolute;top:28px;left:30px;right:30px;height:3px;background:linear-gradient(90deg,#94a3b8,#4f46e5);border-radius:2px;z-index:0;"></div>
+      <div style="flex:1;text-align:center;position:relative;z-index:1;">
+        <div style="width:44px;height:44px;background:#fff;border:3px solid #94a3b8;border-radius:50%;margin:6px auto;display:flex;align-items:center;justify-content:center;font-size:16px;">0️⃣</div>
+        <div class="font-bold" style="font-size:12px;">0과 1</div>
+        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">전기 흐름<br>= 코드의 시작</div>
+      </div>
+      <div style="flex:1;text-align:center;position:relative;z-index:1;">
+        <div style="width:44px;height:44px;background:#fff;border:3px solid #94a3b8;border-radius:50%;margin:6px auto;display:flex;align-items:center;justify-content:center;font-size:14px;">🔧</div>
+        <div class="font-bold" style="font-size:12px;">어셈블리어</div>
+        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">MOV AH, 09<br>기호로 명령</div>
+      </div>
+      <div style="flex:1;text-align:center;position:relative;z-index:1;">
+        <div style="width:44px;height:44px;background:#fff;border:3px solid #64748b;border-radius:50%;margin:6px auto;display:flex;align-items:center;justify-content:center;font-size:14px;">🐍</div>
+        <div class="font-bold" style="font-size:12px;">Python</div>
+        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">print("Hello")<br>사람에 가까운 언어</div>
+      </div>
+      <div style="flex:1;text-align:center;position:relative;z-index:1;">
+        <div style="width:44px;height:44px;background:#fff;border:3px solid #4f46e5;border-radius:50%;margin:6px auto;display:flex;align-items:center;justify-content:center;font-size:14px;">💬</div>
+        <div class="font-bold" style="font-size:12px;color:#4f46e5;">자연어 프롬프트</div>
+        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">"홈페이지 만들어줘"<br>한국어가 코드가 됨</div>
+      </div>
+      <div style="flex:1;text-align:center;position:relative;z-index:1;">
+        <div style="width:44px;height:44px;background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:50%;margin:6px auto;display:flex;align-items:center;justify-content:center;font-size:14px;">🤖</div>
+        <div class="font-bold" style="font-size:12px;color:#7c3aed;">AI 에이전트</div>
+        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">맥락+도구+실행<br>= 오늘 배우는 것</div>
+      </div>
+    </div>
+    <!-- 핵심 메시지 -->
+    <div style="background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;border-radius:14px;padding:16px 20px;margin-top:20px;">
+      <div class="font-bold" style="font-size:15px;">바이브코딩 시대 — 프롬프트가 곧 실력</div>
+      <div style="font-size:13px;margin-top:6px;opacity:.92;line-height:1.6;">프롬프트는 <b>역할놀이가 아니라</b>, AI와 대화하며 <b>맥락을 잡고 목표를 정의</b>하는 것.<br>"카페 홈페이지 만들어줘" ✕ → "디저트 카페, 시그니처 3개, 계절 메뉴 5개 보여줘" ✓</div>
+    </div>
+    <div class="small mt-3" style="color:#92400e;">숙제: 유튜브에서 <b>'샌드위치 코딩'</b> 검색 🔍</div>
+  </div>
+</section>
+
 <!-- ============ AI 동향 2026.07 ============ -->
 <section class="slide" id="ai-trends">
   <div class="card">
@@ -977,42 +1020,52 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
 
 <!-- ============ 한 장 요약 (캡처용) ============ -->
 <section class="slide" id="cheatsheet" style="background:linear-gradient(135deg,#f5f3ff,#eef2ff);">
-  <div class="card">
-    <span class="chip chip-brand">가져가는 한 장</span>
-    <h2 class="slide-h2 mt-3">이 한 장만 캡처해 가세요 📸</h2>
-    <div class="grid-cards gc-3 mt-4">
-      <div class="tile-brand">
-        <div class="font-bold">① 시작하기</div>
-        <div class="pre mt-2" style="font-size:12px;line-height:1.6;">$ claude
-<span class="c"># 로그인 → 한국어로 질문</span>
-> 이 폴더 파일 목록 보여줘</div>
-        <div class="small mt-2">막히면 → 손 들기 or <span class="kbd">/help</span></div>
-      </div>
-      <div class="tile-brand">
-        <div class="font-bold">② 잘 시키는 법 (4원칙)</div>
-        <ul class="small mt-2" style="line-height:1.9">
-          <li>• <b>구체적</b>: "B열을 팀별로 합산"</li>
-          <li>• <b>형식 지정</b>: "표로 / 존댓말로"</li>
-          <li>• <b>맥락 제공</b>: "팀장 보고용"</li>
-          <li>• <b>예시 1개</b>: 원하는 결과 한 줄</li>
-        </ul>
-      </div>
-      <div class="tile-brand">
-        <div class="font-bold">③ 반복 줄이기</div>
-        <div class="small mt-2"><b>CLAUDE.md</b>에 한 번 적으면 매번 자동 적용 (기초에서 배웁니다)</div>
-        <div class="pre mt-2" style="font-size:12px;line-height:1.6"># 내 정보
-- 이름·부서
-# 보고서 규칙
-- 존댓말, 천 단위 콤마</div>
-      </div>
+  <div class="card" style="padding:28px 32px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span class="chip chip-brand">오늘의 한 장</span>
+      <span style="font-size:13px;color:#64748b;">📸 캡처해 가세요</span>
     </div>
-    <div class="tile-soft mt-4">
-      <div class="font-bold">🛠 오늘 익힌 것 — 집에서도 그대로</div>
-      <div class="grid-cards gc-4 mt-3" style="gap:8px;">
-        <div class="tile" style="padding:12px;"><div class="text-lg">⚙️</div><div class="font-bold mt-1" style="font-size:13px;">설치·실행</div><div class="small mt-1"><span class="mono">claude</span> 입력 → 로그인</div></div>
-        <div class="tile" style="padding:12px;"><div class="text-lg">🧩</div><div class="font-bold mt-1" style="font-size:13px;">Skill</div><div class="small mt-1">일하는 방법 확장팩</div></div>
-        <div class="tile" style="padding:12px;"><div class="text-lg">🔌</div><div class="font-bold mt-1" style="font-size:13px;">Dooray MCP</div><div class="small mt-1">토큰 → .env → 연동</div></div>
-        <div class="tile" style="padding:12px;"><div class="text-lg">🗣️</div><div class="font-bold mt-1" style="font-size:13px;">한국어로</div><div class="small mt-1">그냥 말로 시키기</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;">
+      <!-- 왼쪽: 시작·명령 -->
+      <div>
+        <div class="tile-brand" style="padding:14px;">
+          <div class="font-bold" style="font-size:14px;">시작하기</div>
+          <div class="pre mt-2" style="font-size:12px;line-height:1.5;padding:8px 10px;">$ claude<span class="c">          ← 실행</span>
+> 이 폴더 파일 목록 보여줘 <span class="c">← 한국어로 질문</span></div>
+        </div>
+        <div class="tile" style="padding:12px;margin-top:10px;">
+          <div class="font-bold" style="font-size:13px;">필수 명령어 3개</div>
+          <div style="display:flex;gap:6px;margin-top:6px;">
+            <span class="kbd">/clear</span><span class="small">새 주제</span>
+            <span class="kbd">/usage</span><span class="small">요금 확인</span>
+            <span class="kbd">/resume</span><span class="small">이어하기</span>
+          </div>
+        </div>
+        <div class="tile" style="padding:12px;margin-top:10px;">
+          <div class="font-bold" style="font-size:13px;">오늘 연동한 것</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;font-size:12px;">
+            <div>🧩 <b>Skill</b> — 기능 확장팩</div>
+            <div>🔌 <b>MCP</b> — Dooray 연동</div>
+          </div>
+        </div>
+      </div>
+      <!-- 오른쪽: 잘 시키는 법 -->
+      <div>
+        <div class="tile-brand" style="padding:14px;">
+          <div class="font-bold" style="font-size:14px;">잘 시키는 법</div>
+          <table style="width:100%;margin-top:8px;font-size:12.5px;line-height:1.7;">
+            <tr><td style="width:70px;font-weight:700;vertical-align:top;">구체적</td><td>"B열을 팀별로 합산해줘"</td></tr>
+            <tr><td style="font-weight:700;vertical-align:top;">형식 지정</td><td>"표로 정리 / 존댓말로"</td></tr>
+            <tr><td style="font-weight:700;vertical-align:top;">맥락 제공</td><td>"팀장 보고용이야"</td></tr>
+            <tr><td style="font-weight:700;vertical-align:top;">예시 1개</td><td>원하는 결과물 한 줄 보여주기</td></tr>
+          </table>
+        </div>
+        <div class="tile" style="padding:12px;margin-top:10px;">
+          <div class="font-bold" style="font-size:13px;">반복 줄이기 — CLAUDE.md</div>
+          <div class="pre mt-1" style="font-size:11.5px;line-height:1.5;padding:8px 10px;"># 내 정보 — 이름, 부서
+# 보고서 규칙 — 존댓말, 천 단위 콤마</div>
+          <div class="small mt-1" style="color:#64748b;">한 번 적으면 매번 자동 적용 (기초에서 작성)</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1075,7 +1128,7 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
 
   // Part labels by section id prefix
   const partOf = (id) => {
-    if(['cover','instructor','opening','ai-era','ai-trends'].includes(id)) return '인트로';
+    if(['cover','instructor','opening','ai-era','vibe-coding','ai-trends'].includes(id)) return '인트로';
     if(id==='part1'||['chat-vs-cli','web-app-cli','cc-vs-cowork','pricing','terms-1','file-types'].includes(id)) return 'Part 1 · 왜 Claude Code인가?';
     if(id==='part2'||['usecases','before-after','side-note'].includes(id)) return 'Part 2 · 무엇이 가능한가?';
     if(id==='part-install1'||['terminal','install','first-run','troubleshoot'].includes(id)) return 'Part 3 · 설치하기';
@@ -1274,6 +1327,7 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
     'instructor': '자기소개 간단히. TA 소개 → "막히면 언제든 손 들어주세요, TA가 바로 갑니다." 분위기 잡기.',
     'opening': '오늘 나갈 때 할 수 있는 4가지 읽어주기. "코드 몰라도 됩니다"를 강조. 손 들기 독려.',
     'ai-era': '가벼운 토크. "대체 vs 도구" 논쟁 → 결론은 직접 써본 사람이 유리하다. 분위기 전환용, 길게 안 끌기.',
+    'vibe-coding': '타임라인 따라가며 설명. "0과 1 → 어셈블리 → Python → 이제 한국어로 시킨다." 바이브코딩 강조. "프롬프트 = 역할놀이가 아니라 맥락+목표 정의." 카페 예시로 좋은 프롬프트 vs 나쁜 프롬프트 비교. 숙제 언급.',
     'ai-trends': '최근 AI 소식 훑기. 수강생 관심 끌기용. "이렇게 빠르게 바뀌니까 직접 써봐야 한다"로 마무리.',
     'part1': '파트 전환 안내. "왜 Claude Code인지 이론 먼저 짧게 보겠습니다."',
     'chat-vs-cli': '핵심 슬라이드. 좌우 비교하며 설명. "채팅형은 컨설턴트, CLI형은 비서" 비유 강조. 파일을 직접 만진다는 게 핵심.',
