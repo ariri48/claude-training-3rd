@@ -1317,8 +1317,15 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
     });
     const previewFrame = document.getElementById('remote-preview-frame');
     const previewTitle = document.getElementById('remote-preview-title');
+    let previewReady = false;
     // iframe에 메인 페이지 로드 (동기화 안 되게 별도 파라미터)
     previewFrame.src = location.pathname + '?preview=1';
+    previewFrame.addEventListener('load', ()=>{
+      previewReady = true;
+      // 로드 완료 후 현재 슬라이드로 이동
+      const cur = parseInt(localStorage.getItem(REMOTE_KEY)||'0');
+      try{ previewFrame.contentWindow.postMessage({type:'remote-goto', idx:cur}, '*'); }catch(e){}
+    });
 
     function updateRemoteUI(i){
       document.getElementById('remote-current').textContent = `${i+1} / ${slides.length} · ${titleOf(slides[i]).slice(0,30)}`;
@@ -1333,7 +1340,7 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
       notesBody.textContent = speakerNotes[slideId] || '(이 슬라이드에 등록된 노트가 없습니다.)';
       // 슬라이드 미리보기 업데이트
       previewTitle.textContent = titleOf(slides[i]).slice(0,50);
-      try{ previewFrame.contentWindow.postMessage({type:'remote-goto', idx:i}, '*'); }catch(e){}
+      if(previewReady){ try{ previewFrame.contentWindow.postMessage({type:'remote-goto', idx:i}, '*'); }catch(e){} }
     }
 
     // 초기 상태 복원
@@ -1380,12 +1387,15 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
     });
   } else if(params.get('preview') === '1'){
     // ---- 미리보기 모드 (리모컨 iframe 내부) ----
-    // 네비 등 숨기기
-    document.querySelector('.nav').style.display='none';
-    document.querySelector('.deck-ctrl').style.display='none';
+    // 네비·컨트롤 숨기기
+    ['nav','deck-ctrl','deck-progress'].forEach(cls=>{
+      const el = document.querySelector('.'+cls);
+      if(el) el.style.display='none';
+    });
     document.querySelectorAll('.deck-arrow').forEach(a=>a.style.display='none');
-    const pbar = document.querySelector('.deck-progress');
-    if(pbar) pbar.style.display='none';
+    // 리모컨 패널도 숨기기 (preview 모드에선 불필요)
+    const rp = document.getElementById('remote-panel');
+    if(rp) rp.style.display='none';
     // 리모컨에서 postMessage로 슬라이드 이동 수신
     window.addEventListener('message', (e)=>{
       if(e.data?.type==='remote-goto' && typeof e.data.idx==='number'){
