@@ -276,7 +276,7 @@
         <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;">
           <div class="text-3xl mb-2">🔌</div>
           <div class="font-bold text-lg">연동</div>
-          <div class="text-sm opacity-80">Skills · Dooray MCP</div>
+          <div class="text-sm opacity-80">Skills · Git/Python · MCP</div>
         </div>
         <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;">
           <div class="text-3xl mb-2">💬</div>
@@ -815,8 +815,8 @@ $ <span class="k">claude</span>
 <section class="slide" id="part-install2" style="background:linear-gradient(135deg,#f5f3ff,#eef2ff);">
   <div class="card">
     <div class="flex items-center gap-3"><span class="chip chip-violet">실습 2</span></div>
-    <h1 class="slide-title mt-4">Skills + Dooray MCP 연동</h1>
-    <p class="lead mt-4 text-xl" style="color:#6d28d9;"><b>Claude Code를 "풀옵션"으로, 그리고 Dooray와 연결</b></p>
+    <h1 class="slide-title mt-4">Skills + Git/Python + MCP 연동</h1>
+    <p class="lead mt-4 text-xl" style="color:#6d28d9;"><b>확장팩 설치, 도구 준비, Dooray 연결까지</b></p>
     <p class="text-slate-600 mt-2">보조강사 순회 1:1 지원</p>
   </div>
 </section>
@@ -843,6 +843,34 @@ $ <span class="k">claude</span>
       <div class="tile-soft"><div class="font-bold">💡 앱 스토어처럼</div><div class="small mt-1">필요한 기능만 골라 설치·삭제. 안 쓰면 지워도 됨.</div></div>
     </div>
     <div class="quote mt-4">Skill은 "기능 추가"일 뿐. 지금 다 이해 못 해도 됩니다 — <b>설치되어 있으면 성공</b>.</div>
+  </div>
+</section>
+
+
+<!-- Git · Python 설치 -->
+<section class="slide" id="git-python">
+  <div class="card">
+    <span class="chip chip-violet">STEP 5 · Git · Python 설치</span>
+    <h2 class="slide-h2 mt-3">Claude Code가 쓰는 도구 2개 — 말로 설치</h2>
+    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#1-E" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 1-E, 1-F</a>
+    <p class="text-slate-600 mt-2">직접 코딩하거나 명령어를 외울 필요는 없습니다. Claude Code가 내부적으로 사용하니 <b>설치만 해두면</b> 됩니다.</p>
+    <div class="grid-cards gc-2 mt-5">
+      <div class="tile">
+        <div class="font-bold">🌿 Git — 파일 버전 관리</div>
+        <div class="small mt-1">Word의 "변경 내용 추적"처럼, 파일 수정 이력을 기록합니다. 실수로 망쳤을 때 <b>"되돌려줘"</b> 한마디면 복구.</div>
+        <div class="pre mt-3">> <span class="s">Git 설치해줘</span></div>
+      </div>
+      <div class="tile">
+        <div class="font-bold">🐍 Python — 데이터 처리 엔진</div>
+        <div class="small mt-1">엑셀 분석, 대시보드 생성 등을 할 때 Claude Code가 <b>내부적으로 사용</b>합니다.</div>
+        <div class="pre mt-3">> <span class="s">Python 설치해줘</span></div>
+      </div>
+    </div>
+    <div class="grid-cards gc-2 mt-4">
+      <div class="tile-emerald"><div class="font-bold">✅ 확인</div><div class="small mt-1"><span class="mono">git version</span>, <span class="mono">python --version</span> 뜨면 성공</div></div>
+      <div class="tile-soft"><div class="font-bold">⚠️ 설치 실패 시</div><div class="small mt-1">PowerShell을 <b>관리자 권한</b>으로 다시 열거나 조교에게 손 들기</div></div>
+    </div>
+    <div class="quote mt-4">둘 다 <b>Claude Code 안에서</b> 시키면 됩니다 (<span class="mono">></span> 표시 뒤에 입력). 직접 다운로드 사이트 갈 필요 없어요.</div>
   </div>
 </section>
 
@@ -884,18 +912,19 @@ $ <span class="k">claude</span>
 <!-- Dooray MCP 연동 -->
 <section class="slide" id="dooray-mcp">
   <div class="card">
-    <span class="chip chip-violet">STEP 5 · Dooray MCP 토큰 → .env → 연동</span>
+    <span class="chip chip-violet">STEP 6 · Dooray MCP 토큰 → .env → 연동</span>
     <h2 class="slide-h2 mt-3">Dooray를 터미널에서 조회하기</h2>
-    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#1-G" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 1-G</a>
+    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#1-G" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 1-G ~ 1-G4</a>
     <div class="grid-cards gc-2 mt-5">
       <div class="tile">
-        <div class="font-bold">① 토큰 발급</div>
-        <div class="small mt-1">Dooray → 설정 → <b>API/개인 인증 토큰</b> 발급 (가이드의 화면 순서대로)</div>
+        <div class="font-bold">① 토큰 발급 → 복사</div>
+        <div class="small mt-1">Dooray → 설정 → <b>API/개인 인증 토큰</b> → 이름에 용도 입력 (예: Claude Code)</div>
+        <div class="small mt-1" style="color:#be123c;">⚠️ 토큰 값은 <b>발급 직후 한 번만</b> 보여줌 → 안전한 곳에 저장 권장</div>
       </div>
       <div class="tile">
-        <div class="font-bold">② .env 에 저장</div>
-        <div class="pre mt-2"><span class="c"># .env 파일에 붙여넣기</span>
-DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
+        <div class="font-bold">② setup.py → .env 자동 생성</div>
+        <div class="small mt-1">토큰 입력: <b>복사해 둔 토큰 붙여넣기</b></div>
+        <div class="small mt-1">테넌트 ID: <b>그냥 Enter</b> (NHN 공통 번호가 기본값)</div>
       </div>
     </div>
     <div class="tile-soft mt-4">
@@ -921,7 +950,7 @@ DOORAY_TOKEN=<span class="s">발급받은_토큰</span></div>
 <!-- 가벼운 실습: 설치 확인 & 첫 사용 -->
 <section class="slide" id="mcp-practice">
   <div class="card">
-    <span class="chip chip-emerald">STEP 6 · 가벼운 실습</span>
+    <span class="chip chip-emerald">STEP 7 · 가벼운 실습</span>
     <h2 class="slide-h2 mt-3">진짜 되는지 — 30초 만에 직접 써보기</h2>
     <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#3-F" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 3-F</a>
     <p class="text-slate-600 mt-2">설치·연동이 끝났으면, <b>실제로 한 번씩 굴려봐야</b> 내 것이 됩니다. 아래를 순서대로 던져보세요.</p>
