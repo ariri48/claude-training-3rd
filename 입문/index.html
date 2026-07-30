@@ -388,39 +388,56 @@
   <div class="card">
     <span class="chip" style="background:#fbbf24;color:#78350f;">잡학지식</span>
     <h2 class="slide-h2 mt-3">프로그래밍 언어는 어떻게 "한국어"가 됐을까?</h2>
+    <p class="text-slate-600 mt-2">컴퓨터에게 일을 시키는 방법이 점점 <b>사람 말에 가까워지고</b> 있어요. 그 흐름을 한눈에 봅니다.</p>
     <!-- 타임라인 -->
-    <div style="display:flex;align-items:flex-start;gap:0;margin-top:20px;position:relative;">
+    <div style="display:flex;align-items:flex-start;gap:0;margin-top:16px;position:relative;">
       <div style="position:absolute;top:28px;left:30px;right:30px;height:3px;background:linear-gradient(90deg,#94a3b8,#4f46e5);border-radius:2px;z-index:0;"></div>
       <div style="flex:1;text-align:center;position:relative;z-index:1;">
         <div style="width:44px;height:44px;background:#fff;border:3px solid #94a3b8;border-radius:50%;margin:6px auto;display:flex;align-items:center;justify-content:center;font-size:16px;">0️⃣</div>
         <div class="font-bold" style="font-size:12px;">0과 1</div>
-        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">전기 흐름<br>= 코드의 시작</div>
+        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">전기 스위치 on/off<br><b>기계만 읽는 말</b></div>
       </div>
       <div style="flex:1;text-align:center;position:relative;z-index:1;">
         <div style="width:44px;height:44px;background:#fff;border:3px solid #94a3b8;border-radius:50%;margin:6px auto;display:flex;align-items:center;justify-content:center;font-size:14px;">🔧</div>
         <div class="font-bold" style="font-size:12px;">어셈블리어</div>
-        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">MOV AH, 09<br>기호로 명령</div>
+        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">MOV AH, 09<br><b>약어로 명령</b></div>
       </div>
       <div style="flex:1;text-align:center;position:relative;z-index:1;">
         <div style="width:44px;height:44px;background:#fff;border:3px solid #64748b;border-radius:50%;margin:6px auto;display:flex;align-items:center;justify-content:center;font-size:14px;">🐍</div>
         <div class="font-bold" style="font-size:12px;">Python</div>
-        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">print("Hello")<br>사람에 가까운 언어</div>
+        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">print("Hello")<br><b>영어와 비슷</b></div>
       </div>
       <div style="flex:1;text-align:center;position:relative;z-index:1;">
         <div style="width:44px;height:44px;background:#fff;border:3px solid #4f46e5;border-radius:50%;margin:6px auto;display:flex;align-items:center;justify-content:center;font-size:14px;">💬</div>
         <div class="font-bold" style="font-size:12px;color:#4f46e5;">자연어 프롬프트</div>
-        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">"홈페이지 만들어줘"<br>한국어가 코드가 됨</div>
+        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">"홈페이지 만들어줘"<br><b>한국어가 코드</b></div>
       </div>
       <div style="flex:1;text-align:center;position:relative;z-index:1;">
         <div style="width:44px;height:44px;background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:50%;margin:6px auto;display:flex;align-items:center;justify-content:center;font-size:14px;">🤖</div>
         <div class="font-bold" style="font-size:12px;color:#7c3aed;">AI 에이전트</div>
-        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">맥락+도구+실행<br>= 오늘 배우는 것</div>
+        <div class="small" style="font-size:10.5px;color:#64748b;margin-top:2px;">맥락+도구+실행<br><b>= 오늘 배우는 것</b></div>
       </div>
     </div>
-    <!-- 핵심 메시지 -->
-    <div style="background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;border-radius:14px;padding:16px 20px;margin-top:20px;">
-      <div class="font-bold" style="font-size:15px;">바이브코딩 시대 — 프롬프트가 곧 실력</div>
-      <div style="font-size:13px;margin-top:6px;opacity:.92;line-height:1.6;">프롬프트는 <b>역할놀이가 아니라</b>, AI와 대화하며 <b>맥락을 잡고 목표를 정의</b>하는 것.<br>"카페 홈페이지 만들어줘" ✕ → "디저트 카페, 시그니처 3개, 계절 메뉴 5개 보여줘" ✓</div>
+    <!-- 포인트 설명 -->
+    <div class="grid-cards gc-2 mt-4">
+      <div class="tile-soft" style="padding:14px;">
+        <div class="font-bold" style="font-size:13px;">왼쪽 → 오른쪽: 점점 "사람 말"에 가까워짐</div>
+        <div class="small mt-1">0과 1만 알아듣던 기계가 → 약어 → 영어 → 이제 <b>한국어</b>까지 알아듣습니다. 프로그래밍 = "기계에게 시키기"인데, 시키는 방법이 점점 쉬워진 거예요.</div>
+      </div>
+      <div class="tile-soft" style="padding:14px;">
+        <div class="font-bold" style="font-size:13px;">프롬프트 vs 에이전트 — 뭐가 다르죠?</div>
+        <div class="small mt-1"><b>프롬프트</b>: "홈페이지 만들어줘" → 글로 답만 줌<br><b>에이전트</b>: "홈페이지 만들어줘" → 파일을 만들고, 저장하고, 실행까지. Claude Code가 여기에 해당합니다.</div>
+      </div>
+    </div>
+    <!-- 바이브코딩 정의 + 핵심 메시지 -->
+    <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:14px 18px;margin-top:14px;">
+      <div class="font-bold" style="font-size:14px;color:#4f46e5;">바이브코딩(Vibe Coding)이란?</div>
+      <div class="small mt-1" style="line-height:1.7;">직접 코드를 타이핑하는 대신, <b>일상적인 말(자연어)로 아이디어를 설명</b>하면 AI가 작동하는 프로그램을 만들어주는 새로운 개발 방식입니다. 문법을 외우거나 에러를 직접 잡을 필요 없이, <b>AI와의 대화</b>를 통해 결과물을 완성해 나갑니다.</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;border-radius:14px;padding:16px 20px;margin-top:10px;">
+      <div class="font-bold" style="font-size:15px;">"잘 시키는 것"이 곧 실력인 시대</div>
+      <div style="font-size:13px;margin-top:6px;opacity:.92;line-height:1.7;">코딩을 배울 필요는 없습니다. 대신 <b>"뭘, 왜, 어떤 형식으로 원하는지"</b>를 명확히 전달하는 게 중요해졌어요.<br>
+      <span style="opacity:.7;">❌</span> "카페 홈페이지 만들어줘" → <span style="opacity:.7;">✅</span> "디저트 카페, 시그니처 3개, 계절 메뉴 5개, 예약 버튼 포함해서 만들어줘"</div>
     </div>
   </div>
 </section>
@@ -1398,7 +1415,7 @@ $ <span class="k">claude</span>
     'instructor': '자기소개 간단히. "막히면 언제든 손 들어주세요." 분위기 잡기.',
     'opening': '오늘 나갈 때 할 수 있는 4가지 읽어주기. "코드 몰라도 됩니다"를 강조. 손 들기 독려.',
     'ai-era': '가벼운 토크. "대체 vs 도구" 논쟁 → 결론은 직접 써본 사람이 유리하다. 분위기 전환용, 길게 안 끌기.',
-    'vibe-coding': '타임라인 따라가며 설명. "0과 1 → 어셈블리 → Python → 이제 한국어로 시킨다." 바이브코딩 강조. "프롬프트 = 역할놀이가 아니라 맥락+목표 정의." 카페 예시로 좋은 프롬프트 vs 나쁜 프롬프트 비교. 숙제 언급.',
+    'vibe-coding': '타임라인 왼→오 따라가며 설명. "기계가 알아듣는 말이 점점 사람 말에 가까워졌다." 각 단계에서 잠깐 멈추고: 0과1(전기 스위치) → 약어(MOV=옮겨라) → 영어(print=출력해) → 한국어("만들어줘") → 에이전트(말만 하면 직접 만들고 저장까지). 바이브코딩 정의 읽어주기: "코드 안 쳐도 된다, AI와 대화로 결과물을 만든다." 프롬프트 vs 에이전트 차이 짚기: "답만 주냐, 직접 하냐." 카페 예시로 구체적 프롬프트 vs 뭉뚱그린 프롬프트 비교.',
     'ai-trends': '최근 AI 소식 훑기. 각 항목 출처 있음 — 팩트 기반. Kimi K3(무료 오픈모델)이 유료 모델 추격하는 점 강조. "이렇게 빠르게 바뀌니까 직접 써봐야 한다"로 마무리.',
     'part1': '파트 전환 안내. "왜 Claude Code인지 이론 먼저 짧게 보겠습니다."',
     'chat-vs-cli': '핵심 슬라이드. 좌우 비교하며 설명. "채팅형은 컨설턴트, CLI형은 비서" 비유 강조. 파일을 직접 만진다는 게 핵심.',
