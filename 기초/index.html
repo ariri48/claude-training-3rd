@@ -858,7 +858,71 @@ design-system.md 규칙 따라서</span></div>
   </div>
 </section>
 
-<!-- ============ SLIDE 15: 막힐 때 (기존 13 유지) ============ -->
+<!-- ============ getdesign.md 소개 ============ -->
+<section class="slide" id="getdesignmd">
+  <div class="card">
+    <span class="chip chip-brand">활용 ⑤ · getdesign.md</span>
+    <h2 class="slide-h2 mt-3">design.md, 직접 안 만들어도 됩니다</h2>
+    <p class="text-slate-600 mt-2"><a href="https://getdesign.md" target="_blank" style="color:#4f46e5;font-weight:700;">getdesign.md</a>는 실제 웹사이트의 디자인을 분석해서 <b>바로 쓸 수 있는 design.md 파일</b>로 만들어둔 카탈로그입니다.</p>
+
+    <div class="grid-cards gc-2 mt-5">
+      <div class="tile-brand">
+        <div class="font-bold">🤔 design.md가 왜 필요해?</div>
+        <ul class="small mt-2" style="line-height:2.0">
+          <li>• AI에게 "홈페이지 만들어줘" 하면 <b>매번 다른 디자인</b>이 나옴</li>
+          <li>• 색상, 폰트, 간격이 제각각 → 통일감 없음</li>
+          <li>• design.md를 주면 <b>"이 스타일대로 만들어"</b>가 됨</li>
+          <li>• 디자이너 없이도 <b>일관된 브랜드 느낌</b> 유지 가능</li>
+        </ul>
+      </div>
+      <div class="tile-cyan">
+        <div class="font-bold">📦 getdesign.md에 뭐가 있어?</div>
+        <ul class="small mt-2" style="line-height:2.0">
+          <li>• Airbnb, Apple, Stripe 등 <b>300+ 브랜드</b> 분석</li>
+          <li>• 색상 팔레트, 타이포그래피, 간격, UI 컴포넌트</li>
+          <li>• 카테고리별 분류 (핀테크, 이커머스, 개발도구 등)</li>
+          <li>• <b>복사해서 바로 사용</b> 가능한 .md 형식</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tile-soft mt-4">
+      <div class="font-bold">✔️ 이렇게 쓰면 됩니다</div>
+      <div class="grid-cards gc-3 mt-3" style="gap:10px;">
+        <div class="tile" style="padding:14px;text-align:center;">
+          <div class="text-2xl">①</div>
+          <div class="font-bold mt-1" style="font-size:13px;">사이트에서 골라 복사</div>
+          <div class="small mt-1"><a href="https://getdesign.md" target="_blank" style="color:#4f46e5;">getdesign.md</a> 접속 →<br>마음에 드는 스타일 선택 →<br>.md 파일 복사</div>
+        </div>
+        <div class="tile" style="padding:14px;text-align:center;">
+          <div class="text-2xl">②</div>
+          <div class="font-bold mt-1" style="font-size:13px;">작업 폴더에 저장</div>
+          <div class="small mt-1">복사한 내용을<br><b>design.md</b> 파일로 저장<br>(CLAUDE.md 옆에)</div>
+        </div>
+        <div class="tile-emerald" style="padding:14px;text-align:center;">
+          <div class="text-2xl">③</div>
+          <div class="font-bold mt-1" style="font-size:13px;">AI에게 전달</div>
+          <div class="small mt-1">"<b>design.md 스타일대로</b><br>페이지 만들어줘"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-cards gc-2 mt-3">
+      <div class="tile" style="border-left:4px solid var(--brand);">
+        <div class="font-bold" style="font-size:13px;">🏢 우리 회사 스타일은?</div>
+        <div class="small mt-1">getdesign.md에 없어도 괜찮아요!<br>앞에서 배운 <b>nhn-html-design-system.md</b>가 NHN 전용 design.md입니다.</div>
+      </div>
+      <div class="tile" style="border-left:4px solid #0e7490;">
+        <div class="font-bold" style="font-size:13px;">💡 활용 예시</div>
+        <div class="small mt-1">"Stripe 스타일로 요금 페이지 만들어줘"<br>"Notion 느낌으로 사내 위키 만들어줘"<br>→ 해당 design.md만 전달하면 끝!</div>
+      </div>
+    </div>
+
+    <div class="quote mt-3">🎯 <b>design.md = AI에게 주는 디자인 브리프.</b> 직접 만들어도, 카탈로그에서 골라도, 결과물의 통일감이 달라집니다.</div>
+  </div>
+</section>
+
+<!-- ============ 막힐 때 ============ -->
 <section class="slide" id="stuck" style="background:linear-gradient(135deg,#fff1f2,#fef3c7);">
   <div class="card">
     <span class="chip chip-rose">실습 중 막힐 때</span>
@@ -1013,7 +1077,7 @@ design-system.md 규칙 따라서</span></div>
   const partOf = (id) => {
     if(['cover','instructor','opening','precheck'].includes(id)) return '인트로';
     if(['theory','claudemd','prompt3','security'].includes(id)) return '이론 · 핵심 개념';
-    if(['guide','mail-setup','mail-send','html-design','lab-report'].includes(id)) return '활용 가이드';
+    if(['guide','mail-setup','mail-send','html-design','lab-report','getdesignmd'].includes(id)) return '활용 가이드';
     if(['stuck','my-automation'].includes(id)) return '실습 · 내 업무 자동화';
     if(['closing'].includes(id)) return '마무리';
     return '';
@@ -1197,6 +1261,7 @@ design-system.md 규칙 따라서</span></div>
     'mail-send': '★ 메일 발송 3단계. 테스트→대량→보낸메일함. 대량발송 팁 강조.',
     'html-design': '★ NHN Design System 소개. 첨부파일 배포. 적용 방법 2가지 안내.',
     'lab-report': '★ 보고서/PPT 가이드. design.md 작성법. HTML·PPT 비교.',
+    'getdesignmd': '★ getdesign.md 소개. 300+ 브랜드 카탈로그. 직접 안 만들어도 골라 쓸 수 있다. NHN 전용은 앞에서 배운 nhn-html-design-system.md.',
     'stuck': '막혔을 때 대응법. "에러 복사 → 그대로 보여주기." 5분 룰.',
     'my-automation': '★★ 핵심 실습 시간. 자유 실습 시작. 1:1 지원 돌아다니기. 중간에 잘 된 사례 공유.',
     'closing': '수고 인사. 첨부파일 안내. Q&A 시간. "오늘 만든 자동화를 실제 업무에 바로 써보세요."'
