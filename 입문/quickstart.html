@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code 입문 · 빠른 시작 가이드</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #f0f2f5;
+    color: #1a1a1a;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 48px 24px 36px;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    border-radius: 20px;
+    margin-bottom: 32px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .header p {
+    font-size: 15px;
+    opacity: 0.85;
+    font-weight: 400;
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  /* Section */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 32px 0 16px;
+    padding: 0 4px;
+  }
+  .section-title .num {
+    width: 32px;
+    height: 32px;
+    background: #4f46e5;
+    color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .section-title h2 {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+  }
+  .section-title .time {
+    margin-left: auto;
+    font-size: 12px;
+    color: #888;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  /* Card */
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+  .card.highlight {
+    border-color: #4f46e5;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .card-header:hover {
+    background: #fafafa;
+  }
+
+  .card-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    width: 36px;
+    text-align: center;
+  }
+
+  .card-title-area {
+    flex: 1;
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  .card-subtitle {
+    font-size: 13px;
+    color: #888;
+    margin-top: 2px;
+  }
+
+  .card-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    background: #f0f0f0;
+    color: #999;
+    flex-shrink: 0;
+  }
+  .card-badge.essential {
+    background: #eef2ff;
+    color: #4f46e5;
+  }
+  .card-badge.bonus {
+    background: #ecfdf5;
+    color: #047857;
+  }
+
+  .chevron {
+    font-size: 12px;
+    color: #ccc;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+  .card.open .chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Card body */
+  .card-body {
+    padding: 0 20px 20px;
+    display: none;
+  }
+  .card.open .card-body {
+    display: block;
+    animation: slideUp 0.3s ease;
+  }
+
+  /* Code block */
+  .code {
+    display: block;
+    background: #1a1a1a;
+    color: #e8e8e8;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    margin: 10px 0;
+    position: relative;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .code .comment { color: #6b7280; }
+  .code .highlight { color: #86efac; }
+
+  .copy-btn {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: #aaa;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .copy-btn:hover {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+  }
+
+  /* Info boxes */
+  .info-box {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .info-box.tip {
+    background: #eef2ff;
+    border-left: 3px solid #4f46e5;
+  }
+  .info-box.warn {
+    background: #fffbeb;
+    border-left: 3px solid #f59e0b;
+  }
+  .info-box.success {
+    background: #ecfdf5;
+    border-left: 3px solid #10b981;
+  }
+
+  .info-box strong {
+    font-weight: 700;
+  }
+
+  /* Steps */
+  .steps {
+    counter-reset: step-counter;
+  }
+  .step {
+    position: relative;
+    padding: 12px 14px 12px 46px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  .step::before {
+    counter-increment: step-counter;
+    content: counter(step-counter);
+    position: absolute;
+    left: 14px;
+    top: 12px;
+    width: 24px;
+    height: 24px;
+    background: #4f46e5;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* Comparison table */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 10px 0;
+  }
+  .compare-table th {
+    background: #f1f5f9;
+    text-align: left;
+    padding: 8px 10px;
+    border: 1px solid #e2e8f0;
+    font-weight: 700;
+    font-size: 12px;
+  }
+  .compare-table td {
+    padding: 8px 10px;
+    border: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+
+  /* Two column */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  @media (max-width: 480px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+  .col-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .col-card.brand {
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
+  }
+  .col-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .col-card p, .col-card ul {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.7;
+  }
+  .col-card ul {
+    padding-left: 16px;
+    margin: 0;
+  }
+
+  /* Separator */
+  .sep {
+    text-align: center;
+    color: #ccc;
+    font-size: 13px;
+    margin: 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sep::before, .sep::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e0e0e0;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 32px 0 16px;
+    font-size: 13px;
+    color: #aaa;
+  }
+  .footer a {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Summary box */
+  .summary-box {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    border-radius: 20px;
+    padding: 28px 24px;
+    color: #fff;
+    margin-top: 32px;
+  }
+  .summary-box h3 {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 12px;
+  }
+  .summary-box .item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .summary-box .item:first-of-type {
+    border-top: none;
+  }
+  .summary-box .emoji {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 480px) {
+    .header h1 { font-size: 22px; }
+    .section-title h2 { font-size: 17px; }
+    .card-header { padding: 14px 16px; }
+    .card-body { padding: 0 16px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Claude Code 입문 가이드</h1>
+    <p>설치부터 업무 활용까지, 핵심만 빠르게</p>
+    <div class="badge">비개발자용 · 따라하기 형식</div>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- SECTION 1: 설치 -->
+  <!-- ======================================== -->
+  <div class="section-title">
+    <div class="num">1</div>
+    <h2>설치하기</h2>
+    <span class="time">10분</span>
+  </div>
+
+  <!-- 1-1 터미널 열기 -->
+  <div class="card open" id="terminal">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-icon">🖥️</span>
+      <div class="card-title-area">
+        <div class="card-title">터미널 열기</div>
+        <div class="card-subtitle">컴퓨터에 "말 거는 창"을 여세요</div>
+      </div>
+      <span class="card-badge essential">필수</span>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="card-body">
+      <div class="two-col">
+        <div class="col-card">
+          <h4>Windows</h4>
+          <p>시작 버튼 → <strong>PowerShell</strong> 검색 → 실행</p>
+        </div>
+        <div class="col-card">
+          <h4>Mac</h4>
+          <p><strong>Cmd+Space</strong> → "터미널" 입력 → 실행</p>
+        </div>
+      </div>
+      <div class="info-box tip">검은 창이 떠도 놀라지 마세요. 잘못 입력해도 "그런 명령 없음"이라고 뜰 뿐, 컴퓨터는 안 망가집니다.</div>
+    </div>
+  </div>
+
+  <!-- 1-2 설치 명령어 -->
+  <div class="card" id="install">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-icon">⚙️</span>
+      <div class="card-title-area">
+        <div class="card-title">Claude Code 설치</div>
+        <div class="card-subtitle">명령어 한 줄 복사 → 붙여넣기 → Enter</div>
+      </div>
+      <span class="card-badge essential">필수</span>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="card-body">
+      <div class="two-col">
+        <div class="col-card brand">
+          <h4>Windows (PowerShell)</h4>
+          <div class="code">irm https://claude.ai/install.ps1 | iex<button class="copy-btn" onclick="copyCmd(this, 'irm https://claude.ai/install.ps1 | iex')">복사</button></div>
+        </div>
+        <div class="col-card brand">
+          <h4>Mac / Linux</h4>
+          <div class="code">curl -fsSL https://claude.ai/install.sh | bash<button class="copy-btn" onclick="copyCmd(this, 'curl -fsSL https://claude.ai/install.sh | bash')">복사</button></div>
+        </div>
+      </div>
+      <div class="info-box success">설치 확인: <code style="background:#1a1a1a;color:#e8e8e8;padding:2px 8px;border-radius:4px;">claude --version</code> 입력 → 숫자가 나오면 성공</div>
+      <div class="info-box warn">⚠️ 에러가 나면: 터미널을 <strong>닫았다 다시</strong> 열고 재시도. Windows는 <strong>관리자 권한</strong>으로 실행해 보세요.</div>
+    </div>
+  </div>
+
+  <!-- 1-3 로그인 + 첫 대화 -->
+  <div class="card" id="first-run">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-icon">🔑</span>
+      <div class="card-title-area">
+        <div class="card-title">로그인 + 첫 대화</div>
+        <div class="card-subtitle">claude 실행 → 브라우저 로그인 → 한국어로 질문</div>
+      </div>
+      <span class="card-badge essential">필수</span>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="card-body">
+      <div class="steps">
+        <div class="step"><strong>claude</strong> 입력 → Enter</div>
+        <div class="step">브라우저가 자동으로 열림 → <strong>유료 계정으로 로그인</strong> (Pro/Team/Max)</div>
+        <div class="step">터미널로 돌아와서 첫 질문 던져보기</div>
+      </div>
+      <div class="code"><span class="comment"># 이렇게 입력해 보세요</span>
+> <span class="highlight">오늘 날짜와 요일 알려줘</span>
+> <span class="highlight">지금 이 폴더에 어떤 파일이 있어?</span></div>
+      <div class="info-box success">한국어로 답변이 오면 <strong>설치 완료</strong>입니다!</div>
+    </div>
+  </div>
+
+  <div class="sep">설치 끝 — 아래부터는 활용법</div>
+
+  <!-- ======================================== -->
+  <!-- SECTION 2: 데스크톱 앱 vs CLI 차이 -->
+  <!-- ======================================== -->
+  <div class="section-title">
+    <div class="num">2</div>
+    <h2>데스크톱 앱 vs CLI, 뭐가 다른가요?</h2>
+    <span class="time">5분</span>
+  </div>
+
+  <div class="card open" id="desktop-vs-cli">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-icon">🔀</span>
+      <div class="card-title-area">
+        <div class="card-title">헷갈리기 쉬운 두 가지</div>
+        <div class="card-subtitle">같은 Claude인데 할 수 있는 일이 다릅니다</div>
+      </div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="card-body">
+      <table class="compare-table">
+        <thead>
+          <tr><th width="24%">구분</th><th>💻 데스크톱 앱</th><th>⌨️ CLI (Claude Code)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>실행</strong></td><td>아이콘 더블클릭</td><td>터미널에서 <code>claude</code></td></tr>
+          <tr><td><strong>내 파일</strong></td><td>❌ 업로드만</td><td>✅ 직접 읽고 쓰기</td></tr>
+          <tr><td><strong>파일 생성</strong></td><td>❌ 못 함</td><td>✅ 엑셀·코드 직접 생성</td></tr>
+          <tr><td><strong>명령어 실행</strong></td><td>❌ 못 함</td><td>✅ Python·Git 자동 실행</td></tr>
+          <tr><td><strong>MCP 연동</strong></td><td>⚠️ 일부만</td><td>✅ Dooray 등 풀 연동</td></tr>
+          <tr><td><strong>CLAUDE.md</strong></td><td>❌ 없음</td><td>✅ 폴더마다 규칙 설정</td></tr>
+          <tr><td><strong>Skill</strong></td><td>❌ 없음</td><td>✅ 확장팩 설치 가능</td></tr>
+          <tr><td><strong>요금</strong></td><td>무료/Pro/Max</td><td>Pro/Max (유료 전용)</td></tr>
+        </tbody>
+      </table>
+      <div class="two-col">
+        <div class="col-card">
+          <h4>데스크톱 앱이 좋을 때</h4>
+          <p>가벼운 질문, 글 다듬기, 이미지 첨부 대화</p>
+        </div>
+        <div class="col-card brand">
+          <h4>CLI가 압도적인 때</h4>
+          <p>파일 처리, 자동화, 업무툴 연동, 반복 작업</p>
+        </div>
+      </div>
+      <div class="info-box tip">데스크톱 앱 = 예쁜 <strong>채팅창</strong> · CLI = 내 컴퓨터에서 <strong>직접 일하는 비서</strong>. 둘 다 깔아두면 좋습니다.</div>
+    </div>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- SECTION 3: CLAUDE.md -->
+  <!-- ======================================== -->
+  <div class="section-title">
+    <div class="num">3</div>
+    <h2>CLAUDE.md — 나만의 규칙 설명서</h2>
+    <span class="time">10분</span>
+  </div>
+
+  <div class="card" id="claudemd">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-icon">📝</span>
+      <div class="card-title-area">
+        <div class="card-title">CLAUDE.md가 뭔가요?</div>
+        <div class="card-subtitle">"내 업무는 이렇습니다"를 적어두는 파일</div>
+      </div>
+      <span class="card-badge essential">핵심</span>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box">
+        <strong>CLAUDE.md</strong>는 Claude Code가 매번 자동으로 읽는 규칙 파일입니다.<br>
+        한 번 적어두면, 매번 같은 말을 반복하지 않아도 됩니다.
+      </div>
+      <div class="code"><span class="comment"># CLAUDE.md 예시</span>
+
+<span class="highlight"># 내 정보</span>
+- 이름: 홍길동
+- 부서: 마케팅팀
+- 담당: 파트너 관리
+
+<span class="highlight"># 보고서 규칙</span>
+- 존댓말 사용
+- 숫자는 천 단위 콤마 (1,000)
+- 날짜는 YYYY-MM-DD 형식</div>
+      <div class="steps">
+        <div class="step">Claude Code 안에서 <code style="background:#1a1a1a;color:#e8e8e8;padding:2px 6px;border-radius:4px;">/init</code> 입력</div>
+        <div class="step">자동으로 CLAUDE.md 파일이 생성됨</div>
+        <div class="step">내용을 내 업무에 맞게 수정 (Claude에게 시켜도 OK)</div>
+      </div>
+      <div class="info-box tip">폴더마다 다른 CLAUDE.md를 둘 수 있어요. 정산 폴더에는 정산 규칙, 보고서 폴더에는 보고서 규칙.</div>
+    </div>
+  </div>
+
+  <div class="card" id="designmd">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-icon">🎨</span>
+      <div class="card-title-area">
+        <div class="card-title">design.md — 디자인 규칙</div>
+        <div class="card-subtitle">HTML/웹 결과물의 스타일을 일정하게</div>
+      </div>
+      <span class="card-badge bonus">활용</span>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box">
+        <strong>design.md</strong>는 Claude가 HTML·웹페이지를 만들 때 참조하는 디자인 가이드입니다.<br>
+        회사 로고 색상, 폰트, 레이아웃 규칙 등을 적어두면 매번 일관된 결과물이 나옵니다.
+      </div>
+      <div class="code"><span class="comment"># design.md 예시</span>
+
+<span class="highlight"># 브랜드</span>
+- 메인 컬러: #191919
+- 폰트: Noto Sans KR
+- 로고: assets/logo.png
+
+<span class="highlight"># 레이아웃</span>
+- 모바일 반응형 필수
+- 최대 너비: 1200px</div>
+      <div class="info-box tip">CLAUDE.md와 같은 폴더에 두면 됩니다. 디자인 관련 작업을 자주 시킨다면 만들어 두세요.</div>
+    </div>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- SECTION 4: Skill -->
+  <!-- ======================================== -->
+  <div class="section-title">
+    <div class="num">4</div>
+    <h2>Skill — 기능 확장팩</h2>
+    <span class="time">5분</span>
+  </div>
+
+  <div class="card" id="skills">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-icon">🧩</span>
+      <div class="card-title-area">
+        <div class="card-title">Skill이란?</div>
+        <div class="card-subtitle">자주 쓰는 작업 패턴을 미리 정의한 확장팩</div>
+      </div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box">
+        <strong>Skill</strong> = "이런 일은 이 순서, 이 형식으로 해"를 정해둔 묶음.<br>
+        기본 내장된 것도 있고, 필요하면 외부에서 설치할 수도 있어요.
+      </div>
+      <div class="two-col">
+        <div class="col-card brand">
+          <h4>🔍 내장 스킬 확인</h4>
+          <div class="code" style="font-size:13px;">><span class="highlight"> 사용 가능한 skill 목록 보여줘</span></div>
+        </div>
+        <div class="col-card">
+          <h4>📦 외부 스킬 설치</h4>
+          <div class="code" style="font-size:13px;">><span class="highlight"> 이 skill 설치해줘: [GitHub URL]</span></div>
+        </div>
+      </div>
+      <div class="info-box warn">출처 불분명한 외부 스킬은 설치하지 마세요. 보안 정책상 허용 여부를 묻는 창이 뜰 수 있어요.</div>
+    </div>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- SECTION 5: Dooray MCP -->
+  <!-- ======================================== -->
+  <div class="section-title">
+    <div class="num">5</div>
+    <h2>Dooray MCP 연동</h2>
+    <span class="time">15분</span>
+  </div>
+
+  <div class="card" id="mcp-what">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-icon">🔌</span>
+      <div class="card-title-area">
+        <div class="card-title">MCP가 뭔가요?</div>
+        <div class="card-subtitle">Claude에게 외부 도구(Dooray 등)를 연결하는 표준 규격</div>
+      </div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="card-body">
+      <div class="two-col">
+        <div class="col-card">
+          <h4>MCP 없이</h4>
+          <ul>
+            <li>Dooray 내용을 내가 복사해서 붙여넣기</li>
+            <li>결과를 다시 손으로 옮겨 입력</li>
+          </ul>
+        </div>
+        <div class="col-card brand">
+          <h4>MCP 연결하면</h4>
+          <ul>
+            <li>Claude가 Dooray를 <strong>직접 조회</strong></li>
+            <li>"조회 → 정리 → 저장"이 한 번에</li>
+          </ul>
+        </div>
+      </div>
+      <div class="info-box tip">MCP는 "USB-C 케이블" 같은 것. Claude에게 <strong>손과 눈</strong>을 달아주는 연결 규격입니다.</div>
+    </div>
+  </div>
+
+  <div class="card" id="mcp-setup">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-icon">🛠️</span>
+      <div class="card-title-area">
+        <div class="card-title">Dooray MCP 연동하기</div>
+        <div class="card-subtitle">토큰 발급 → 설치 → 연결 확인</div>
+      </div>
+      <span class="card-badge essential">필수</span>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="card-body">
+      <div class="steps">
+        <div class="step"><strong>Dooray API 토큰 발급</strong><br><span style="font-size:13px;color:#555;">Dooray → 좌측 하단 프로필 → 설정 → API/개인 인증 토큰 → 새 토큰 발급</span></div>
+        <div class="step"><strong>소스 다운로드 + 설치</strong>
+          <div class="code" style="font-size:13px;">cd $HOME\Documents
+git clone https://github.com/ariri48/dooray-mcp.git
+cd dooray-mcp
+python setup.py<button class="copy-btn" onclick="copyCmd(this, 'cd $HOME\\Documents\ngit clone https://github.com/ariri48/dooray-mcp.git\ncd dooray-mcp\npython setup.py')">복사</button></div>
+        </div>
+        <div class="step"><strong>토큰 입력</strong> — setup.py가 물어보면 복사해 둔 토큰 붙여넣기. 테넌트 ID는 그냥 Enter.</div>
+        <div class="step"><strong>연결 확인</strong> — Claude Code를 껐다 다시 켜고:
+          <div class="code" style="font-size:13px;">><span class="highlight"> Dooray에서 내가 속한 프로젝트 하나만 알려줘</span></div>
+        </div>
+      </div>
+      <div class="info-box success">프로젝트 이름이 나오면 <strong>연동 성공</strong>!</div>
+      <div class="info-box warn">⚠️ 토큰은 <strong>비밀번호</strong>입니다. 화면 공유·채팅에 노출 금지!</div>
+    </div>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- SECTION 6: 업무 활용 맛보기 -->
+  <!-- ======================================== -->
+  <div class="section-title">
+    <div class="num">6</div>
+    <h2>업무 활용 맛보기</h2>
+    <span class="time">15분</span>
+  </div>
+
+  <div class="card" id="use-dooray">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-icon">📋</span>
+      <div class="card-title-area">
+        <div class="card-title">Dooray 업무 자동화</div>
+        <div class="card-subtitle">태스크 조회, 정리, 글 작성을 말로 시키기</div>
+      </div>
+      <span class="card-badge bonus">활용</span>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="card-body">
+      <div class="code"><span class="comment"># 이런 식으로 시켜보세요</span>
+><span class="highlight"> 내 프로젝트에서 이번 주 마감인 업무 알려줘</span>
+><span class="highlight"> 내 개인 프로젝트에 "MCP 테스트" 업무 글 하나 만들어줘</span>
+><span class="highlight"> 이번 주 업무 현황 표로 정리해줘</span></div>
+      <div class="info-box tip">Claude가 Dooray에서 직접 데이터를 가져와 정리합니다. 복사·붙여넣기 없이 "말"로만.</div>
+    </div>
+  </div>
+
+  <div class="card" id="use-excel">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-icon">📊</span>
+      <div class="card-title-area">
+        <div class="card-title">엑셀 데이터 정리</div>
+        <div class="card-subtitle">파일을 읽고 분석하고 저장까지</div>
+      </div>
+      <span class="card-badge bonus">활용</span>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="card-body">
+      <div class="code"><span class="comment"># 엑셀 파일이 있는 폴더에서</span>
+><span class="highlight"> 매출_데이터.xlsx 열어서 팀별 합계 내고 표로 정리해줘</span>
+><span class="highlight"> 이 엑셀에서 중복된 행 찾아서 알려줘</span>
+><span class="highlight"> A열 기준으로 정렬하고 새 파일로 저장해줘</span></div>
+      <div class="info-box">Claude Code는 파일을 <strong>직접 읽고</strong> 결과를 <strong>새 파일로 저장</strong>합니다. 채팅형 AI와 가장 다른 점이에요.</div>
+    </div>
+  </div>
+
+  <div class="card" id="use-email">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-icon">✉️</span>
+      <div class="card-title-area">
+        <div class="card-title">대량 메일 발송</div>
+        <div class="card-subtitle">명단 엑셀 → 개인화된 메일 자동 발송</div>
+      </div>
+      <span class="card-badge bonus">활용</span>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="card-body">
+      <div class="steps">
+        <div class="step">수신자 명단 엑셀 준비 (이름, 이메일, 개인화 정보)</div>
+        <div class="step">메일 본문 작성 또는 Claude에게 초안 시키기</div>
+        <div class="step">Claude에게 발송 시키기</div>
+      </div>
+      <div class="code"><span class="comment"># 예시</span>
+><span class="highlight"> 명단.xlsx 읽어서 각 사람 이름 넣어 안내 메일 만들고 발송해줘</span></div>
+      <div class="info-box warn">⚠️ 대량 메일은 반드시 <strong>미리보기 확인</strong> 후 발송하세요. Claude에게 "먼저 1통만 테스트"를 시키는 게 안전합니다.</div>
+      <div class="info-box tip">SMTP 설정이 필요합니다. 사내 메일 시스템(Dooray IMAP/SMTP) 인증 정보를 .env에 넣어두면 편해요.</div>
+    </div>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- SECTION 7: 기본 명령어 -->
+  <!-- ======================================== -->
+  <div class="section-title">
+    <div class="num">7</div>
+    <h2>이것만 기억하세요</h2>
+    <span class="time">3분</span>
+  </div>
+
+  <div class="card open" id="commands">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-icon">⌨️</span>
+      <div class="card-title-area">
+        <div class="card-title">필수 명령어 4개 + 단축키</div>
+        <div class="card-subtitle">나머지는 그냥 한국어로 말하면 됩니다</div>
+      </div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="card-body">
+      <table class="compare-table">
+        <thead><tr><th>명령어</th><th>용도</th><th>쉽게 말하면</th></tr></thead>
+        <tbody>
+          <tr><td><code>/clear</code></td><td>대화 초기화</td><td>"새 주제 시작"</td></tr>
+          <tr><td><code>/usage</code></td><td>사용량 확인</td><td>"요금 얼마 썼지?"</td></tr>
+          <tr><td><code>/resume</code></td><td>이전 대화 이어하기</td><td>"터미널 껐다 다시 열었을 때"</td></tr>
+          <tr><td><code>/init</code></td><td>CLAUDE.md 생성</td><td>"규칙 파일 만들기"</td></tr>
+        </tbody>
+      </table>
+      <div class="two-col" style="margin-top: 10px;">
+        <div class="col-card">
+          <h4>단축키</h4>
+          <p><strong>Esc</strong> — 답변 중단<br>
+          <strong>↑</strong> — 직전 입력 불러오기<br>
+          <strong>Shift+Enter</strong> — 줄바꿈<br>
+          <strong>@</strong> — 파일 경로 자동완성</p>
+        </div>
+        <div class="col-card brand">
+          <h4>잘 시키는 법</h4>
+          <p>
+            <strong>구체적으로</strong> "B열 합산해줘"<br>
+            <strong>형식 지정</strong> "표로 / 존댓말로"<br>
+            <strong>맥락 제공</strong> "팀장 보고용이야"<br>
+            <strong>예시 1개</strong> 원하는 결과 보여주기
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary-box">
+    <h3>오늘 한 것 정리</h3>
+    <div class="item"><span class="emoji">⚙️</span> Claude Code 설치 + 로그인</div>
+    <div class="item"><span class="emoji">🔀</span> 데스크톱 앱 vs CLI 차이 이해</div>
+    <div class="item"><span class="emoji">📝</span> CLAUDE.md / design.md 사용법</div>
+    <div class="item"><span class="emoji">🧩</span> Skill — 기능 확장팩 개념</div>
+    <div class="item"><span class="emoji">🔌</span> Dooray MCP 연동</div>
+    <div class="item"><span class="emoji">💬</span> 업무 활용: Dooray · 엑셀 · 메일</div>
+  </div>
+
+  <div class="footer">
+    <p>NHN Cloud 파트너지원팀 · <a href="index.html">강의 슬라이드로 돌아가기</a></p>
+  </div>
+
+</div>
+
+<script>
+function toggle(header) {
+  const card = header.closest('.card');
+  card.classList.toggle('open');
+}
+
+function copyCmd(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '완료!';
+    setTimeout(() => { btn.textContent = orig; }, 1200);
+  });
+}
+
+// Hash-based auto-open
+if (location.hash) {
+  const target = document.querySelector(location.hash);
+  if (target && target.classList.contains('card')) {
+    target.classList.add('open');
+    target.classList.add('highlight');
+    setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+  }
+}
+</script>
+</body>
+</html>

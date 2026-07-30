@@ -18,7 +18,6 @@
   html{font-size:137.5%;}
   html,body{margin:0;padding:0;height:100%;overflow:hidden;font-family:'Nanum Gothic',system-ui,-apple-system,sans-serif;color:var(--ink);background:#0f172a;zoom:1.25;}
   code,pre,.mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;}
-  /* Deck container */
   #deck{position:fixed;inset:0;background:var(--bg);}
   .slide{position:absolute;inset:0;padding:46px 80px 56px;display:none;align-items:center;justify-content:center;overflow-y:auto;}
   .slide.active{display:flex;animation:fadeIn .35s ease;}
@@ -77,7 +76,6 @@
   .small{font-size:13px;color:var(--muted);}
   details>summary{cursor:pointer;font-weight:600;color:var(--brand);}
 
-  /* Slide deck controls */
   .deck-ctrl{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;background:rgba(15,23,42,.85);backdrop-filter:blur(12px);color:#fff;padding:5px 12px;border-radius:999px;z-index:60;box-shadow:0 20px 40px -20px rgba(0,0,0,.4);font-size:16px;}
   .deck-ctrl button{background:transparent;color:#fff;border:none;cursor:pointer;font-size:14px;width:28px;height:28px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;transition:background .15s;}
   .deck-ctrl button:hover{background:rgba(255,255,255,.15);}
@@ -89,11 +87,9 @@
   .deck-arrow.next{right:18px;}
   .deck-arrow:disabled{opacity:.3;cursor:not-allowed;}
 
-  /* Progress bar */
   .deck-progress{position:fixed;top:38px;left:0;right:0;height:3px;background:transparent;z-index:55;}
   .deck-progress-bar{height:100%;background:linear-gradient(90deg,#4f46e5,#06b6d4);width:0%;transition:width .25s ease;}
 
-  /* Overview mode */
   #overview{position:fixed;inset:0;background:rgba(15,23,42,.92);z-index:100;display:none;padding:46px 24px 24px;overflow-y:auto;}
   #overview.active{display:block;}
   #overview-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;}
@@ -104,14 +100,12 @@
   .ov-card .ov-part{font-size:11px;color:#4f46e5;font-weight:600;margin-top:auto;padding-top:6px;}
   #overview-close{position:fixed;top:14px;right:18px;color:#fff;background:rgba(255,255,255,.15);border:none;width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:18px;}
 
-  /* 슬라이드 번호 배지 */
   .slide-num-badge{position:absolute;top:10px;right:14px;z-index:5;display:flex;align-items:center;gap:4px;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:4px 10px;border-radius:999px;font-weight:800;font-size:11px;cursor:pointer;box-shadow:0 6px 16px -4px rgba(79,70,229,.45);transition:transform .15s,box-shadow .15s;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;}
   .slide-num-badge:hover{transform:translateY(-2px);box-shadow:0 10px 24px -6px rgba(79,70,229,.6);}
   .slide-num-badge .total{opacity:.65;font-weight:600;}
   .slide-num-badge .label{font-size:10px;font-family:'Nanum Gothic',sans-serif;font-weight:600;letter-spacing:0;opacity:.85;margin-left:2px;}
   .card{position:relative;}
 
-  /* 강사 소개 */
   .instr-avatar{position:relative;flex-shrink:0;width:180px;height:180px;border-radius:28px;background:linear-gradient(135deg,#0e7490,#4f46e5,#7c3aed);padding:4px;box-shadow:0 24px 60px -24px rgba(14,116,144,.55);}
   .instr-avatar>.ph{width:100%;height:100%;border-radius:24px;background:#0f172a center/cover no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#e2e8f0;gap:4px;overflow:hidden;}
   .instr-avatar .ph .emoji{font-size:52px;line-height:1;}
@@ -122,38 +116,23 @@
   .instr-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
   .instr-tags .pill{background:#fff;border:1px solid var(--line);padding:6px 13px;border-radius:999px;font-size:13px;font-weight:700;color:#334155;}
   .instr-quote{margin-top:18px;padding:16px 20px;border-left:4px solid #0e7490;background:linear-gradient(90deg,#ecfeff,#eef2ff);border-radius:0 14px 14px 0;font-size:16px;line-height:1.6;color:var(--ink2);font-weight:600;}
-  .ta-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;box-shadow:0 18px 50px -34px rgba(15,23,42,.4);}
-  .ta-avatar{width:120px;height:120px;border-radius:24px;background:linear-gradient(135deg,#06b6d4,#7c3aed);padding:3px;}
-  .ta-avatar>.ph{width:100%;height:100%;border-radius:21px;background:#0f172a;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#94a3b8;gap:2px;overflow:hidden;}
-  .ta-avatar .ph .emoji{font-size:36px;line-height:1;}
-  .ta-avatar .ph .cap{font-size:10px;font-weight:600;}
-  .ta-slot-name{font-size:21px;font-weight:800;color:var(--ink);}
-  .ta-slot-role{font-size:13px;font-weight:700;color:#0e7490;}
-  .ta-slot-bio{font-size:13px;color:var(--muted);line-height:1.55;}
-  .instr-tbd{border-style:dashed !important;border-color:#cbd5e1 !important;background:#f8fafc !important;}
-  .ta-slot-num{position:absolute;top:14px;left:16px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;color:#94a3b8;}
 
-
-  /* Jump-to 입력 */
   .deck-jump{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border-radius:999px;padding:4px 10px;}
   .deck-jump input{background:transparent;border:none;color:#fff;width:42px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;outline:none;}
   .deck-jump input::placeholder{color:rgba(255,255,255,.4);}
   .deck-jump-label{font-size:9px;color:#94a3b8;}
 
-  /* 코드 블록 복사 버튼 */
   .pre{position:relative;}
   .pre-copy-btn{position:absolute;top:6px;right:6px;background:rgba(255,255,255,.1);color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:3px 8px;font-size:11px;cursor:pointer;font-family:'Nanum Gothic',sans-serif;opacity:.4;transition:opacity .15s,background .15s;}
   .pre:hover .pre-copy-btn{opacity:1;}
   .pre-copy-btn:hover{background:rgba(255,255,255,.2);color:#fff;}
   .pre-copy-btn.copied{background:#10b981;color:#fff;border-color:#10b981;opacity:1;}
 
-  /* 강사 리모컨 모드 — 좌우 분할 */
   body.remote-mode{overflow:hidden;height:100vh;font-family:'Nanum Gothic',sans-serif;}
   body.remote-mode #deck,body.remote-mode .deck-arrow,body.remote-mode .deck-ctrl,body.remote-mode .deck-progress{display:none !important;}
   body.remote-mode .nav{position:static;}
   #remote-panel{display:none;height:calc(100vh - 44px);overflow:hidden;}
   body.remote-mode #remote-panel{display:flex;}
-  /* 좌측: 컨트롤+목록+노트 */
   #remote-left{width:320px;min-width:260px;display:flex;flex-direction:column;border-right:1px solid #e2e8f0;background:#f8fafc;overflow:hidden;}
   #remote-status{background:#0f172a;color:#86efac;padding:6px 12px;font-family:'Nanum Gothic',sans-serif;font-size:13px;display:flex;align-items:center;gap:6px;flex-shrink:0;}
   #remote-status .label{color:#64748b;font-size:10px;text-transform:uppercase;}
@@ -169,13 +148,11 @@
   .remote-slide-btn:hover{border-color:#4f46e5;background:#eef2ff;}
   .remote-slide-btn.current{background:#4f46e5;color:#fff;border-color:#4f46e5;font-weight:700;}
   .remote-slide-btn .num{font-size:9px;opacity:.6;margin-right:4px;}
-  /* 우측: 슬라이드 미리보기 — scale 축소로 전체 보이기 */
   #remote-right{flex:1;display:flex;flex-direction:column;background:#1e293b;overflow:hidden;}
   #remote-preview-header{padding:6px 14px;background:#0f172a;color:#94a3b8;font-size:11px;display:flex;align-items:center;gap:8px;flex-shrink:0;}
   #remote-preview-wrap{flex:1;position:relative;overflow:hidden;}
   #remote-preview-frame{position:absolute;top:0;left:0;width:1440px;height:900px;border:none;background:#fff;transform-origin:top left;}
 
-  /* 전체화면 시 네비/컨트롤 숨김 */
   :fullscreen .nav,
   :fullscreen .deck-ctrl,
   :fullscreen .deck-arrow,
@@ -218,7 +195,6 @@
 
 <!-- 강사 리모컨 패널 (?remote=1 일 때만 표시) -->
 <div id="remote-panel">
-  <!-- 좌측: 컨트롤 + 노트 + 슬라이드 목록 -->
   <div id="remote-left">
     <div id="remote-status">
       <span class="label">현재</span>
@@ -239,7 +215,6 @@
     </div>
     <div class="remote-grid" id="remote-grid"></div>
   </div>
-  <!-- 우측: 슬라이드 미리보기 -->
   <div id="remote-right">
     <div id="remote-preview-header">
       <span>📺 슬라이드 미리보기</span>
@@ -253,8 +228,7 @@
 
 <div id="deck">
 
-<!-- SLIDE 1: COVER -->
-<!-- ============ COVER ============ -->
+<!-- ============ SLIDE 1: COVER ============ -->
 <section class="slide" id="cover" style="background:linear-gradient(135deg,#ecfdf5 0%, #ecfeff 50%, #eef2ff 100%);">
   <div class="card" style="background:linear-gradient(160deg,#0e7490,#4f46e5);color:#fff;border:none;">
     <div class="flex flex-col gap-6">
@@ -267,39 +241,22 @@
         클로드 코드로 시작하는<br/>
         <span style="color:#fde047;">업무 자동화</span>
       </h1>
-      <p class="lead" style="color:#e0f2fe;font-size:22px;">오늘, 내 업무 자동화 도구 <b>1개를 실제로 완성</b>하고 퇴장합니다.</p>
-      <div class="grid-cards gc-5 mt-6">
-        <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:14px;">
-          <div class="text-lg mb-1">📊</div>
-          <div class="font-bold">① 매출 분석</div>
-          <div class="text-sm opacity-80">엑셀 → 주간보고</div>
+      <p class="lead" style="color:#e0f2fe;font-size:22px;">이론을 배우고, <b>내 업무를 직접 자동화</b>하는 시간입니다.</p>
+      <div class="grid-cards gc-2 mt-4">
+        <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;">
+          <div class="font-bold text-lg" style="color:#fde047;">📖 이론</div>
+          <div class="text-sm mt-2 opacity-90">CLAUDE.md · 프롬프트 3원칙 · 보안 · 메일 세팅 · HTML 디자인 시스템 · 보고서/PPT</div>
         </div>
-        <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:14px;">
-          <div class="text-lg mb-1">📋</div>
-          <div class="font-bold">② 대시보드</div>
-          <div class="text-sm opacity-80">차트 시각화</div>
-        </div>
-        <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:14px;">
-          <div class="text-lg mb-1">📧</div>
-          <div class="font-bold">③ 메일</div>
-          <div class="text-sm opacity-80">명단 → 자동 발송</div>
-        </div>
-        <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:14px;">
-          <div class="text-lg mb-1">🔗</div>
-          <div class="font-bold">④ Dooray</div>
-          <div class="text-sm opacity-80">태스크 조회·생성</div>
-        </div>
-        <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:14px;">
-          <div class="text-lg mb-1">📄</div>
-          <div class="font-bold">⑤ 보고서</div>
-          <div class="text-sm opacity-80">design.md → PPT</div>
+        <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;">
+          <div class="font-bold text-lg" style="color:#fde047;">🛠️ 실습</div>
+          <div class="text-sm mt-2 opacity-90">내가 가져온 업무를 Claude Code로 직접 자동화</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 강사 소개 ============ -->
+<!-- ============ SLIDE 2: 강사 소개 ============ -->
 <section class="slide" id="instructor">
   <div class="card">
     <span class="chip chip-cyan">강사 소개 · Instructor</span>
@@ -318,57 +275,73 @@
           <span class="pill">CLAUDE.md 설계</span>
           <span class="pill">프롬프트 3원칙</span>
         </div>
-        <div class="instr-quote">"오늘은 배우고 끝이 아니라, 실습 4종을 직접 완성해서 나갑니다. 막히면 언제든 손 들어주세요."</div>
+        <div class="instr-quote">"오늘은 배우고 끝이 아니라, 내 업무 자동화를 직접 만들어서 나갑니다. 막히면 언제든 손 들어주세요."</div>
       </div>
     </div>
-
-
   </div>
 </section>
 
-<!-- 오프닝 -->
+<!-- ============ SLIDE 3: 사전 과제 + 오늘의 약속 ============ -->
 <section class="slide" id="opening">
   <div class="card">
     <span class="chip chip-brand">오프닝</span>
-    <h2 class="slide-h2 mt-3">오늘의 약속 — "완성해서 나간다"</h2>
-    <div class="grid-cards gc-3 mt-6">
-      <div class="tile-brand"><div class="text-2xl">📝</div><div class="font-bold mt-1">CLAUDE.md 작성</div><div class="small mt-1">내 업무 맥락을 Claude에 학습</div></div>
-      <div class="tile"><div class="text-2xl">🎯</div><div class="font-bold mt-1">프롬프트 3원칙</div><div class="small mt-1">복잡한 지시를 효과적으로 전달</div></div>
-      <div class="tile-emerald"><div class="text-2xl">✅</div><div class="font-bold mt-1">실습 5종 완성</div><div class="small mt-1">매출분석 · 대시보드 · 메일 · Dooray · 보고서</div></div>
-    </div>
+    <h2 class="slide-h2 mt-3">📝 사전 과제: 자동화하고 싶은 내 업무 1건</h2>
+    <p class="text-slate-600 mt-2">"아, 이거 진짜 자동화하고 싶다..." 했던 반복 업무를 <b>딱 하나</b> 골라 오셨죠?</p>
+
     <div class="tile-soft mt-4">
-      <div class="font-bold">🗓️ 오늘 3시간 흐름</div>
-      <div class="small mt-2" style="line-height:1.9">
-        00:05 환경 점검 · 00:15 <b>이론</b>(CLAUDE.md + 프롬프트 3원칙) · 00:25 <b>실습</b>(① 매출분석 → ② 대시보드 → ③ 메일 → ④ Dooray → ⑤ 보고서/PPT) · 01:55 완성 확인 & Q&A
+      <div class="font-bold">이런 업무들이 딱이에요</div>
+      <div class="grid-cards gc-2 mt-3" style="gap:10px;">
+        <div class="tile" style="padding:12px;"><div class="small">📊 엑셀 데이터 정리하고 폰트/서식 맞추기</div></div>
+        <div class="tile" style="padding:12px;"><div class="small">📝 여러 파일 뒤져서 숫자 뽑고 보고서 만들기</div></div>
+        <div class="tile" style="padding:12px;"><div class="small">🔗 Dooray 태스크 주기적으로 체크하고 정리하기</div></div>
+        <div class="tile" style="padding:12px;"><div class="small">📧 복사·붙여넣기로 같은 양식 메일 보내기</div></div>
+        <div class="tile" style="padding:12px;"><div class="small">🔍 양쪽 데이터 비교해서 틀린 그림 찾기</div></div>
+        <div class="tile" style="padding:12px;"><div class="small">📋 매주/매월 반복되는 정리·취합 업무</div></div>
       </div>
     </div>
-    <div class="quote mt-4">실습자료 페이지를 열어두세요 — 단계별로 따라가면 됩니다.</div>
+
+    <div class="grid-cards gc-2 mt-4">
+      <div class="tile-emerald">
+        <div class="font-bold">✅ 준비물이 있다면</div>
+        <div class="small mt-1">실제 활용할 <b>파일이나 데이터</b>를 함께 준비해 주세요! 내 업무를 한결 편하게 만들 수 있는 기회입니다.</div>
+      </div>
+      <div class="tile" style="border-left:4px solid var(--brand);">
+        <div class="font-bold">💡 준비를 못 하셨다면</div>
+        <div class="small mt-1">괜찮아요! 수업에서 <b>샘플 과제</b>를 드립니다. 다만, 본인 업무를 가져오신 분이 훨씬 알차게 수업을 활용할 수 있어요.</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-
-<!-- 환경 점검 -->
+<!-- ============ SLIDE 4: 환경 점검 ============ -->
 <section class="slide" id="precheck">
   <div class="card">
     <span class="chip chip-rose">시작 전 필수</span>
     <h2 class="slide-h2 mt-3">입문과정 설치, 다 되셨죠?</h2>
     <p class="text-slate-600 mt-2">기초과정은 <b>입문과정 설치가 끝난 상태</b>에서 시작합니다. 아래 3가지를 <b>지금 바로</b> 확인해주세요.</p>
 
-    <div class="grid-cards gc-3 mt-5">
+    <div class="grid-cards gc-4 mt-5">
       <div class="tile" style="border-left:4px solid #4f46e5;">
         <div class="font-bold" style="color:#4f46e5;">① Claude Code</div>
         <div class="pre mt-2" style="font-size:12px;">$ <span class="k">claude --version</span>
 <span class="s">2.x.x</span> <span class="c">← 버전 나오면 OK</span></div>
-        <div class="small mt-2">안 되면 → <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#1-A" target="_blank" style="color:#4f46e5;font-weight:600;">실습자료 1-A</a></div>
+        <div class="small mt-2">최신 버전: <b>2.1.220</b><br>업데이트: <span class="mono" style="font-size:11px;">npm update -g @anthropic-ai/claude-code</span></div>
       </div>
       <div class="tile" style="border-left:4px solid #7c3aed;">
-        <div class="font-bold" style="color:#7c3aed;">② Skill 설치</div>
-        <div class="pre mt-2" style="font-size:12px;">> <span class="s">설치된 스킬 목록 보여줘</span>
-<span class="c">← 목록이 나오면 OK</span></div>
-        <div class="small mt-2">안 되면 → <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#1-I" target="_blank" style="color:#7c3aed;font-weight:600;">실습자료 1-I</a></div>
+        <div class="font-bold" style="color:#7c3aed;">② Git</div>
+        <div class="pre mt-2" style="font-size:12px;">$ <span class="k">git --version</span>
+<span class="s">git version 2.x.x</span> <span class="c">← 버전 나오면 OK</span></div>
+        <div class="small mt-2">안 되면 → <a href="https://git-scm.com/downloads" target="_blank" style="color:#7c3aed;font-weight:600;">git-scm.com</a>에서 설치</div>
+      </div>
+      <div class="tile" style="border-left:4px solid #047857;">
+        <div class="font-bold" style="color:#047857;">③ Python</div>
+        <div class="pre mt-2" style="font-size:12px;">$ <span class="k">python --version</span>
+<span class="s">Python 3.x.x</span> <span class="c">← 버전 나오면 OK</span></div>
+        <div class="small mt-2">안 되면 → <a href="https://www.python.org/downloads/" target="_blank" style="color:#047857;font-weight:600;">python.org</a>에서 설치</div>
       </div>
       <div class="tile" style="border-left:4px solid #0e7490;">
-        <div class="font-bold" style="color:#0e7490;">③ Dooray MCP</div>
+        <div class="font-bold" style="color:#0e7490;">④ Dooray MCP</div>
         <div class="pre mt-2" style="font-size:12px;">> <span class="s">Dooray에서 내 프로젝트 하나만 알려줘</span>
 <span class="c">← 이름 나오면 OK</span></div>
         <div class="small mt-2">안 되면 → <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#1-G" target="_blank" style="color:#0e7490;font-weight:600;">실습자료 1-G</a></div>
@@ -377,216 +350,489 @@
 
     <div class="grid-cards gc-2 mt-4">
       <div class="tile-emerald">
-        <div class="font-bold">✅ 3개 다 확인되면</div>
+        <div class="font-bold">✅ 4개 다 확인되면</div>
         <div class="small mt-1">손 들어서 강사에게 OK 사인 → 바로 이론으로 넘어갑니다</div>
       </div>
       <div class="tile-rose">
         <div class="font-bold">❌ 하나라도 안 되면</div>
-        <div class="small mt-1">손 들어주세요! 이론 시간 동안 <b>강사가 개별 지원</b>합니다. 또는 실습자료 링크를 눌러 직접 따라해보세요.</div>
+        <div class="small mt-1">손 들어주세요! 이론 시간 동안 <b>강사가 개별 지원</b>합니다.</div>
       </div>
     </div>
     <div class="quote mt-3">⏱️ 환경 점검에 <b>5분</b> 드립니다. 다 된 분은 잠시 쉬세요.</div>
   </div>
 </section>
 
-<!-- 이론 divider -->
+<!-- ============ SLIDE 5: 이론 디바이더 ============ -->
 <section class="slide" id="theory" style="background:linear-gradient(135deg,#eef2ff,#f5f3ff);">
   <div class="card">
     <div class="flex items-center gap-3"><span class="chip chip-brand">이론</span></div>
-    <h1 class="slide-title mt-4">CLAUDE.md + 프롬프트 3원칙</h1>
-    <p class="lead mt-4 text-xl" style="color:#4f46e5;"><b>매번 같은 설명을 반복하지 않는 법</b></p>
-    <p class="text-slate-600 mt-2">실습 전 핵심 개념</p>
+    <h1 class="slide-title mt-4">CLAUDE.md + 프롬프트 3원칙 + 보안</h1>
+    <p class="lead mt-4 text-xl" style="color:#4f46e5;"><b>AI를 잘 쓰려면, 잘 시키는 법부터</b></p>
+    <p class="text-slate-600 mt-2">실습 전 핵심 개념 3가지를 짧게 훑습니다.</p>
   </div>
 </section>
 
-<!-- CLAUDE.md 개념 -->
+<!-- ============ SLIDE 6: CLAUDE.md ============ -->
 <section class="slide" id="claudemd">
   <div class="card">
     <span class="chip chip-brand">개념 · CLAUDE.md</span>
     <h2 class="slide-h2 mt-3">CLAUDE.md = 나만의 업무 설명서</h2>
-    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#2-B" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 2-B</a>
     <p class="text-slate-600 mt-2">폴더에 이 파일을 두면 Claude가 <b>매번 자동으로 읽고</b> 내 맥락에 맞게 일합니다.</p>
-    <div class="pre mt-4"><span class="c"># CLAUDE.md 예시</span>
-## 나는 누구
-- 마케팅팀. 주간보고를 매주 금요일 작성.
 
-## 자주 하는 일
+    <div class="grid-cards gc-2 mt-4">
+      <div>
+        <div class="font-bold" style="color:var(--brand);">💼 마케팅팀 예시</div>
+        <div class="pre mt-2" style="font-size:12px;"><span class="c"># CLAUDE.md</span>
+<span class="k">## 나는 누구</span>
+- 마케팅팀 김사원. 주간보고를 매주 금요일 작성.
+
+<span class="k">## 자주 하는 일</span>
 - Dooray 태스크를 모아 주간보고(.md)로 정리
 - 보고 형식: 완료 / 진행중 / 다음주 계획
 
-## 규칙
-- 존댓말, 불릿 3개 이내, 수치는 굵게</div>
+<span class="k">## 규칙</span>
+- 존댓말, 불릿 3개 이내, 수치는 <span class="y">굵게</span>
+- 숫자: <span class="y">##,###</span> 천단위 콤마 표시
+- 날짜: 반드시 <span class="y">date 명령어로 검증</span> (추측 금지)
+
+<span class="k">## 보안</span>
+- 개인정보(주민번호, 계좌번호 등) <span class="y">절대 입력 금지</span>
+- API 키, 비밀번호 → .env 파일에 분리
+- 사내 기밀자료 입력 금지</div>
+      </div>
+      <div>
+        <div class="font-bold" style="color:#0e7490;">📊 정산팀 예시</div>
+        <div class="pre mt-2" style="font-size:12px;"><span class="c"># CLAUDE.md</span>
+<span class="k">## 나는 누구</span>
+- 재무팀 박대리. 매월 파트너 수수료 정산 담당.
+
+<span class="k">## 자주 하는 일</span>
+- 빌링 엑셀에서 파트너별 매출 합산
+- 거래명세서 대조 후 차이 리포트 작성
+
+<span class="k">## 규칙</span>
+- 금액: <span class="y">##,###</span> 천단위 콤마, 0원이면 "-"
+- VAT 계산: 원 미만 <span class="y">절사</span> (// 10 * 10)
+- 날짜·요일: <span class="y">date 명령어로 반드시 확인</span>
+
+<span class="k">## 보안</span>
+- 파트너 실명·이메일 대량 출력 금지
+- DB 내용 통째로 출력 금지 → 요약만</div>
+      </div>
+    </div>
+
     <div class="grid-cards gc-3 mt-4">
       <div class="tile-soft"><div class="font-bold">📍 어디에 두나</div><div class="small mt-1">작업하는 <b>폴더 맨 위</b>에 <span class="mono">CLAUDE.md</span> 파일로</div></div>
       <div class="tile-soft"><div class="font-bold">🛠️ 만드는 법</div><div class="small mt-1"><span class="mono">/init</span> 입력 또는 "CLAUDE.md 만들어줘"</div></div>
       <div class="tile-soft"><div class="font-bold">🔁 계속 다듬기</div><div class="small mt-1">어색한 결과가 나오면 규칙 한 줄씩 추가</div></div>
     </div>
-    <div class="tile mt-3"><div class="font-bold">💡 잘 쓰는 팁</div><div class="small mt-1"><b>누구·자주 하는 일·원하는 형식·규칙</b> 4가지만 적어도 충분. 길게 쓰기보다 <b>구체적으로</b>.</div></div>
 
+    <div class="tile-amber mt-3">
+      <div class="font-bold">⚠️ CLAUDE.md에 적어도 안 지킬 때가 있어요</div>
+      <div class="grid-cards gc-2 mt-2" style="gap:10px;">
+        <div>
+          <div class="small" style="line-height:1.9">
+            <b>왜 안 지킬까?</b><br>
+            • 지시가 너무 많으면 우선순위가 흐려짐 — 뒤쪽 규칙을 놓침<br>
+            • 대화가 길어지면 컨텍스트에서 밀림 — 초반엔 잘 지키다가 후반에 잊음<br>
+            • "적절히", "가능하면" 같은 모호한 표현은 무시되기 쉬움
+          </div>
+        </div>
+        <div>
+          <div class="small" style="line-height:1.9">
+            <b>잘 지키게 하려면?</b><br>
+            • 규칙을 <b>짧고 단정적</b>으로 ("~하지 않는다", "반드시 ~한다")<br>
+            • 가장 중요한 규칙을 <b>맨 위에</b> 배치<br>
+            • 안 지키면 <b>"CLAUDE.md 다시 읽어"</b> → 즉시 재로드<br>
+            • 규칙이 많으면 <b>카테고리별 <span class="mono">##</span> 섹션</b>으로 구분
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tile-rose mt-3">
+      <div class="font-bold">🔒 진짜 무조건 지키게 하려면? — 3가지 강제 장치</div>
+      <div class="grid-cards gc-3 mt-2" style="gap:10px;">
+        <div class="tile" style="padding:14px;">
+          <div class="font-bold" style="font-size:13px;">① IMPORTANT 접두어</div>
+          <div class="small mt-1">규칙 앞에 <b>IMPORTANT:</b> 또는 <b>CRITICAL:</b>을 붙이면 Claude가 더 높은 우선순위로 처리</div>
+          <div class="pre mt-2" style="font-size:11px;padding:10px;"><span class="y">IMPORTANT:</span> <span class="s">금액은 반드시 ##,### 형식</span>
+<span class="y">CRITICAL:</span> <span class="s">개인정보 절대 출력 금지</span></div>
+        </div>
+        <div class="tile" style="padding:14px;">
+          <div class="font-bold" style="font-size:13px;">② Settings 차단 (파일 접근 금지)</div>
+          <div class="small mt-1"><span class="mono">settings.json</span>에서 특정 파일 읽기/쓰기를 <b>시스템 레벨로 차단</b></div>
+          <div class="pre mt-2" style="font-size:11px;padding:10px;"><span class="c">// .env 파일 접근 원천 차단</span>
+<span class="s">"deny"</span>: [<span class="s">"Edit .env*"</span>,
+        <span class="s">"Read .env*"</span>]</div>
+        </div>
+        <div class="tile" style="padding:14px;">
+          <div class="font-bold" style="font-size:13px;">③ Hooks (코드로 강제)</div>
+          <div class="small mt-1"><b>도구 실행 전후에 자동 검사</b> 스크립트 실행 — 위반 시 작업 자체를 차단</div>
+          <div class="pre mt-2" style="font-size:11px;padding:10px;"><span class="c">// 예: 파일 저장 전 개인정보 검출</span>
+<span class="s">"hooks"</span>: {
+  <span class="s">"preToolUse"</span>: [검사 스크립트]
+}</div>
+        </div>
+      </div>
+      <div class="small mt-2" style="color:#be123c;"><b>요약:</b> CLAUDE.md = "부탁" / Settings·Hooks = <b>"강제"</b>. 보안처럼 절대 어기면 안 되는 건 Settings·Hooks로 잠그세요.</div>
+    </div>
+
+    <div class="tile mt-3"><div class="font-bold">💡 잘 쓰는 팁</div><div class="small mt-1"><b>누구 · 자주 하는 일 · 규칙 · 보안</b> — 이 4가지만 적어도 충분합니다. 길게 쓰기보다 <b>구체적으로, 단정적으로</b>.</div></div>
     <div class="quote mt-4">한 번 적어두면 "내가 누구고 뭘 원하는지"를 <b>다시 설명할 필요가 없습니다.</b></div>
   </div>
 </section>
 
-<!-- 프롬프트 3원칙 -->
+<!-- ============ SLIDE 7: 프롬프트 3원칙 ============ -->
 <section class="slide" id="prompt3">
   <div class="card">
     <span class="chip chip-amber">개념 · 프롬프트 3원칙</span>
     <h2 class="slide-h2 mt-3">복잡한 지시를 효과적으로 전달하는 법</h2>
-    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#2-A" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 2-A</a>
-    <div class="grid-cards gc-3 mt-6">
-      <div class="tile-brand"><div class="font-bold">① 구체성</div><div class="small mt-2">"정리해줘"❌ → <b>"월별 합계를 표로, 큰 순서대로"</b>✅</div></div>
+    <div class="grid-cards gc-3 mt-5">
+      <div class="tile-brand"><div class="font-bold">① 구체성</div><div class="small mt-2">"정리해줘" ❌<br><b>"월별 합계를 표로, 큰 순서대로"</b> ✅</div></div>
       <div class="tile-cyan"><div class="font-bold">② 맥락</div><div class="small mt-2">"이건 <b>팀장 보고용</b>이고, 존댓말로" 처럼 배경을 준다</div></div>
       <div class="tile-emerald"><div class="font-bold">③ 단계</div><div class="small mt-2">"먼저 조회 → 그다음 요약 → 마지막에 .md 저장" 순서로 쪼갠다</div></div>
     </div>
-    <div class="grid-cards gc-2 mt-5">
-      <div class="tile" style="background:#fff5f5;border-color:#fecaca;"><div class="font-bold" style="color:#be123c;">❌ 모호한 지시</div><div class="small mt-1">"주간보고 만들어줘"</div></div>
-      <div class="tile-emerald"><div class="font-bold" style="color:#047857;">✅ 3원칙 적용</div><div class="small mt-1">"Dooray 이번 주 내 태스크를 조회해서, 완료/진행중/계획 3개 섹션으로, 팀장 보고용 존댓말로 정리하고 주간보고.md 로 저장해줘"</div></div>
+
+    <div class="tile-soft mt-5">
+      <div class="font-bold">📌 실전 Before / After 예시</div>
+      <table class="t mt-3">
+        <thead><tr><th style="width:40%">❌ 모호한 지시</th><th style="width:60%">✅ 3원칙 적용</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>"주간보고 만들어줘"</td>
+            <td>"Dooray 이번 주 내 태스크를 조회해서, <b>완료/진행중/계획</b> 3개 섹션으로, 팀장 보고용 존댓말로 정리하고 <b>주간보고.md</b>로 저장해줘"</td>
+          </tr>
+          <tr>
+            <td>"메일 써줘"</td>
+            <td>"파트너에게 7월 정산 안내 메일을 작성해줘. <b>금액은 천단위 콤마</b>, 톤은 격식체, 입금 예정일은 <b>8/10</b>으로"</td>
+          </tr>
+          <tr>
+            <td>"엑셀 정리해줘"</td>
+            <td>"매출_데이터.xlsx를 열어서 <b>팀별 매출 합산</b>하고, <b>순위 매겨서</b> 새 시트에 표로 정리해줘"</td>
+          </tr>
+          <tr>
+            <td>"보고서 만들어줘"</td>
+            <td>"매출 분석 결과로 <b>팀장님께 보고할 PPT</b> 만들어줘. <b>design.md 규칙</b> 따라서, <b>5페이지</b> 이내로"</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
     <div class="tile-soft mt-3">
-      <div class="font-bold">🔧 결과가 아쉬우면 — 되묻지 말고 이렇게 고쳐 말하기</div>
+      <div class="font-bold">🔧 결과가 아쉬우면 — 이렇게 고쳐 말하기</div>
       <ul class="small mt-2" style="line-height:1.9">
         <li>• 너무 길다 → "핵심만 <b>3줄 요약</b>으로 다시"</li>
         <li>• 형식이 다르다 → "<b>표로</b> / <b>불릿으로</b> / <b>존댓말로</b> 바꿔줘"</li>
         <li>• 엉뚱하다 → "내가 원한 건 ○○야. 그 부분만 다시"</li>
+        <li>• 스타일이 안 맞다 → "NanumGothic 폰트, 제목 #191919로 수정해줘"</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 8: 보안 가이드 (NEW) ============ -->
+<section class="slide" id="security" style="background:linear-gradient(135deg,#fff1f2,#fef3c7);">
+  <div class="card">
+    <span class="chip chip-rose">보안 · 데이터 정책</span>
+    <h2 class="slide-h2 mt-3">"내 데이터, 학습에 쓰이는 거 아니야?"</h2>
+    <p class="text-slate-600 mt-2">가장 많이 받는 질문입니다. 결론부터 말씀드릴게요.</p>
+
+    <div class="tile" style="border:2px solid #4f46e5;background:#eef2ff;" class="mt-4">
+      <div class="font-bold" style="color:#4f46e5;font-size:16px;">📋 Anthropic 공식 데이터 정책 (검증 완료)</div>
+      <table class="t mt-3">
+        <thead><tr><th style="width:35%;">항목</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:700;">AI 모델 학습</td>
+            <td><b style="color:#047857;">학습 안 함</b> — API/Claude Code를 통해 전송된 데이터는 모델 학습에 사용되지 않습니다.<br><span style="font-size:12px;color:#64748b;">출처: Anthropic Commercial Terms "may not train models on Customer Content"</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">서버 전송</td>
+            <td><b style="color:#b45309;">전송됨</b> — AI 연산은 내 PC가 아니라 Anthropic 클라우드 서버에서 처리됩니다. 터미널에서 실행되지만, 입력한 내용은 서버로 보내져요.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">암호화</td>
+            <td><b>AES-256</b>(저장 시) + <b>TLS 1.2+</b>(전송 시) 암호화 적용<br><span style="font-size:12px;color:#64748b;">출처: Anthropic DPA Schedule 2</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">데이터 삭제</td>
+            <td>계약 종료/해지 후 <b>30일 이내 삭제</b>. 서비스 이용 중에는 답변 생성·악용 방지를 위해 임시 저장됩니다.<br><span style="font-size:12px;color:#64748b;">출처: Anthropic DPA Section H.1.b</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">웹(Free/Pro) vs API</td>
+            <td>웹 버전은 <b>설정에 따라 학습에 활용될 수 있음</b>. API·Claude Code는 <b>학습 안 함</b>. 정책이 다릅니다!</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-cards gc-2 mt-4">
+      <div class="tile-rose">
+        <div class="font-bold" style="color:#be123c;">🚫 그래도 절대 입력하면 안 되는 것</div>
+        <ul class="small mt-2" style="line-height:2.0">
+          <li>• <b>개인정보</b>: 주민번호, 여권번호, 계좌번호, 카드번호</li>
+          <li>• <b>인증정보</b>: 비밀번호, API 키, 토큰, SSH 키</li>
+          <li>• <b>영업비밀</b>: 전략기획, 미공개 마케팅, R&D 기밀</li>
+          <li>• <b>민감정보</b>: 휴대폰번호, 이메일 주소, 건강정보</li>
+        </ul>
+      </div>
+      <div class="tile-emerald">
+        <div class="font-bold" style="color:#047857;">✅ 이건 괜찮아요</div>
+        <ul class="small mt-2" style="line-height:2.0">
+          <li>• <b>업무 프로세스</b> 자동화 요청 (엑셀 정리, 보고서 등)</li>
+          <li>• <b>공개된 정보</b> 기반 작업 (서비스 목록, 매뉴얼 등)</li>
+          <li>• <b>가명·더미 데이터</b>로 테스트 후 실데이터 적용</li>
+          <li>• <b>매출·이용자 수 등 집계 데이터</b> 분석 (개인 식별 불가 시)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tile-soft mt-4">
+      <div class="font-bold">🧠 "그럼 서버 전송 자체를 안 하려면?"</div>
+      <div class="small mt-2">Claude Code가 "이 엑셀 분석해줘"를 처리할 때, <b>파일 내용(매출 숫자, 이름 등)을 읽어서 서버로 보냅니다.</b><br>Claude가 컬럼 구조와 값을 직접 봐야 코드를 짤 수 있기 때문이에요. 연산만 가는 게 아니라 <b>데이터 자체가 전송</b>됩니다.<br><br>하지만 <b>이미 만들어진 .py 파일</b>을 <span class="mono">python script.py</span>로 실행하면? → <b>서버 전송 없이 내 PC에서만 동작!</b></div>
+      <div class="grid-cards gc-3 mt-3" style="gap:10px;">
+        <div class="tile" style="padding:14px;text-align:center;">
+          <div class="text-2xl">①</div>
+          <div class="font-bold mt-1" style="font-size:13px;">더미 데이터로 개발</div>
+          <div class="small mt-1">가짜 데이터로 Claude에게<br>코드를 짜달라고 요청</div>
+        </div>
+        <div class="tile" style="padding:14px;text-align:center;">
+          <div class="text-2xl">②</div>
+          <div class="font-bold mt-1" style="font-size:13px;">.py 코드 저장</div>
+          <div class="small mt-1">완성된 코드를<br>.py 파일로 저장</div>
+        </div>
+        <div class="tile-emerald" style="padding:14px;text-align:center;">
+          <div class="text-2xl">③</div>
+          <div class="font-bold mt-1" style="font-size:13px;">실제 파일에 적용</div>
+          <div class="small mt-1"><span class="mono" style="font-size:11px;">python script.py</span><br><b>서버 전송 없이</b> 내 PC에서 실행</div>
+        </div>
+      </div>
+      <div class="small mt-2" style="color:#047857;font-weight:700;">→ 민감한 데이터를 다룰 때 가장 안전한 방법입니다. 코드는 재사용도 가능!</div>
+    </div>
+
+    <div class="tile mt-3" style="border-left:4px solid var(--brand);">
+      <div class="font-bold">"전송 = 기밀 유출인가요?"</div>
+      <div class="small mt-1" style="line-height:1.9">
+        <b>아닙니다.</b> 암호화(AES-256)되어 전송되고, 학습에 안 쓰이고, 계약 종료 후 삭제됩니다.<br>
+        Google Docs나 Notion, Dooray도 서버에 데이터가 올라가는 건 마찬가지예요.<br><br>
+        다만 NHN 보안정책은 <b>"우리 서버 밖으로 나가는 것 자체"</b>를 제한합니다.<br>
+        유출 여부가 아니라 <b>"통제권 이탈"</b> 관점이에요. 그래서 개인정보·기밀은 넣지 마세요.
+      </div>
+    </div>
+
+    <div class="quote mt-3">🔒 학습에 안 쓰이고, 암호화도 되지만, <b>우리 서버 밖으로 나가는 건 사실</b> — "애매하면 안 넣는다"가 원칙입니다.</div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 10: 활용 가이드 디바이더 ============ -->
+<section class="slide" id="guide" style="background:linear-gradient(135deg,#ecfeff,#f0fdfa);">
+  <div class="card">
+    <div class="flex items-center gap-3"><span class="chip chip-cyan">활용 가이드</span></div>
+    <h1 class="slide-title mt-4">메일 · HTML 보고서 · PPT</h1>
+    <p class="lead mt-4 text-xl" style="color:#0e7490;"><b>자동화의 핵심 레시피 3가지</b></p>
+    <p class="text-slate-600 mt-2">이 패턴을 익혀두면 내 업무 자동화에 바로 적용할 수 있습니다.</p>
+  </div>
+</section>
+
+<!-- ============ SLIDE 11: 메일 세팅 (IMAP/SMTP) ============ -->
+<section class="slide" id="mail-setup">
+  <div class="card">
+    <span class="chip chip-violet">활용 ① · 메일 세팅</span>
+    <h2 class="slide-h2 mt-3">Dooray 메일 IMAP/SMTP 설정하기</h2>
+    <p class="text-slate-600 mt-2">Claude Code로 메일을 보내려면 먼저 <b>IMAP(수신)과 SMTP(발신)</b> 설정이 필요합니다.</p>
+
+    <div class="grid-cards gc-2 mt-5">
+      <div class="tile" style="border-left:4px solid #7c3aed;">
+        <div class="font-bold" style="color:#7c3aed;">📥 IMAP (메일 수신/확인)</div>
+        <table class="t mt-3">
+          <tbody>
+            <tr><td style="font-weight:700;width:35%;">서버</td><td><span class="mono">imap.dooray.com</span></td></tr>
+            <tr><td style="font-weight:700;">포트</td><td><span class="mono">993</span> (SSL/TLS)</td></tr>
+            <tr><td style="font-weight:700;">계정</td><td>Dooray 이메일 주소</td></tr>
+            <tr><td style="font-weight:700;">비밀번호</td><td>Dooray 비밀번호</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tile" style="border-left:4px solid #0e7490;">
+        <div class="font-bold" style="color:#0e7490;">📤 SMTP (메일 발신)</div>
+        <table class="t mt-3">
+          <tbody>
+            <tr><td style="font-weight:700;width:35%;">서버</td><td><span class="mono">smtp.dooray.com</span></td></tr>
+            <tr><td style="font-weight:700;">포트</td><td><span class="mono">465</span> (SSL/TLS)</td></tr>
+            <tr><td style="font-weight:700;">계정</td><td>Dooray 이메일 주소</td></tr>
+            <tr><td style="font-weight:700;">비밀번호</td><td>Dooray 비밀번호</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tile-soft mt-4">
+      <div class="font-bold">🔐 .env 파일 만들기 — 초보자도 3분이면 끝!</div>
+      <div class="small mt-2" style="color:#be123c;font-weight:700;">비밀번호를 코드에 직접 적으면 위험해요. 별도 파일에 따로 보관하는 겁니다.</div>
+      <div class="grid-cards gc-2 mt-3" style="gap:10px;">
+        <div class="tile" style="padding:14px;">
+          <div class="font-bold" style="font-size:13px;">📝 만드는 법 (메모장으로 OK!)</div>
+          <ol class="small mt-2" style="line-height:2.2;padding-left:16px;">
+            <li>1. <b>메모장</b>을 열어요 (또는 아무 텍스트 편집기)</li>
+            <li>2. 아래 내용을 <b>복사·붙여넣기</b>하고, 내 정보로 수정</li>
+            <li>3. <b>"다른 이름으로 저장"</b> 클릭</li>
+            <li>4. 파일명을 <b style="color:#4f46e5;">.env</b> 로 입력 (앞에 점 필수!)</li>
+            <li>5. 파일 형식을 <b>"모든 파일 (*.*)"</b>로 변경</li>
+            <li>6. <b>작업 폴더</b>에 저장 (Claude Code 실행하는 그 폴더)</li>
+          </ol>
+        </div>
+        <div>
+          <div class="font-bold" style="font-size:13px;">📋 이 내용을 복사하세요</div>
+          <div class="pre mt-2" style="font-size:12px;"><span class="c"># 내 메일 설정 (이 파일은 나만 봐야 해요!)</span>
+<span class="k">EMAIL_ADDRESS</span>=<span class="s">내아이디@nhn.com</span>
+<span class="k">EMAIL_PASSWORD</span>=<span class="s">내비밀번호</span>
+<span class="k">SMTP_SERVER</span>=<span class="s">smtp.dooray.com</span>
+<span class="k">SMTP_PORT</span>=<span class="s">465</span>
+<span class="k">IMAP_SERVER</span>=<span class="s">imap.dooray.com</span>
+<span class="k">IMAP_PORT</span>=<span class="s">993</span></div>
+          <div class="small mt-2">
+            <b>Q. 파일명이 꼭 .env여야 해?</b><br>
+            → 네, 관례적으로 <b>.env</b>입니다. Claude가 자동으로 이 파일을 찾아요.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tile-amber mt-3">
+      <div class="font-bold">🛡️ .gitignore란? (비개발자용 설명)</div>
+      <div class="small mt-1">Git(코드 관리 도구)에 파일을 올릴 때, <b>"이 파일은 올리지 마"</b>라고 적어두는 목록이에요.<br>
+      .env에 비밀번호가 있으니까, 실수로 인터넷에 올라가지 않도록 .gitignore에 적어두는 거예요.<br>
+      Claude에게 <b>"이 폴더에 .gitignore 만들어서 .env 추가해줘"</b>라고 하면 알아서 해줍니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 12: 메일 발송 실전 ============ -->
+<section class="slide" id="mail-send">
+  <div class="card">
+    <span class="chip chip-violet">활용 ② · 메일 발송 실전</span>
+    <h2 class="slide-h2 mt-3">1건 발송 → 대량 발송 → 보낸메일함 기록까지</h2>
+
+    <div class="tile-brand mt-4">
+      <div class="font-bold">💡 매번 "SMTP로 보내줘" 안 하려면? → CLAUDE.md에 적어두기</div>
+      <div class="pre mt-2" style="font-size:12px;"><span class="c"># CLAUDE.md에 이렇게 적어두면</span>
+<span class="k">## 메일 발송</span>
+- 메일 발송 시 <span class="y">.env 파일의 SMTP/IMAP 정보</span>를 사용한다
+- 발송 후 <span class="y">IMAP으로 보낸메일함에 저장</span>한다
+- 1건씩 개별 발송, 발송 간격 2초</div>
+      <div class="small mt-2">→ 이제부터 <b>"메일 보내줘"</b>만 하면 알아서 .env 읽고, 보낸메일함까지 저장해요!</div>
+    </div>
+
+    <div class="grid-cards gc-3 mt-4">
+      <div class="tile" style="border-left:4px solid var(--brand);">
+        <div class="font-bold">STEP 1 · 1건 테스트</div>
+        <div class="pre mt-2" style="font-size:12px;">> <span class="s">나에게 테스트 메일 1건
+보내줘</span></div>
+        <div class="small mt-2">먼저 내 메일로 테스트해서 발송이 되는지 확인<br>(CLAUDE.md에 적어뒀으니 SMTP 언급 안 해도 OK)</div>
+      </div>
+      <div class="tile" style="border-left:4px solid #7c3aed;">
+        <div class="font-bold">STEP 2 · 대량 발송</div>
+        <div class="pre mt-2" style="font-size:12px;">> <span class="s">메일_명단.xlsx를 읽어서
+각 수신자에게 개인화된
+안내 메일을 1건씩
+개별 발송해줘</span></div>
+        <div class="small mt-2">엑셀의 이름·이메일·금액으로 개인화 메일 자동 생성</div>
+      </div>
+      <div class="tile-emerald" style="border-left:4px solid #047857;">
+        <div class="font-bold">STEP 3 · 보낸메일함 저장</div>
+        <div class="pre mt-2" style="font-size:12px;">> <span class="s">보낸 메일을 IMAP으로
+보낸메일함(Sent)에도
+저장해줘</span></div>
+        <div class="small mt-2">SMTP는 발송만 함 → IMAP append로 보낸메일함에 기록 남기기</div>
+      </div>
+    </div>
+
+    <div class="tile-soft mt-4">
+      <div class="font-bold">💡 대량 메일 발송 팁</div>
+      <ul class="small mt-2" style="line-height:2.0">
+        <li>• <b>1건씩 개별 발송</b>: To에 수신자 1명만 → 개인화 + 프라이버시 보호</li>
+        <li>• <b>발송 간격</b>: 건 사이에 1~2초 간격 → 스팸 필터 방지</li>
+        <li>• <b>테스트 먼저</b>: 전체 발송 전 반드시 내 메일로 1건 테스트</li>
+        <li>• <b>CC/Reply-To</b>: 발신 주체에 따라 규칙 설정 가능 (CLAUDE.md에 적어두면 자동)</li>
       </ul>
     </div>
 
-  </div>
-</section>
-
-<!-- 실습 divider -->
-<section class="slide" id="lab" style="background:linear-gradient(135deg,#ecfeff,#f0fdfa);">
-  <div class="card">
-    <div class="flex items-center gap-3"><span class="chip chip-cyan">실습</span></div>
-    <h1 class="slide-title mt-4">실습 파일 다운로드 + 폴더 세팅</h1>
-    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#3-0" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 3-0</a>
-    <p class="text-slate-600 mt-3">실습자료 페이지에서 <b>엑셀 파일 3개</b>를 다운로드하고, 실습 폴더에 넣으세요.</p>
-    <div class="grid-cards gc-3 mt-4">
-      <div class="tile"><div class="font-bold">📊 매출_데이터_2026년4월.xlsx</div><div class="small mt-1">실습 ①② 에서 사용</div></div>
-      <div class="tile"><div class="font-bold">📧 메일_발송_명단.xlsx</div><div class="small mt-1">실습 ③ 에서 사용</div></div>
-      <div class="tile"><div class="font-bold">📋 팀원_업무현황.xlsx</div><div class="small mt-1">실습 ④ 에서 사용</div></div>
+    <div class="tile-amber mt-3">
+      <div class="font-bold">⚙️ 보낸메일함 저장 원리</div>
+      <div class="small mt-1">SMTP는 <b>발송만</b> 담당하고 "보낸메일함"에 자동 저장하지 않습니다.<br>
+      IMAP으로 <b>Sent 폴더에 append</b>하면 Dooray 웹에서도 보낸 기록을 확인할 수 있어요.</div>
     </div>
-    <div class="pre mt-4"><span class="c"># 실습 폴더에서 Claude Code 실행</span>
-$ <span class="k">cd Desktop/shareclass-실습</span>
-$ <span class="k">claude</span></div>
-    <div class="quote mt-3">파일 3개 + Claude Code 실행 확인되면 다음으로 넘어갑니다.</div>
   </div>
 </section>
 
-<!-- 실습 ① 매출 분석 + 주간보고 -->
-<section class="slide" id="lab-sales">
+<!-- ============ SLIDE 13: NHN HTML Design System (NEW) ============ -->
+<section class="slide" id="html-design">
   <div class="card">
-    <span class="chip chip-brand">실습 ① · 매출 분석 → 주간보고</span>
-    <h2 class="slide-h2 mt-3">엑셀 데이터 → 분석 → 보고서 자동 생성</h2>
-    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#3-A" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 3-A → 3-B</a>
+    <span class="chip chip-cyan">활용 ③ · NHN HTML Design System</span>
+    <h2 class="slide-h2 mt-3">MD 파일 하나로, 누가 만들어도 같은 HTML 보고서</h2>
+    <p class="text-slate-600 mt-2">AI로 HTML을 만들면 스타일이 매번 달라지죠?<br><b>nhn-html-design-system.md</b> 파일 하나면 누구나 같은 스타일의 깔끔한 HTML 보고서를 만들 수 있습니다.</p>
+
+    <div class="grid-cards gc-2 mt-5">
+      <div class="tile-brand">
+        <div class="font-bold">🎨 디자인 시스템이란?</div>
+        <ul class="small mt-2" style="line-height:2.0">
+          <li>• NHN 브랜드 가이드라인 기반 디자인 규칙</li>
+          <li>• 폰트: <b>Pretendard</b> 단일 (한·영 통일)</li>
+          <li>• 색상: <b>#191919</b>(본문), <b>#0F80F6</b>(강조)</li>
+          <li>• 에디토리얼 톤 — 출판물처럼 깔끔하게</li>
+          <li>• 파일 하나에 규칙 정리 → AI가 자동 적용</li>
+        </ul>
+      </div>
+      <div class="tile" style="border:2px solid #c7d2fe;">
+        <div class="font-bold">📁 첨부 파일 2개</div>
+        <div class="grid-cards mt-3" style="gap:8px;">
+          <div class="tile-soft" style="padding:12px;">
+            <div class="small"><b>📄 nhn-html-design-system.md</b></div>
+            <div class="small mt-1" style="color:var(--muted);">디자인 규칙 정의 파일 (AI에게 전달)</div>
+          </div>
+          <div class="tile-soft" style="padding:12px;">
+            <div class="small"><b>🌐 [예시] 서비스 PRD.html</b></div>
+            <div class="small mt-1" style="color:var(--muted);">적용 결과 예시 — 이렇게 나옵니다!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="tile-soft mt-4">
-      <div class="font-bold">📌 데이터 소스</div>
-      <div class="small mt-1">다운로드한 <b>매출_데이터_2026년4월.xlsx</b> 파일 사용</div>
-    </div>
-    <div class="grid-cards gc-2 mt-4">
-      <div class="tile">
-        <div class="font-bold">STEP 1 · 매출 분석</div>
-        <div class="pre mt-2">> <span class="s">매출_데이터_2026년4월.xlsx 열어서 팀별 매출 합산하고 순위 매겨줘</span></div>
-        <div class="small mt-2">결과: 팀별 매출 순위표</div>
+      <div class="font-bold">✔️ 적용 방법</div>
+      <div class="grid-cards gc-2 mt-3">
+        <div class="tile" style="padding:14px;">
+          <div class="font-bold" style="font-size:14px;">방법 1. 선택 적용 (대화에만)</div>
+          <div class="small mt-2">Claude Code 입력창에 <b>nhn-html-design-system.md 파일을 첨부</b>하고 "HTML 보고서로 만들어줘"</div>
+          <div class="pre mt-2" style="font-size:12px;">> <span class="s">이 분석 결과를 HTML 보고서로
+만들어줘. 첨부한
+design-system.md 규칙 따라서</span></div>
+        </div>
+        <div class="tile" style="padding:14px;">
+          <div class="font-bold" style="font-size:14px;">방법 2. 기본 설정 (매번 자동)</div>
+          <div class="small mt-2">작업 폴더에 <b>nhn-html-design-system.md</b>를 넣어두면<br>Claude가 HTML 작성 시 자동으로 참조합니다.</div>
+          <div class="small mt-2" style="color:var(--brand);font-weight:600;">또는 CLAUDE.md에 "HTML 보고서는 nhn-html-design-system.md 규칙을 따라" 한 줄 추가</div>
+        </div>
       </div>
-      <div class="tile-emerald">
-        <div class="font-bold">STEP 2 · 주간보고 생성</div>
-        <div class="pre mt-2">> <span class="s">매출 분석 결과로 팀장님께 보고할 주간보고 만들어줘</span></div>
-        <div class="small mt-2">결과: 주간보고.md 파일</div>
-      </div>
     </div>
-    <div class="tile mt-3"><div class="font-bold">✅ 완성 체크</div><div class="small mt-1">주간보고.md가 저장됨 · 실제 매출 숫자가 담김 · 보고서 형식이 갖춰짐</div></div>
-    <div class="quote mt-3">🎯 산출물: <b>주간보고.md</b> — 엑셀 열어서 수작업하던 걸 한 문장으로 끝</div>
+
+    <div class="quote mt-3">🎯 <b>파일 하나면 NHN다운 문서를 누구나 손쉽게.</b> 서로 다른 모양을 맞추던 수고를 덜어보세요.</div>
   </div>
 </section>
 
-<!-- 실습 ② 대시보드 -->
-<section class="slide" id="lab-dashboard">
-  <div class="card">
-    <span class="chip chip-cyan">실습 ② · 대시보드</span>
-    <h2 class="slide-h2 mt-3">같은 데이터 → 차트 대시보드로 시각화</h2>
-    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#3-D" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 3-D</a>
-    <div class="tile-soft mt-4">
-      <div class="font-bold">📌 데이터 소스</div>
-      <div class="small mt-1">실습 ①에서 쓴 <b>매출_데이터_2026년4월.xlsx</b> 그대로 사용</div>
-    </div>
-    <div class="grid-cards gc-2 mt-4">
-      <div class="tile">
-        <div class="font-bold">STEP 1 · 대시보드 생성</div>
-        <div class="pre mt-2">> <span class="s">이 매출 데이터로 Streamlit 대시보드 만들어줘. 팀별 막대차트, 월별 추이, TOP5 포함</span></div>
-      </div>
-      <div class="tile-emerald">
-        <div class="font-bold">STEP 2 · 브라우저 확인</div>
-        <div class="small mt-2">자동으로 브라우저가 열리면 성공!<br><b>localhost:8501</b> = 내 PC에서 돌아가는 웹페이지</div>
-      </div>
-    </div>
-    <div class="tile mt-3"><div class="font-bold">✅ 완성 체크</div><div class="small mt-1">브라우저에서 차트가 보임 · 숫자가 내 데이터와 일치 · 제목/단위 맞음</div></div>
-    <div class="quote mt-3">🎯 산출물: <b>Streamlit 대시보드</b> — 보고서 대신 차트로 한눈에</div>
-  </div>
-</section>
-
-<!-- 실습 ③ 메일 자동화 -->
-<section class="slide" id="lab-mail">
-  <div class="card">
-    <span class="chip chip-violet">실습 ③ · 메일 자동화</span>
-    <h2 class="slide-h2 mt-3">명단 엑셀 → 메일 초안 자동 생성</h2>
-    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#3-C" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 3-C</a>
-    <div class="tile-soft mt-4">
-      <div class="font-bold">📌 데이터 소스</div>
-      <div class="small mt-1">다운로드한 <b>메일_발송_명단.xlsx</b> — 수신자 이름·이메일·금액이 담긴 파일</div>
-    </div>
-    <div class="pre mt-4">> <span class="s">메일_발송_명단.xlsx 보고, 각 파트너에게 보낼 정산 안내 메일 초안 만들어줘</span></div>
-    <div class="grid-cards gc-2 mt-4">
-      <div class="tile"><div class="font-bold">📝 결과물</div><div class="small mt-1">파트너별 이름·금액이 들어간 <b>개인화된 메일 초안</b></div></div>
-      <div class="tile"><div class="font-bold">🚀 더 해보기</div><div class="small mt-1">"이 초안들을 Outlook으로 1건만 테스트 발송해줘" (실습자료 3-C2)</div></div>
-    </div>
-    <div class="quote mt-3">🎯 산출물: <b>파트너별 메일 초안</b> — 수십 건 메일을 수작업 대신 자동 생성</div>
-  </div>
-</section>
-
-<!-- 실습 ④ Dooray 연동 -->
-<section class="slide" id="lab-dooray">
-  <div class="card">
-    <span class="chip chip-emerald">실습 ④ · Dooray 연동</span>
-    <h2 class="slide-h2 mt-3">태스크 조회 → 생성 → 댓글까지 한번에</h2>
-    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#3-F" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 3-F → 3-H</a>
-    <div class="tile-soft mt-4">
-      <div class="font-bold">📌 데이터 소스</div>
-      <div class="small mt-1">내 <b>Dooray 계정의 실제 태스크</b> — 입문과정에서 설치한 MCP가 연결해줌</div>
-    </div>
-    <div class="grid-cards gc-3 mt-4">
-      <div class="tile">
-        <div class="font-bold">STEP 1 · 조회</div>
-        <div class="pre mt-2">> <span class="s">내 두레이 태스크 보여줘</span></div>
-      </div>
-      <div class="tile">
-        <div class="font-bold">STEP 2 · 생성</div>
-        <div class="pre mt-2">> <span class="s">두레이에 "쉐어클래스 실습 완료" 태스크 만들어줘</span></div>
-      </div>
-      <div class="tile-emerald">
-        <div class="font-bold">STEP 3 · 댓글+완료</div>
-        <div class="pre mt-2">> <span class="s">그 태스크에 "완료!" 댓글 달고 상태를 완료로 바꿔줘</span></div>
-      </div>
-    </div>
-    <div class="tile mt-3"><div class="font-bold">✅ 완성 체크</div><div class="small mt-1">Dooray 웹에서 태스크가 생성됨 · 댓글이 달림 · 상태가 '완료'로 변경됨</div></div>
-    <div class="quote mt-3">🎯 산출물: <b>Dooray 태스크 자동화</b> — 브라우저 열지 않고 터미널에서 Dooray 조작</div>
-  </div>
-</section>
-
-
-<!-- 실습 ⑤ 보고서 + PPT -->
+<!-- ============ SLIDE 14: 보고서 & PPT (기존 12 유지) ============ -->
 <section class="slide" id="lab-report">
   <div class="card">
-    <span class="chip chip-amber">실습 ⑤ · 보고서 & PPT</span>
+    <span class="chip chip-amber">활용 ④ · 보고서 & PPT</span>
     <h2 class="slide-h2 mt-3">design.md로 사내 템플릿 맞춘 문서 만들기</h2>
-    <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#3-I" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 3-I</a>
     <p class="text-slate-600 mt-2">Claude Code는 <b>PPT(python-pptx)</b>도 만들 수 있습니다. 핵심은 <b>design.md</b>에 사내 템플릿 규칙을 적어두는 것.</p>
 
     <div class="tile-soft mt-4">
       <div class="font-bold">📌 design.md = 디자인 설명서</div>
       <div class="small mt-1">폰트·색상·레이아웃 규칙을 적어두면, Claude가 <b>매번 같은 스타일</b>로 PPT를 만듭니다.</div>
       <div class="pre mt-2" style="font-size:12px;"><span class="c"># design.md 예시</span>
-## PPT 규칙
+<span class="k">## PPT 규칙</span>
 - 폰트: NanumGothic (본문 11pt, 제목 20pt Bold)
 - 색상: 제목 #191919, 강조 #4f46e5
 - 로고: assets/logo.png (우측 하단)
@@ -605,14 +851,14 @@ $ <span class="k">claude</span></div>
     </div>
     <div class="grid-cards gc-3 mt-3">
       <div class="tile-soft"><div class="font-bold">📄 마크다운 보고서</div><div class="small mt-1">"보고서.md로 저장" → 빠른 텍스트 보고</div></div>
-      <div class="tile-soft"><div class="font-bold">📊 PPT 생성</div><div class="small mt-1">"python-pptx로 .pptx 만들어줘" → 실제 파워포인트 파일</div></div>
-      <div class="tile-soft"><div class="font-bold">🎨 템플릿 유지</div><div class="small mt-1">design.md 한 번 작성 → 모든 문서에 일관된 스타일</div></div>
+      <div class="tile-soft"><div class="font-bold">🌐 HTML 보고서</div><div class="small mt-1">"HTML 보고서로" + design-system.md → 브랜드 통일</div></div>
+      <div class="tile-soft"><div class="font-bold">📊 PPT 생성</div><div class="small mt-1">"python-pptx로 .pptx 만들어줘" → 파워포인트 파일</div></div>
     </div>
     <div class="quote mt-3">🎯 핵심: <b>design.md</b>에 우리 팀 규칙을 적어두면, 누가 만들어도 같은 스타일의 문서가 나옵니다.</div>
   </div>
 </section>
 
-<!-- 막힐 때 -->
+<!-- ============ SLIDE 15: 막힐 때 (기존 13 유지) ============ -->
 <section class="slide" id="stuck" style="background:linear-gradient(135deg,#fff1f2,#fef3c7);">
   <div class="card">
     <span class="chip chip-rose">실습 중 막힐 때</span>
@@ -626,7 +872,8 @@ $ <span class="k">claude</span></div>
       <div class="tile" style="background:#fff5f5;border-color:#fecaca;">
         <div class="font-bold" style="color:#be123c;">😵 자주 나는 상황</div>
         <ul class="small mt-2" style="line-height:1.9">
-          <li>• Dooray 조회가 안 됨 → 토큰/연동 재확인 (precheck)</li>
+          <li>• Dooray 조회가 안 됨 → 토큰/연동 재확인</li>
+          <li>• 메일 발송 실패 → .env 설정값 확인 (서버·포트·비밀번호)</li>
           <li>• 결과가 원하는 형식이 아님 → "표로/3섹션으로" 다시 지시</li>
           <li>• 파일이 안 보임 → "지금 폴더 파일 목록 보여줘"로 위치 확인</li>
           <li>• 엉뚱한 파일을 수정 → <span class="kbd">Esc</span>로 중단 후 대상 명확히</li>
@@ -643,66 +890,84 @@ $ <span class="k">claude</span></div>
   </div>
 </section>
 
-<!-- 한 장 요약 (캡처용) -->
-<section class="slide" id="cheatsheet" style="background:linear-gradient(135deg,#f5f3ff,#eef2ff);">
+<!-- ============ SLIDE 16: 내 업무 자동화 시간 (NEW) ============ -->
+<section class="slide" id="my-automation" style="background:linear-gradient(135deg,#ecfdf5,#eef2ff);">
   <div class="card">
-    <span class="chip chip-brand">가져가는 한 장</span>
-    <h2 class="slide-h2 mt-3">이 한 장만 캡처해 가세요 📸</h2>
-    <div class="grid-cards gc-3 mt-4">
-      <div class="tile-brand">
-        <div class="font-bold">① 잘 시키는 법 (3원칙)</div>
-        <ul class="small mt-2" style="line-height:1.9">
-          <li>• <b>구체적</b>: "B열을 팀별로 합산"</li>
-          <li>• <b>형식 지정</b>: "표로 / 존댓말로"</li>
-          <li>• <b>단계</b>: "조회 → 요약 → .md 저장"</li>
+    <span class="chip chip-emerald">실습 시간</span>
+    <h2 class="slide-h2 mt-3">🛠️ 내 업무를 내 걸로 만드는 시간</h2>
+    <p class="text-slate-600 mt-2">이론에서 배운 것들을 활용해서, <b>사전 과제로 가져온 내 업무</b>를 자동화해봅니다.</p>
+
+    <div class="grid-cards gc-2 mt-5">
+      <div class="tile-emerald">
+        <div class="font-bold">✅ 사전 과제가 있는 분</div>
+        <ul class="small mt-2" style="line-height:2.0">
+          <li>1. 작업 폴더에 파일을 넣고 <span class="mono">claude</span> 실행</li>
+          <li>2. CLAUDE.md에 내 업무 맥락 작성 (<span class="mono">/init</span>)</li>
+          <li>3. 3원칙으로 자동화 요청 프롬프트 작성</li>
+          <li>4. 결과 확인 → 수정 지시 → 완성!</li>
         </ul>
       </div>
-      <div class="tile-brand">
-        <div class="font-bold">② 반복 줄이기 — CLAUDE.md</div>
-        <div class="pre mt-2" style="font-size:12px;line-height:1.6"># 나는 누구
-- 마케팅팀
-# 규칙
-- 존댓말, 수치는 굵게</div>
-        <div class="small mt-2"><span class="mono">/init</span> 로 만들면 매번 자동 적용</div>
-      </div>
-      <div class="tile-brand">
-        <div class="font-bold">③ 막히면</div>
-        <ul class="small mt-2" style="line-height:1.9">
-          <li>• 에러 메시지 그대로 붙여넣고 "고쳐줘"</li>
-          <li>• 5분 넘게 막히면 → 손 들기 🙋</li>
-          <li>• 결과 아쉬우면 → "○○만 다시"</li>
+      <div class="tile" style="border-left:4px solid var(--brand);">
+        <div class="font-bold">💡 샘플 과제 (준비 못 하신 분)</div>
+        <ul class="small mt-2" style="line-height:2.0">
+          <li>• "이번 주 Dooray 태스크를 모아 주간보고.md로 만들어줘"</li>
+          <li>• "이 엑셀의 데이터를 분석해서 HTML 보고서로 만들어줘"</li>
+          <li>• "내 메일 수신함에서 최근 안 읽은 메일 요약해줘"</li>
+          <li>• "이 데이터로 Streamlit 대시보드를 만들어줘"</li>
         </ul>
       </div>
     </div>
+
     <div class="tile-soft mt-4">
-      <div class="font-bold">🛠 오늘 익힌 워크플로우 — 그대로 본인 업무에</div>
-      <div class="grid-cards gc-4 mt-3" style="gap:8px;">
-        <div class="tile" style="padding:12px;"><div class="text-lg">📊</div><div class="font-bold mt-1" style="font-size:13px;">엑셀 분석</div><div class="small mt-1">"이 파일 분석해서 .md로"</div></div>
-        <div class="tile" style="padding:12px;"><div class="text-lg">📝</div><div class="font-bold mt-1" style="font-size:13px;">주간보고</div><div class="small mt-1">"태스크 모아 보고서로"</div></div>
-        <div class="tile" style="padding:12px;"><div class="text-lg">📋</div><div class="font-bold mt-1" style="font-size:13px;">대시보드</div><div class="small mt-1">"웹 대시보드로 열어줘"</div></div>
-        <div class="tile" style="padding:12px;"><div class="text-lg">🧠</div><div class="font-bold mt-1" style="font-size:13px;">CLAUDE.md</div><div class="small mt-1">한 번 적으면 매번 적용</div></div>
+      <div class="font-bold">⏱️ 실습 진행 방식</div>
+      <div class="grid-cards gc-3 mt-3" style="gap:10px;">
+        <div class="tile" style="padding:14px;text-align:center;">
+          <div class="text-2xl">🎯</div>
+          <div class="font-bold mt-2" style="font-size:14px;">자유 실습</div>
+          <div class="small mt-1">내 업무에 집중</div>
+        </div>
+        <div class="tile" style="padding:14px;text-align:center;">
+          <div class="text-2xl">🙋</div>
+          <div class="font-bold mt-2" style="font-size:14px;">1:1 지원</div>
+          <div class="small mt-1">막히면 손 들기</div>
+        </div>
+        <div class="tile" style="padding:14px;text-align:center;">
+          <div class="text-2xl">📢</div>
+          <div class="font-bold mt-2" style="font-size:14px;">중간 공유</div>
+          <div class="small mt-1">잘 된 사례 발표</div>
+        </div>
       </div>
     </div>
+
+    <div class="quote mt-3">🎯 목표: 오늘 <b>내 업무 자동화 1개</b>를 완성해서 나갑니다. 작은 것이라도 OK!</div>
   </div>
 </section>
 
-
-
-<!-- 클로징 -->
+<!-- ============ SLIDE 17: 클로징 ============ -->
 <section class="slide" id="closing" style="background:linear-gradient(135deg,#0e7490,#4f46e5);">
   <div class="card" style="background:transparent;border:none;box-shadow:none;color:#fff;">
     <span class="chip" style="background:rgba(255,255,255,.18);color:#fff;">클로징</span>
     <h1 class="slide-title mt-4" style="color:#fff;">완성하셨나요? 🎉</h1>
-    <p class="lead mt-4" style="color:#e0f2fe;"><b style="color:#fde047;">주간보고</b> · <b style="color:#fde047;">대시보드</b> · <b style="color:#fde047;">메일</b> · <b style="color:#fde047;">Dooray</b> · <b style="color:#fde047;">보고서/PPT</b> — 확인해보세요!</p>
+    <p class="lead mt-4" style="color:#e0f2fe;">내 업무 자동화, 어떠셨나요?</p>
     <div class="grid-cards gc-3 mt-6">
       <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">✅ 완성 확인</div><div class="small mt-1" style="opacity:.9;color:#e0f2fe">강사에게 산출물 보여주기</div></div>
       <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">🔧 미완료자</div><div class="small mt-1" style="opacity:.9;color:#e0f2fe">후속 지원 안내</div></div>
       <div style="background:rgba(255,255,255,.12);border-radius:16px;padding:18px;"><div class="font-bold">📋 사후 설문</div><div class="small mt-1" style="opacity:.9;color:#e0f2fe">Q&A · 치트시트 배포</div></div>
     </div>
+    <div style="background:rgba(255,255,255,.08);border-radius:16px;padding:18px;margin-top:20px;">
+      <div class="font-bold">📦 가져가세요</div>
+      <div class="small mt-1" style="opacity:.9;color:#e0f2fe">
+        • nhn-html-design-system.md — HTML 보고서 디자인 통일<br>
+        • 치트시트 캡처 — 프롬프트 3원칙 + 막힐 때 대응<br>
+        • CLAUDE.md — 오늘 작성한 내 업무 설명서
+      </div>
+    </div>
     <p class="mt-6 text-sm" style="opacity:.8">CLAUDE.md는 계속 다듬어 쓰세요 — 쓸수록 비서가 똑똑해집니다.</p>
   </div>
 </section>
+
 </div>
+
 <!-- Side arrows -->
 <button class="deck-arrow prev" id="arrow-prev" aria-label="이전 슬라이드">‹</button>
 <button class="deck-arrow next" id="arrow-next" aria-label="다음 슬라이드">›</button>
@@ -745,25 +1010,21 @@ $ <span class="k">claude</span></div>
   const btnPrint = document.getElementById('btn-print');
   const btnFullscreen = document.getElementById('btn-fullscreen');
 
-  // Part labels by section id prefix
   const partOf = (id) => {
     if(['cover','instructor','opening','precheck'].includes(id)) return '인트로';
-    if(id==='theory'||['claudemd','prompt3'].includes(id)) return '이론 · CLAUDE.md & 프롬프트';
-    if(id==='lab'||['group-a','group-b','stuck'].includes(id)) return '실습 · 내 자동화 도구';
-    if(['cheatsheet','closing'].includes(id)) return '마무리';
-
+    if(['theory','claudemd','prompt3','security'].includes(id)) return '이론 · 핵심 개념';
+    if(['guide','mail-setup','mail-send','html-design','lab-report'].includes(id)) return '활용 가이드';
+    if(['stuck','my-automation'].includes(id)) return '실습 · 내 업무 자동화';
+    if(['closing'].includes(id)) return '마무리';
     return '';
   };
 
-
-  // Extract title for overview
   const titleOf = (slide) => {
     const h1 = slide.querySelector('h1.slide-title');
     const h2 = slide.querySelector('h2.slide-h2');
     return (h1 && h1.textContent.trim()) || (h2 && h2.textContent.trim()) || slide.id;
   };
 
-  // Build overview grid
   slides.forEach((s, i)=>{
     const card = document.createElement('div');
     card.className = 'ov-card';
@@ -777,7 +1038,6 @@ $ <span class="k">claude</span></div>
     overviewGrid.appendChild(card);
   });
 
-  // Determine initial index from hash
   let idx = 0;
   const hashIdx = () => {
     if(!location.hash) return 0;
@@ -800,10 +1060,8 @@ $ <span class="k">claude</span></div>
     if(location.hash.slice(1) !== targetId){
       history.replaceState(null, '', '#'+targetId);
     }
-    // Breadcrumb update
-    bcPart.textContent = partOf(targetId) || ' ';
+    bcPart.textContent = partOf(targetId) || ' ';
     bcTitle.textContent = titleOf(slides[idx]).replace(/\s+/g,' ').slice(0,80);
-    // Reset scroll inside the card so each slide starts at the top
     const card = slides[idx].querySelector('.card');
     if(card) card.scrollTop = 0;
     slides[idx].scrollTop = 0;
@@ -849,7 +1107,6 @@ $ <span class="k">claude</span></div>
     }
   });
 
-  // Swipe gestures for touch
   let touchStartX = 0;
   window.addEventListener('touchstart', e=>{ touchStartX = e.touches[0].clientX; }, {passive:true});
   window.addEventListener('touchend', e=>{
@@ -857,7 +1114,6 @@ $ <span class="k">claude</span></div>
     if(Math.abs(dx) > 60){ dx > 0 ? prev() : next(); }
   });
 
-  // Hash-link clicks inside slides (목차)
   deck.addEventListener('click', (e)=>{
     const a = e.target.closest('a[href^="#"]');
     if(!a) return;
@@ -868,9 +1124,6 @@ $ <span class="k">claude</span></div>
 
   window.addEventListener('hashchange', ()=>{ const i=hashIdx(); if(i!==idx) goTo(i); });
 
-  // ======================================================
-  // 슬라이드 번호 배지 자동 주입 (각 슬라이드에)
-  // ======================================================
   slides.forEach((s, i) => {
     const card = s.querySelector('.card');
     if (!card || card.querySelector('.slide-num-badge')) return;
@@ -885,9 +1138,6 @@ $ <span class="k">claude</span></div>
     card.appendChild(badge);
   });
 
-  // ======================================================
-  // 페이지 번호 점프 입력
-  // ======================================================
   const jumpInput = document.getElementById('jump-input');
   if (jumpInput) {
     jumpInput.max = String(total);
@@ -903,9 +1153,6 @@ $ <span class="k">claude</span></div>
     });
   }
 
-  // ======================================================
-  // 코드 블록 복사 버튼 자동 주입
-  // ======================================================
   document.querySelectorAll('.pre').forEach(pre=>{
     if(pre.querySelector('.pre-copy-btn')) return;
     const btn = document.createElement('button');
@@ -913,7 +1160,6 @@ $ <span class="k">claude</span></div>
     btn.textContent = '📋 복사';
     btn.addEventListener('click', async (e)=>{
       e.stopPropagation();
-      // 텍스트만 추출 (HTML 태그 제거)
       const text = pre.innerText.replace(/📋 복사\s*$/,'').trim();
       try{
         await navigator.clipboard.writeText(text);
@@ -935,31 +1181,28 @@ $ <span class="k">claude</span></div>
   const params = new URLSearchParams(location.search);
   const isRemote = params.get('remote') === '1';
 
-  // BroadcastChannel (같은 브라우저 내 창끼리 실시간 통신)
   const channel = ('BroadcastChannel' in window) ? new BroadcastChannel('deck-sync') : null;
 
-  // 슬라이드별 스피커 노트
   const speakerNotes = {
-    'cover': '인사 → 교육 목표 안내. "오늘 2시간이면 실전 자동화까지 끝납니다." 입문에서 설치는 끝났으니 바로 실습 중심.',
-    'instructor': '자기소개 간단히. TA 소개. "막히면 언제든 손 들어주세요."',
-    'opening': '오늘 목표 4가지 읽기. "입문에서 설치했으니 오늘은 활용." 동작 확인: claude 실행 + /mcp 연결.',
-    'precheck': '★ 핵심. 설치 확인 체크리스트. 안 된 분 TA 배정. 여기서 전원 환경 맞추기.',
-    'theory': '이론 파트 전환. "짧게 핵심만 보고 바로 실습."',
-    'claudemd': '★ CLAUDE.md 작성 실습. "나만의 업무 설명서." 예시 보여주고 따라 작성. 직접 /init 실행.',
-    'prompt3': '프롬프트 3원칙: 구체성·맥락·단계. 예시로 Before/After 비교. "잘 시키는 법이 핵심."',
-    'lab': '실습 파트 전환. "이제 직접 합니다. 5가지 중 관심 있는 것부터."',
-    'lab-sales': '★ 매출 분석 실습. 엑셀 파일 → pandas → 차트. "파일 넣고 분석해줘" 한마디.',
-    'lab-dashboard': '★ Streamlit 대시보드 실습. 매출 데이터 → 대시보드 자동 생성. 브라우저에서 확인.',
-    'lab-mail': '★ 메일 초안 실습. 상황 주고 메일 작성 시키기. 톤/분량 조절 연습.',
-    'lab-dooray': '★ Dooray 연동 실습. 태스크 조회·생성·댓글. MCP 실전 활용.',
-    'lab-report': '★ 보고서 실습. 주간보고/회의록 형식 자동 적용. PPT 변환까지.',
-    'stuck': '막혔을 때 대응법. "에러 복사 → claude.ai에 물어보기." TA 호출 기준.',
-    'cheatsheet': '"이 한 장 캡처하세요." 잠시 멈추고 캡처 시간. 핵심 명령어 + 잘 시키는 법.',
-    'closing': '수고 인사. 과제 안내. Q&A 시간. "오늘 만든 자동화를 실제 업무에 바로 써보세요."'
+    'cover': '인사 → 교육 목표 안내. "오늘은 이론 + 내 업무 자동화 실습." 사전과제 확인.',
+    'instructor': '자기소개 간단히. "막히면 언제든 손 들어주세요."',
+    'opening': '★ 사전과제 확인. "자동화할 업무 가져오셨죠?" 못 가져온 분 안심시키기. 3시간 흐름 안내.',
+    'precheck': '★ 핵심. 설치 확인 체크리스트. 안 된 분 개별 지원. 여기서 전원 환경 맞추기.',
+    'theory': '이론 파트 전환. "짧게 핵심만 보고 바로 활용 가이드로."',
+    'claudemd': '★ CLAUDE.md 작성법. 두 가지 예시 비교. 직접 /init 실행해보기.',
+    'prompt3': '프롬프트 3원칙: 구체성·맥락·단계. Before/After 테이블로 비교. "잘 시키는 법이 핵심."',
+    'security': '★ 보안 슬라이드. 수강생들 가장 많이 궁금해함. "애매하면 안 넣는다" 원칙 강조.',
+    'guide': '활용 가이드 파트 전환. "실전 레시피 4가지."',
+    'mail-setup': '★ IMAP/SMTP 설정. .env 파일 만들기. 보안 주의사항 강조.',
+    'mail-send': '★ 메일 발송 3단계. 테스트→대량→보낸메일함. 대량발송 팁 강조.',
+    'html-design': '★ NHN Design System 소개. 첨부파일 배포. 적용 방법 2가지 안내.',
+    'lab-report': '★ 보고서/PPT 가이드. design.md 작성법. HTML·PPT 비교.',
+    'stuck': '막혔을 때 대응법. "에러 복사 → 그대로 보여주기." 5분 룰.',
+    'my-automation': '★★ 핵심 실습 시간. 자유 실습 시작. 1:1 지원 돌아다니기. 중간에 잘 된 사례 공유.',
+    'closing': '수고 인사. 첨부파일 안내. Q&A 시간. "오늘 만든 자동화를 실제 업무에 바로 써보세요."'
   };
 
   if(isRemote){
-    // ---- 리모컨 모드 ----
     document.body.classList.add('remote-mode');
     const grid = document.getElementById('remote-grid');
     slides.forEach((s,i)=>{
@@ -974,14 +1217,12 @@ $ <span class="k">claude</span></div>
     const previewTitle = document.getElementById('remote-preview-title');
     let previewReady = false;
     const previewWrap = document.getElementById('remote-preview-wrap');
-    // iframe scale 계산: 1440x900 기준을 컨테이너에 맞춤
     function scalePreview(){
       const w = previewWrap.clientWidth, h = previewWrap.clientHeight;
       const s = Math.min(w/1440, h/900);
       previewFrame.style.transform = `scale(${s})`;
     }
     window.addEventListener('resize', scalePreview);
-    // iframe에 메인 페이지 로드
     previewFrame.src = location.pathname + '?preview=1';
     previewFrame.addEventListener('load', ()=>{
       previewReady = true;
@@ -997,20 +1238,16 @@ $ <span class="k">claude</span></div>
       });
       const cur = grid.querySelector('.current');
       if(cur) cur.scrollIntoView({behavior:'smooth',block:'nearest'});
-      // 스피커 노트 업데이트
       const notesBody = document.getElementById('remote-notes-body');
       const slideId = slides[i]?.id || '';
       notesBody.textContent = speakerNotes[slideId] || '(이 슬라이드에 등록된 노트가 없습니다.)';
-      // 슬라이드 미리보기 업데이트
       previewTitle.textContent = titleOf(slides[i]).slice(0,50);
       if(previewReady){ try{ previewFrame.contentWindow.postMessage({type:'remote-goto', idx:i}, '*'); }catch(e){} }
     }
 
-    // 초기 상태 복원
     const saved = parseInt(localStorage.getItem(REMOTE_KEY)||'0');
     updateRemoteUI(isNaN(saved)?0:saved);
 
-    // 메인 화면에서 슬라이드 변경 신호 수신
     if(channel){
       channel.onmessage = (e)=>{
         if(e.data?.type==='slide-changed') updateRemoteUI(e.data.idx);
@@ -1020,7 +1257,6 @@ $ <span class="k">claude</span></div>
       if(e.key===REMOTE_KEY){ updateRemoteUI(parseInt(e.newValue)); }
     });
 
-    // 리모컨에서 메인으로 명령 전송
     window.remoteJump = (i)=>{
       localStorage.setItem(REMOTE_KEY, String(i));
       if(channel) channel.postMessage({type:'goto', idx:i});
@@ -1038,7 +1274,6 @@ $ <span class="k">claude</span></div>
     window.remoteOpenMain = ()=>{
       window.open(location.pathname, '_blank');
     };
-    // 리모컨에서도 키보드로 슬라이드 넘기기
     document.addEventListener('keydown', (e)=>{
       if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return;
       switch(e.key){
@@ -1049,7 +1284,6 @@ $ <span class="k">claude</span></div>
       }
     });
   } else if(params.get('preview') === '1'){
-    // ---- 미리보기 모드 (리모컨 iframe 내부) ----
     ['nav','deck-ctrl','deck-progress'].forEach(cls=>{
       const el = document.querySelector('.'+cls);
       if(el) el.style.display='none';
@@ -1063,17 +1297,14 @@ $ <span class="k">claude</span></div>
       }
     });
   } else {
-    // ---- 메인 화면 ----
-    // 슬라이드 변경 시 모든 창에 알림 (리모컨 + 다른 메인 창)
     const origGoTo = goTo;
-    let syncing = false;  // 무한 루프 방지
+    let syncing = false;
     window.goTo = function(i){
       origGoTo(i);
       if(syncing) return;
       localStorage.setItem(REMOTE_KEY, String(idx));
       if(channel) channel.postMessage({type:'sync-nav', idx, from:'main'});
     };
-    // 다른 창(리모컨 OR 다른 메인 창)에서 슬라이드 변경 수신
     if(channel){
       channel.onmessage = (e)=>{
         if(!e.data) return;
