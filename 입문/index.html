@@ -920,7 +920,7 @@ $ <span class="k">claude</span>
       </div>
     </div>
     <div class="grid-cards gc-3 mt-5">
-      <div class="tile-soft"><div class="font-bold">📋 Dooray MCP</div><div class="small mt-1">태스크·프로젝트·위키 조회 (오늘 연동)</div></div>
+      <div class="tile-soft"><div class="font-bold">📋 Dooray MCP <span style="font-size:10px;color:#4f46e5;font-weight:800;">v2.1</span></div><div class="small mt-1">업무·캘린더·메신저·위키·드라이브·멤버 검색 (오늘 연동)</div></div>
       <div class="tile-soft"><div class="font-bold">📁 파일시스템</div><div class="small mt-1">내 폴더의 문서를 직접 읽고 쓰기 (기본 내장)</div></div>
       <div class="tile-soft"><div class="font-bold">🌐 그 외 수백 종</div><div class="small mt-1">Slack·GitHub·DB 등 — 필요할 때 붙이면 됨</div></div>
     </div>
@@ -932,7 +932,7 @@ $ <span class="k">claude</span>
 <!-- Dooray MCP 연동 -->
 <section class="slide" id="dooray-mcp">
   <div class="card">
-    <span class="chip chip-violet">STEP 6 · Dooray MCP 토큰 → .env → 연동</span>
+    <span class="chip chip-violet">STEP 6 · Dooray MCP v2.1 연동</span>
     <h2 class="slide-h2 mt-3">Dooray를 터미널에서 조회하기</h2>
     <a href="https://ariri48.github.io/shareclass-claude-code/guide.html#1-G" target="_blank" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 12px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;font-size:11px;font-weight:600;color:#047857;text-decoration:none;">📖 실습자료 1-G ~ 1-G4</a>
     <div class="grid-cards gc-2 mt-5">
@@ -964,6 +964,28 @@ $ <span class="k">claude</span>
 <span class="c"># 이름이 하나라도 나오면 연동 성공 🎉</span></div>
     </div>
     <div class="quote mt-4">⚠️ 토큰은 <b>비밀번호</b>입니다. 화면 공유·채팅에 노출 금지, .env 밖으로 복사 금지.</div>
+  </div>
+</section>
+
+<!-- Dooray MCP v2.1 확장 기능 소개 -->
+<section class="slide" id="dooray-mcp-v2">
+  <div class="card">
+    <span class="chip chip-violet">Dooray MCP <span style="background:#4f46e5;color:#fff;padding:1px 6px;border-radius:4px;margin-left:4px;">v2.1</span></span>
+    <h2 class="slide-h2 mt-3">v2.1 — 업무만이 아닙니다</h2>
+    <p class="text-slate-600 mt-2">Dooray MCP v2.1은 <b>업무(Task)</b> 외에도 캘린더·메신저·위키·드라이브·멤버 검색까지 지원합니다. 한마디로, Dooray의 거의 모든 기능을 터미널에서 쓸 수 있어요.</p>
+    <div class="grid-cards gc-3 mt-5">
+      <div class="tile-brand"><div class="text-xl">📅</div><div class="font-bold mt-1">캘린더</div><div class="small mt-1">"이번 주 내 일정 보여줘"<br>일정 조회·등록·수정</div></div>
+      <div class="tile-cyan"><div class="text-xl">💬</div><div class="font-bold mt-1">메신저</div><div class="small mt-1">"홍길동에게 회의 안내 보내줘"<br>1:1 및 채널 메시지 발송·답장</div></div>
+      <div class="tile"><div class="text-xl">📝</div><div class="font-bold mt-1">위키</div><div class="small mt-1">"회의록 정리해서 위키에 올려줘"<br>페이지 작성·수정·댓글</div></div>
+      <div class="tile"><div class="text-xl">📁</div><div class="font-bold mt-1">드라이브</div><div class="small mt-1">파일 업로드·다운로드<br>공유 링크 생성</div></div>
+      <div class="tile"><div class="text-xl">👥</div><div class="font-bold mt-1">멤버 / 주소록</div><div class="small mt-1">조직 멤버 및 연락처 검색</div></div>
+      <div class="tile-emerald"><div class="text-xl">✅</div><div class="font-bold mt-1">업무(Task) 강화</div><div class="small mt-1">완료 처리·상태 변경<br>상위 업무 지정·초안 작성</div></div>
+    </div>
+    <div class="grid-cards gc-2 mt-4">
+      <div class="tile-soft"><div class="font-bold">🆕 처음 설치</div><div class="small mt-1"><a href="https://github.com/ariri48/dooray-mcp" target="_blank" style="color:#4f46e5;font-weight:600;">github.com/ariri48/dooray-mcp</a><br>3분이면 끝</div></div>
+      <div class="tile-soft"><div class="font-bold">📖 상세 가이드</div><div class="small mt-1"><a href="https://github.com/ariri48/dooray-mcp/blob/main/GUIDE.md" target="_blank" style="color:#4f46e5;font-weight:600;">GUIDE.md</a><br>기능별 사용 예시</div></div>
+    </div>
+    <div class="quote mt-4">오늘은 <b>업무 조회 + 글 작성</b>까지만 실습합니다. 나머지 기능은 가이드 보고 따라하면 됩니다.</div>
   </div>
 </section>
 
@@ -1181,7 +1203,7 @@ $ <span class="k">claude</span>
     if(id==='part1'||['chat-vs-cli','web-app-cli','desktop-vs-cli','cc-vs-cowork','pricing','terms-1','file-types'].includes(id)) return 'Part 1 · 왜 Claude Code인가?';
     if(id==='part2'||['usecases','before-after','side-note'].includes(id)) return 'Part 2 · 무엇이 가능한가?';
     if(id==='part-install1'||['terminal','install','first-run','troubleshoot'].includes(id)) return 'Part 3 · 설치하기';
-    if(id==='part-install2'||['skills','mcp-concept','dooray-mcp','mcp-practice','commands'].includes(id)) return 'Part 4 · Skill & MCP';
+    if(id==='part-install2'||['skills','mcp-concept','dooray-mcp','dooray-mcp-v2','mcp-practice','commands'].includes(id)) return 'Part 4 · Skill & MCP';
     if(['preview','cheatsheet','closing'].includes(id)) return '마무리';
 
     return '';
@@ -1399,6 +1421,7 @@ $ <span class="k">claude</span>
     'skills': 'Skill 개념 설명. "앱스토어에서 기능 추가하는 것과 같다." 기본 내장 스킬 소개 + 외부 스킬 찾는 법 안내. 오늘 설치는 안 함.',
     'mcp-concept': 'MCP 개념. "USB-C 케이블 같은 것. Claude에게 손과 눈을 달아준다." 없으면/있으면 비교가 핵심.',
     'dooray-mcp': '★ Dooray 토큰 발급 실습. 단계별로 천천히. .env 설명 꼼꼼히. "토큰은 비밀번호! 화면 공유에 노출 금지."',
+    'dooray-mcp-v2': 'v2.1 확장 기능 소개. 6가지 카드 하나씩 짚기. "업무만이 아니라 캘린더·메신저·위키까지." 오늘은 업무 조회+글작성까지만 실습, 나머지는 가이드 안내.',
     'mcp-practice': '★ 실습 A(Skill) + B(Dooray). 직접 시켜보기. "Dooray에 글이 생기면 성공."',
     'commands': '기본 명령어 4개 + 단축키 + 슬래시 8종. "/help, /clear, /resume 3개만 기억." /usage로 요금 확인. 나머지는 한국어로.',
     'preview': '기초 과정 미리보기. "다음 시간에 CLAUDE.md 작성하고 실전 자동화합니다." 기대감.',
