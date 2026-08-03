@@ -1315,7 +1315,7 @@ design-system.md 규칙 따라서</span></div>
 
     if(channel){
       channel.onmessage = (e)=>{
-        if(e.data?.type==='slide-changed') updateRemoteUI(e.data.idx);
+        if((e.data?.type==='slide-changed' || e.data?.type==='sync-nav') && typeof e.data.idx==='number') updateRemoteUI(e.data.idx);
       };
     }
     window.addEventListener('storage', (e)=>{
@@ -1364,7 +1364,7 @@ design-system.md 규칙 따라서</span></div>
   } else {
     const origGoTo = goTo;
     let syncing = false;
-    window.goTo = function(i){
+    goTo = function(i){
       origGoTo(i);
       if(syncing) return;
       localStorage.setItem(REMOTE_KEY, String(idx));
