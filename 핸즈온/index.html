@@ -201,14 +201,14 @@
 </div>
 <div style="display:flex;gap:16px;flex-wrap:wrap">
 <p style="font-size:26px;color:#1446c8;background:#e9f1ff;padding:8px 22px;border-radius:1000px">비개발자</p>
-<p style="font-size:26px;color:#1446c8;background:#e9f1ff;padding:8px 22px;border-radius:1000px">정산 자동화 직접 구축</p>
+<p style="font-size:26px;color:#1446c8;background:#e9f1ff;padding:8px 22px;border-radius:1000px">정산 자동화 직접 만들기</p>
 <p style="font-size:26px;color:#1446c8;background:#e9f1ff;padding:8px 22px;border-radius:1000px">교육 대시보드 제작</p>
 <p style="font-size:26px;color:#1446c8;background:#e9f1ff;padding:8px 22px;border-radius:1000px">Dooray MCP</p>
 </div>
 <p style="font-size:34px;line-height:1.5;color:#222222;border-left:6px solid #125de6;padding:8px 0 8px 32px">저도 개발자가 아닙니다. 오늘 보여 드리는 자동화와 이 교육 대시보드 모두 Claude Code로 만들었고, 그 과정에서 사고도 직접 겪었습니다.</p>
 </div>
 </div>
-<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#555555">Claude Code 업무 자동화 핸즈온</p></div></div><aside class="notes">자기소개는 1분 이내로. 핵심은 "저도 비개발자"라는 점입니다.
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#555555">Claude Code 업무 자동화 핸즈온</p></div></div><aside class="notes">자기소개는 1분 이내로. 핵심은 "저도 비개발자"라는 사실입니다.
 
 저는 NHN Cloud 파트너지원팀 정유경입니다. 개발자가 아닙니다. 그런데 지금 팀의 파트너 정산 업무 상당 부분이 Claude Code로 만든 자동화로 돌아가고 있고, 오늘 쓰실 교육 대시보드도 Claude Code로 만들었습니다.
 
@@ -455,7 +455,7 @@
 강사 메모: 실제 화면(정산 결과 화면 등)을 보여 줄 수 있으면 여기서 30초 보여 주세요. 파트너 실명·금액이 보이지 않게 주의합니다.</aside></section>
 <section class="slide" id="s0-silent"><div class="frame"><div class="art" style="background:#125de6;color:#ffffff;font-family:'Pretendard', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:48px"><p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:28px;letter-spacing:4px;color:#e9f1ff">조용히 틀리는 자동화</p>
 <h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:104px;font-weight:400;line-height:1.15;color:#ffffff">에러는 없었습니다.<br>금액만 0원이었습니다.</h2>
-<p style="font-size:40px;line-height:1.45;color:#e9f1ff;width:1300px">컬럼 이름 하나가 바뀌자 정산이 "성공"으로 끝나면서 종량 파트너 5곳이 0원으로 나왔습니다. 화면에는 "계약 종료", 검증은 "통과".</p></div></div><aside class="notes">이 슬라이드가 오늘 가장 중요한 이야기일 수 있습니다.
+<p style="font-size:40px;line-height:1.45;color:#e9f1ff;width:1300px">컬럼 이름 하나가 바뀌자 정산이 "성공"으로 끝나면서 종량 파트너 5곳이 0원으로 나왔습니다. 화면에는 "계약 종료", 검증은 "통과".</p></div></div><aside class="notes">이 슬라이드는 오늘 제일 먼저 짚을 이야기입니다.
 
 자동화가 무서운 건 실패할 때가 아니라 조용히 틀릴 때입니다. 에러가 나면 사람이 알아챕니다. 그런데 이번 사고는 에러가 없었습니다. 입력 파일의 형식이 바뀌었는데, 프로그램은 "정상 완료"라고 하고 금액을 0원으로 냈습니다.
 
@@ -642,7 +642,9 @@ Playwriter에는 클라우드 브라우저 기능도 있는데, 오늘은 쓰지
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:30px;color:#555555">이렇게 되면 성공입니다</p>
 <div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">체크리스트 <b>6칸이 모두 체크</b></p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">두레이 MCP·파일 받기·테스트 메일까지 연결 확인</p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">아래에 <b>"이 세션을 완료했습니다"</b></p></div>
 </div></div>
-<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 0 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 0을 마치면 대시보드가 이렇게 보입니다. 연결 세 가지(두레이 MCP, 태스크 파일 받기, 내 주소로 테스트 메일)까지 확인하고 체크 6칸을 채운 뒤 [완료]를 누르면 초록색 완료 표시가 뜹니다. 안 되는 칸은 [막혔어요]를 눌러 주세요.</aside></section>
+<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 0 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 0을 마치면 대시보드가 이렇게 보입니다.
+연결 세 가지(두레이 MCP, 태스크 파일 받기, 내 주소로 테스트 메일)까지 확인하고 체크 6칸을 채운 뒤 [완료]를 누르면 초록색 완료 표시가 뜹니다.
+안 되는 칸은 [막혔어요]를 눌러 주세요.</aside></section>
 <section class="slide" id="s1-div"><div class="frame"><div class="art" style="background:#2b3240;color:#ffffff;font-family:'Pretendard', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:28px;letter-spacing:4px;color:#84b1ff">SESSION 01 · 0:35–1:00 · 25분</p>
 <div style="display:flex;flex-direction:column;gap:32px">
 <h1 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:120px;font-weight:400;line-height:1.1;color:#ffffff">설계</h1>
@@ -741,7 +743,9 @@ Playwriter에는 클라우드 브라우저 기능도 있는데, 오늘은 쓰지
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:30px;color:#555555">이렇게 되면 성공입니다</p>
 <div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">규칙 <b>5개 이상</b></p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222"><b>하면 안 되는 것</b>과 <b>이상하면 멈추는 기준</b> 포함</p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">CLAUDE.md를 직접 열어 읽어 봄</p></div>
 </div></div>
-<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 1 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 1 완료 화면입니다. Plan 모드로 계획을 먼저 받고, 빠진 부분을 고치고, CLAUDE.md에 규칙을 5개 이상 적었다면 체크가 채워집니다. 금지 규칙과 멈추는 기준이 들어갔는지가 핵심입니다.</aside></section>
+<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 1 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 1 완료 화면입니다.
+Plan 모드로 계획을 먼저 받고, 빠진 부분을 고치고, CLAUDE.md에 규칙을 5개 이상 적었다면 체크가 채워집니다.
+금지 규칙과 멈추는 기준이 들어갔는지가 핵심입니다.</aside></section>
 <section class="slide" id="s2-div"><div class="frame"><div class="art" style="background:#2b3240;color:#ffffff;font-family:'Pretendard', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:28px;letter-spacing:4px;color:#84b1ff">SESSION 02 · 1:00–1:35 · 35분</p>
 <div style="display:flex;flex-direction:column;gap:32px">
 <h1 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:120px;font-weight:400;line-height:1.1;color:#ffffff">정제·계산</h1>
@@ -749,7 +753,7 @@ Playwriter에는 클라우드 브라우저 기능도 있는데, 오늘은 쓰지
 </div>
 <div style="display:flex;gap:24px">
 <p style="font-size:26px;color:#2b3240;background:#c8dcff;padding:8px 22px;border-radius:1000px">지원: 힌트 1~2</p>
-<p style="font-size:26px;color:#2b3240;background:#c8dcff;padding:8px 22px;border-radius:1000px">계산·명세서 코드는 스타터에 일부 제공</p>
+<p style="font-size:26px;color:#2b3240;background:#c8dcff;padding:8px 22px;border-radius:1000px">계산·명세서 코드는 스타터에 일부 들어 있음</p>
 </div></div></div><aside class="notes">세션 2는 35분, 오늘 가장 긴 실습입니다. 끝나면 휴식입니다.
 
 이 세션의 데이터에는 함정이 숨어 있습니다. 무엇인지는 말씀드리지 않겠습니다. 힌트는 두 개까지 열립니다. 계산과 명세서를 그리는 코드는 스타터에 일부 들어 있으니 처음부터 다 만들 필요는 없습니다.
@@ -863,7 +867,9 @@ Playwriter에는 클라우드 브라우저 기능도 있는데, 오늘은 쓰지
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:30px;color:#555555">이렇게 되면 성공입니다</p>
 <div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">out/에 <b>정산 피벗·거래명세서·report.json</b></p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">차단 건은 <b>이유가 적혀 있고 명세서는 없음</b></p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">거래명세서 금액이 report.json과 같고, 테스트 통과</p></div>
 </div></div>
-<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 2 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 2 완료 화면입니다. 정산이 돌아가고 out 폴더에 세 가지가 만들어졌는지, 차단한 건마다 이유를 적었는지, 빈 값을 0원으로 채우지 않았는지를 스스로 확인한 뒤 체크합니다. 거래명세서를 다시 읽어 report.json 금액과 맞추는 것이 마지막 확인입니다.</aside></section>
+<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 2 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 2 완료 화면입니다.
+정산이 돌아가고 out 폴더에 세 가지가 만들어졌는지, 차단한 건마다 이유를 적었는지, 빈 값을 0원으로 채우지 않았는지를 스스로 확인한 뒤 체크합니다.
+거래명세서를 다시 읽어 report.json 금액과 맞추는 것이 마지막 확인입니다.</aside></section>
 <section class="slide" id="break"><div class="frame"><div class="art" style="background:#e9f1ff;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:40px"><p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:28px;letter-spacing:4px;color:#1446c8">1:35–1:55</p>
 <h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:120px;font-weight:400;line-height:1.1;color:#222222">휴식 20분</h2>
 <p style="font-size:40px;line-height:1.45;color:#555555;width:1300px">돌아오기 전에 자동화 브라우저의 APMS 로그인이 살아 있는지 한 번 확인해 주세요.</p></div></div><aside class="notes">20분 쉬겠습니다. 세션 2를 다 못 끝내신 분은 쉬는 동안 체크포인트(완성 예시)를 열어 두시면 세션 3에 바로 합류할 수 있습니다.
@@ -883,7 +889,7 @@ Playwriter에는 클라우드 브라우저 기능도 있는데, 오늘은 쓰지
 
 힌트는 세 단계까지 다 열립니다. 처음 해 보는 브라우저 자동화라서 지원을 가장 많이 드립니다.
 
-그리고 빨간 칸. 상신 버튼은 누르지 않습니다. 상신은 파란 강조 버튼으로 임시저장 바로 옆에 있어서, 사람도 실수로 누르기 쉬운 위치입니다.</aside></section>
+그리고 빨간 칸. 상신 버튼은 누르지 않습니다. 상신은 파란색 버튼으로 임시저장 바로 옆에 있어서, 사람도 실수로 누르기 쉬운 위치입니다.</aside></section>
 <section class="slide" id="s3-task"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;flex-direction:column;gap:16px">
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">세션 3 · 할 일</p>
 <h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;font-weight:400;line-height:1.15;color:#222222">정산 결과로 지급 기안을 임시저장</h2>
@@ -975,7 +981,10 @@ Playwriter에는 클라우드 브라우저 기능도 있는데, 오늘은 쓰지
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:30px;color:#555555">이렇게 되면 성공입니다</p>
 <div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">임시보관함에 <b>첨부 2건</b>이 붙은 문서</p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222"><b>AP + 숫자 11자리</b> 문서번호를 적고 [완료]</p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222"><b>[상신]은 누르지 않았다</b></p></div>
 </div></div>
-<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 3 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 3 완료 화면입니다. 문서번호는 AP로 시작하는 숫자 11자리이고, 대시보드는 형식만 검사합니다. 화면의 번호는 형식만 맞춘 더미입니다. 상신하지 않고 임시저장 상태인 것이 성공 조건입니다.</aside></section>
+<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 3 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 3 완료 화면입니다.
+문서번호는 AP로 시작하는 숫자 11자리이고, 대시보드는 형식만 검사합니다.
+화면의 번호는 형식만 맞춘 더미입니다.
+상신하지 않고 임시저장 상태인 것이 성공 조건입니다.</aside></section>
 <section class="slide" id="s4-div"><div class="frame"><div class="art" style="background:#2b3240;color:#ffffff;font-family:'Pretendard', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:28px;letter-spacing:4px;color:#84b1ff">SESSION 04 · 2:15–2:45 · 30분</p>
 <div style="display:flex;flex-direction:column;gap:32px">
 <h1 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:120px;font-weight:400;line-height:1.1;color:#ffffff">SLAM 법무검토</h1>
@@ -1042,7 +1051,10 @@ Playwriter에는 클라우드 브라우저 기능도 있는데, 오늘은 쓰지
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:30px;color:#555555">이렇게 되면 성공입니다</p>
 <div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">상세 화면에 <b>[임시저장] 라벨</b></p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222"><b>CLOUD_CS…</b> 문서번호를 적고 [완료]</p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">연습용 여분 문서는 삭제(<b>내 문서만</b>)</p></div>
 </div></div>
-<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 4 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 4 완료 화면입니다. 등록되었다는 메시지가 아니라 상세 화면의 임시저장 라벨로 상태를 확인했는지가 핵심입니다. 삭제는 내 테스트 문서 하나만 선택했는지 확인한 뒤 합니다. 화면의 번호는 형식만 맞춘 더미입니다.</aside></section>
+<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 4 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 4 완료 화면입니다.
+등록되었다는 메시지가 아니라 상세 화면의 임시저장 라벨로 상태를 확인했는지가 핵심입니다.
+삭제는 내 테스트 문서 하나만 선택했는지 확인한 뒤 합니다.
+화면의 번호는 형식만 맞춘 더미입니다.</aside></section>
 <section class="slide" id="s5-div"><div class="frame"><div class="art" style="background:#2b3240;color:#ffffff;font-family:'Pretendard', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:28px;letter-spacing:4px;color:#84b1ff">SESSION 05 · 2:45–2:55 · 10분</p>
 <div style="display:flex;flex-direction:column;gap:32px">
 <h1 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:120px;font-weight:400;line-height:1.1;color:#ffffff">메일·태스크</h1>
@@ -1095,7 +1107,8 @@ Claude가 메일 초안을 만들면 받는 사람, 제목, 본문, 첨부를 �
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:30px;color:#555555">이렇게 되면 성공입니다</p>
 <div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">보내기 전에 <b>미리보기와 승인 질문</b></p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">받는 사람은 <b>내 주소 하나</b></p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">두레이에 <b>태스크 1개</b> 생성</p></div>
 </div></div>
-<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 5 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 5 완료 화면입니다. 미리보기가 나오고 내가 승인한 뒤에만 발송되었는지, 받는 사람이 나 하나뿐인지, 두레이에 태스크가 생겼는지를 확인하고 체크합니다.</aside></section>
+<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 5 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 5 완료 화면입니다.
+미리보기가 나오고 내가 승인한 뒤에만 발송되었는지, 받는 사람이 나 하나뿐인지, 두레이에 태스크가 생겼는지를 확인하고 체크합니다.</aside></section>
 <section class="slide" id="s6-div"><div class="frame"><div class="art" style="background:#2b3240;color:#ffffff;font-family:'Pretendard', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:28px;letter-spacing:4px;color:#84b1ff">SESSION 06 · 2:55–3:15 · 20분</p>
 <div style="display:flex;flex-direction:column;gap:32px">
 <h1 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:120px;font-weight:400;line-height:1.1;color:#ffffff">보안 점검·돌발 사고</h1>
@@ -1129,7 +1142,7 @@ Claude가 메일 초안을 만들면 받는 사람, 제목, 본문, 첨부를 �
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 6</p></div></div><aside class="notes">가드를 만드는 방법은 두 가지입니다. 위험한 것을 하나씩 막는 금지 목록, 그리고 허용할 것만 정하는 허용 목록.
 
-금지 목록은 직관적입니다. 상신과 등록을 막는다. 그런데 사전 검증에서 보니 SLAM은 [등록]이 [임시저장] 바로 옆에 있고, APMS는 [상신]이 파란 강조 버튼으로 임시저장 옆에 있습니다. 화면이 업데이트돼서 버튼 이름이 바뀌거나 새 버튼이 생기면 금지 목록은 바로 뚫립니다.
+금지 목록은 직관적입니다. 상신과 등록을 막는다. 그런데 사전 검증에서 보니 SLAM은 [등록]이 [임시저장] 바로 옆에 있고, APMS는 [상신]이 파란색 버튼으로 임시저장 옆에 있습니다. 화면이 업데이트돼서 버튼 이름이 바뀌거나 새 버튼이 생기면 금지 목록은 바로 뚫립니다.
 
 허용 목록은 반대입니다. 오늘 사내 시스템에서 눌러도 되는 버튼은 몇 개뿐입니다. 임시저장, 첨부할 때 찾아보기와 첨부추가, 그리고 임시저장 확인 창의 확인. 이것만 허용하고 나머지 클릭은 전부 실행 전에 막습니다.
 
@@ -1175,7 +1188,8 @@ Claude Code에서는 훅이라는 기능으로 만듭니다. Claude가 브라우
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:30px;color:#555555">이렇게 되면 성공입니다</p>
 <div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">[상신]·[등록]을 누르려 하면 <b>가드가 막음</b></p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">사고 3종 모두 <b>멈추거나 알림</b></p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222"><b>/security-review</b> 결과를 읽음</p></div>
 </div></div>
-<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 6 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 6 완료 화면입니다. 금지한 버튼을 직접 눌러 보게 해서 가드가 막는 것을 봤는지, 돌발 사고 세 가지에서 조용히 성공하지 않았는지를 확인합니다.</aside></section>
+<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 6 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 6 완료 화면입니다.
+금지한 버튼을 직접 눌러 보게 해서 가드가 막는 것을 봤는지, 돌발 사고 세 가지에서 조용히 성공하지 않았는지를 확인합니다.</aside></section>
 <section class="slide" id="s7-div"><div class="frame"><div class="art" style="background:#2b3240;color:#ffffff;font-family:'Pretendard', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:28px;letter-spacing:4px;color:#84b1ff">SESSION 07 · 3:15–3:30 · 15분</p>
 <div style="display:flex;flex-direction:column;gap:32px">
 <h1 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:120px;font-weight:400;line-height:1.1;color:#ffffff">스케줄·리포트</h1>
@@ -1230,7 +1244,9 @@ Claude Code에서는 훅이라는 기능으로 만듭니다. Claude가 브라우
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:30px;color:#555555">이렇게 되면 성공입니다</p>
 <div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222"><b>스킬 한 줄</b>로 정제부터 리포트까지</p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">리포트에 <b>정상·차단 건수와 문서번호</b></p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">스케줄 실행에서 <b>상신·등록·발송은 없음</b>, 해제 방법 확인</p></div>
 </div></div>
-<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 7 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 7 완료 화면입니다. 강사 시연 중심이라 따라 하면서 체크합니다. 스케줄은 교육이 끝나면 반드시 해제합니다.</aside></section>
+<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 7 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">세션 7 완료 화면입니다.
+강사 시연 중심이라 따라 하면서 체크합니다.
+스케줄은 교육이 끝나면 반드시 해제합니다.</aside></section>
 <section class="slide" id="s8-div"><div class="frame"><div class="art" style="background:#2b3240;color:#ffffff;font-family:'Pretendard', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between"><p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:28px;letter-spacing:4px;color:#84b1ff">SESSION 08 · 3:30–4:00 · 30분</p>
 <div style="display:flex;flex-direction:column;gap:32px">
 <h1 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:120px;font-weight:400;line-height:1.1;color:#ffffff">제출·회고</h1>
@@ -1293,7 +1309,10 @@ Claude Code에서는 훅이라는 기능으로 만듭니다. Claude가 브라우
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:30px;color:#555555">이렇게 되면 성공입니다</p>
 <div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222"><b>report.json</b> 제출 후 <b>채점 결과</b> 확인</p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">채점 결과는 <b>나에게만</b> 보임</p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">놓친 함정은 <b>회고 해설</b>에서</p></div>
 </div></div>
-<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 8 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">제출하면 비밀정보 검사를 거쳐 자동 채점됩니다. 함정 6종 중 몇 개를 잡았는지, 정산 정확도, 오탐 수가 나에게만 보입니다. 어떤 함정을 놓쳤는지는 회고 해설이 열리면 볼 수 있습니다. 화면은 기준 풀이를 제출한 예시입니다.</aside></section>
+<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 8 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">제출하면 비밀정보 검사를 거쳐 자동 채점됩니다.
+함정 6종 중 몇 개를 잡았는지, 정산 정확도, 오탐 수가 나에게만 보입니다.
+어떤 함정을 놓쳤는지는 회고 해설이 열리면 볼 수 있습니다.
+화면은 기준 풀이를 제출한 예시입니다.</aside></section>
 <section class="slide" id="s8-traps"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px"><div style="display:flex;flex-direction:column;gap:16px">
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">회고 해설 · 함정 6종</p>
 <h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;font-weight:400;line-height:1.15;color:#222222">같은 데이터, 다른 결과는 여기서 갈렸습니다</h2>
@@ -1361,7 +1380,9 @@ Try 한 줄을 메모해 두시고, 대시보드 세션 8 카드의 체크리스
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:30px;color:#555555">이렇게 되면 성공입니다</p>
 <div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">홈에 <b>8 / 8 세션 완료</b></p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222"><b>회고 해설 보기</b>가 열림</p></div><div style="display:flex;gap:18px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:22px 26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:40px;height:40px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><p style="font-size:28px;line-height:1.4;color:#222222">내 업무에 적용할 것(Try) <b>1개</b></p></div>
 </div></div>
-<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 8 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">모든 세션을 마치면 홈 화면이 이렇게 바뀝니다. 8 대 8 완료, 회고 해설 보기 버튼이 활성화됩니다. 마지막으로 내 업무에 적용할 것 한 가지를 적고 마칩니다.</aside></section>
+<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 8 · 참가자 화면 예시(더미 데이터)</p></div></div><aside class="notes">모든 세션을 마치면 홈 화면이 이렇게 바뀝니다.
+8 대 8 완료, 회고 해설 보기 버튼이 활성화됩니다.
+마지막으로 내 업무에 적용할 것 한 가지를 적고 마칩니다.</aside></section>
 <section class="slide" id="after-study"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;flex-direction:column;gap:16px">
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">교육 이후 · 어떻게 공부할까</p>
 <h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;font-weight:400;line-height:1.15;color:#222222">가장 좋은 교재는 내 업무 하나입니다</h2>
@@ -1408,7 +1429,7 @@ Try 한 줄을 메모해 두시고, 대시보드 세션 8 카드의 체크리스
 <tr><td><b>모범 사례</b></td><td>잘 쓰는 작업 방식</td><td><a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/best-practices">code.claude.com/docs/en/best-practices</a></td></tr>
 <tr><td><b>변경 사항</b></td><td>매주 바뀌는 기능</td><td><a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/changelog">code.claude.com/docs/en/changelog</a></td></tr>
 <tr><td><b>Anthropic Academy</b></td><td>무료 강의</td><td><a target="_blank" rel="noopener" href="https://anthropic.skilljar.com">anthropic.skilljar.com</a></td></tr>
-<tr><td><b>Anthropic Engineering</b></td><td>만든 사람들의 활용 글</td><td><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering">anthropic.com/engineering</a></td></tr>
+<tr><td><b>Anthropic Engineering</b></td><td>만든 사람들이 쓴 사례 글</td><td><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering">anthropic.com/engineering</a></td></tr>
 <tr><td><b>YouTube</b></td><td>시연 영상</td><td><a target="_blank" rel="noopener" href="https://www.youtube.com/@anthropic-ai">youtube.com/@anthropic-ai</a></td></tr>
 <tr><td><b>사내 쉐어클래스</b></td><td>입문·기초, 설치·MCP 가이드</td><td><a target="_blank" rel="noopener" href="https://ariri48.github.io/shareclass-claude-code/">ariri48.github.io/shareclass-claude-code</a></td></tr>
 </table>
@@ -1417,7 +1438,7 @@ Try 한 줄을 메모해 두시고, 대시보드 세션 8 카드의 체크리스
 
 첫째, 공식 문서입니다. 한국어 페이지가 있어서 설치부터 훅, 스킬, MCP까지 다 나와 있습니다. 모범 사례 페이지와 변경 사항 페이지도 함께 보세요. Claude Code는 매주 기능이 바뀌기 때문에 변경 사항을 가끔 훑는 것만으로도 앞서갑니다.
 
-둘째, Anthropic Academy의 무료 강의입니다. Claude Code in Action 같은 과정이 있습니다. Anthropic Engineering 블로그에는 만든 사람들이 직접 쓰는 활용 글이 올라오고, 유튜브 채널에는 시연 영상이 있습니다.
+둘째, Anthropic Academy의 무료 강의입니다. Claude Code in Action 같은 과정이 있습니다. Anthropic Engineering 블로그에는 만든 사람들이 직접 쓰는 사례 글이 올라오고, 유튜브 채널에는 시연 영상이 있습니다.
 
 셋째, 사내 쉐어클래스 가이드입니다. 입문·기초 과정 슬라이드와 설치, 두레이 MCP 가이드가 모여 있습니다.
 
