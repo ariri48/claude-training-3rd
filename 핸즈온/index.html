@@ -216,6 +216,29 @@
 오늘 교육이 끝나면 AI를 쓰는 실무가 훨씬 가까워지길 바랍니다.
 
 막히면 글 쓸 필요 없이 대시보드의 [막혔어요] 버튼만 누르세요. 눌렀다가 스스로 풀면 [막혔어요 취소]로 거둘 수 있습니다.</aside></section>
+<section class="slide" id="instructor-hub"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:96px 96px 140px;display:flex;flex-direction:column;gap:36px"><div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">강사 소개 · 업무용 대시보드</p>
+<h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:60px;font-weight:400;line-height:1.15;color:#222222">제가 만든 업무용 대시보드를 소개합니다</h2>
+</div>
+<div style="display:flex;gap:44px;align-items:center;flex:1;min-height:0">
+<img src="images/hub-dashboard.png" alt="NHN Cloud 파트너지원팀 AI 업무 도구 대시보드" style="width:1000px;height:auto;max-height:650px;object-fit:contain;object-position:left center;border:1px solid #e5e5e5;border-radius:10px;background:#fff;box-shadow:0 12px 30px -16px rgba(0,0,0,.35)" />
+<div style="flex:1;display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;gap:20px;align-items:flex-start;background:#fff4d6;border-radius:8px;padding:24px 28px"><p style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:24px;color:#b45309;white-space:nowrap;padding-top:4px">문제</p><p style="font-size:30px;line-height:1.4;color:#222222;word-break:keep-all">만드는 게 늘수록 진입 경로도 늘고, 유지보수도 그만큼 늘어납니다.</p></div>
+<div style="display:flex;gap:20px;align-items:flex-start;background:#e9f1ff;border-radius:8px;padding:24px 28px"><p style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:24px;color:#125de6;white-space:nowrap;padding-top:4px">해결</p><p style="font-size:30px;line-height:1.4;color:#222222;word-break:keep-all">제가 만든 모든 페이지를 한 대시보드 창에 모아 두었습니다.</p></div>
+<div style="display:flex;gap:20px;align-items:flex-start;background:#e8f7ec;border-radius:8px;padding:24px 28px"><p style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:24px;color:#15803d;white-space:nowrap;padding-top:4px">효과</p><p style="font-size:30px;line-height:1.4;color:#222222;word-break:keep-all">운영 상태와 유지보수를 한눈에 봅니다.</p></div>
+<p style="font-size:26px;line-height:1.5;color:#555555;margin-top:6px">바로 열어 보기<br><a href="http://INTERNAL-HOST:8500/" target="_blank" rel="noopener" style="font-size:30px;font-weight:700">http://INTERNAL-HOST:8500/</a></p>
+<p style="font-size:22px;color:#777777">사내망에서만 열립니다</p>
+</div></div>
+<p style="position:absolute;left:96px;bottom:56px;width:1728px;font-size:22px;color:#555555">Claude Code 업무 자동화 핸즈온 · 강사 소개</p></div></div><aside class="notes">제가 만든 업무용 대시보드를 소개합니다.
+
+만드는 게 많아지면 들어가는 길도 많아지고, 유지보수도 그만큼 늘어납니다.
+그래서 제가 만든 모든 페이지를 한 대시보드 창에 넣어 두었습니다.
+
+운영 상태와 유지보수를 한눈에 볼 수 있습니다.
+화면 위쪽에서 상주 서비스 수, 실행 중, 중단, 배치 수를 바로 확인합니다.
+
+링크는 사내망에서만 열립니다.
+오늘 쓰실 교육 대시보드도 같은 방식으로 만들었습니다.</aside></section>
 <section class="slide" id="vibe"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;flex-direction:column;gap:16px">
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">도입 · 비개발자의 바이브코딩</p>
 <h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;font-weight:400;line-height:1.15;color:#222222">"돌아간다"와 "맞다"는 다릅니다</h2>
@@ -1508,7 +1531,7 @@ AI가 "성공했습니다"라고 해도 직접 검증한다. 0원 사고, 빈 �
   const PARTS = {s0:'세션 0 · 도입·세팅', s1:'세션 1 · 설계', s2:'세션 2 · 정제·계산', s3:'세션 3 · APMS 기안',
     s4:'세션 4 · SLAM 법무검토', s5:'세션 5 · 메일·태스크', s6:'세션 6 · 보안·돌발 사고', s7:'세션 7 · 스케줄·리포트', s8:'세션 8 · 제출·회고'};
   const partOf = (id) => {
-    if(['cover','instructor','vibe','vibe-incidents','today','timetable','howto'].includes(id)) return '인트로';
+    if(['cover','instructor','instructor-hub','vibe','vibe-incidents','today','timetable','howto'].includes(id)) return '인트로';
     if(id==='break') return '휴식';
     if(['after-study','resources','closing'].includes(id)) return '마무리';
     const m = id.match(/^(s[0-8])-/);
