@@ -277,12 +277,12 @@
 <div style="display:flex;gap:24px">
 <div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#ffffff;border:1px solid #e5e5e5;border-radius:8px;padding:36px 40px">
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:28px;color:#24a148">비개발자도 되는 것</p>
-<p style="font-size:28px;line-height:1.5">무엇을·왜·어떤 형식으로 원하는지 말하기, 결과를 직접 확인하기, 이상하면 멈추게 하기</p>
+<p style="font-size:28px;line-height:1.45;word-break:keep-all"><b style="color:#24a148">✓</b> 무엇을·왜·어떤 형식으로 원하는지 말하기</p><p style="font-size:28px;line-height:1.45;word-break:keep-all"><b style="color:#24a148">✓</b> 결과를 직접 열어 확인하기</p><p style="font-size:28px;line-height:1.45;word-break:keep-all"><b style="color:#24a148">✓</b> 이상하면 멈추게 하기</p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#ffeded;border-radius:8px;padding:36px 40px">
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:28px;color:#be141e">놓치기 쉬운 것</p>
-<p style="font-size:28px;line-height:1.45;word-break:keep-all">✅ 에러가 없다고 하면 그런가 보다 하기<br><b style="color:#be141e">→ 꺼진 불도 다시 보자, 돌다리도 두들겨 보기</b></p>
-<p style="font-size:28px;line-height:1.45;word-break:keep-all">✅ 되돌릴 수 없는 동작을 그냥 맡기기<br><b style="color:#be141e">→ 소 잃고 외양간 고치기 하기 딱 좋음</b></p>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:26px;line-height:1.4;color:#555555;word-break:keep-all">✕ 에러가 없다고 하니 그냥 믿기</p><p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:28px;line-height:1.4;color:#be141e;word-break:keep-all">→ 건수·합계를 직접 열어 확인한다</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:26px;line-height:1.4;color:#555555;word-break:keep-all">✕ 보내기·상신을 그냥 맡기기</p><p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:28px;line-height:1.4;color:#be141e;word-break:keep-all">→ 누르기 전에 미리보기 → 내가 승인</p></div>
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#555555">바이브코딩: 코드를 직접 치는 대신 하고 싶은 일을 말로 설명하면, AI가 만들고 실행까지 하는 방식</p></div></div><aside class="notes">입문 과정에서 바이브코딩을 "말로 설명하면 AI가 만들어 주는 방식"이라고 소개했었죠. 오늘은 그 다음 이야기입니다.
@@ -293,12 +293,13 @@
 
 오른쪽 아래 빨간 칸, 놓치기 쉬운 두 가지가 오늘 4시간의 주제입니다. 다음 슬라이드에서 실제 사고 두 개를 보여 드리겠습니다.</aside></section>
 <section class="slide" id="vibe-incidents"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;flex-direction:column;gap:16px">
-<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#da1e28">도입 · 실제로 겪은 사고</p>
+<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#da1e28">자동화의 함정 · 실제로 겪은 사고</p>
 <h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;font-weight:400;line-height:1.15;color:#222222">에러는 없었습니다. 결과만 틀렸습니다.</h2>
+<p style="font-size:30px;line-height:1.4;color:#555555;border-left:6px solid #da1e28;padding-left:24px">잘 돌아가는 줄 알았습니다. 예외가 생겼는데 멈추지 않고 그냥 넘어갔습니다.</p>
 </div>
 <div style="display:flex;gap:32px">
 <div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#ffffff;border:1px solid #e5e5e5;border-radius:8px;padding:44px">
-<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:36px">조용한 0원 정산</p>
+<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:36px">경고 없는 0원 정산</p>
 <ul style="font-size:28px;line-height:1.6;color:#222222">
 <li>원본 빌링 파일의 컬럼 이름이 바뀌었다?!</li>
 <li>존재하지 않는 컬럼을 참고하고 있었다?!</li>
@@ -319,7 +320,7 @@
 <p style="font-size:30px;line-height:1.4;color:#555555">오늘 실습 데이터의 함정 중 세 개는 이런 실제 정산 사고에서 가져왔습니다.</p>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#555555">Claude Code 업무 자동화 핸즈온 · 도입</p></div></div><aside class="notes">제가 직접 겪은 사고 두 개입니다.
 
-첫 번째는 조용한 0원 정산입니다. 6월 사용분부터 빌링 파일의 계약가 컬럼 이름이 바뀌었습니다. 그런데 프로그램은 그 컬럼을 못 찾자 에러를 내는 대신 조용히 0으로 처리했어요. 그래서 종량 파트너 다섯 곳이 0원으로 정산됐습니다. 더 나빴던 건, 화면에는 "계약 종료"라고 표시돼서 원인이 가려졌고, 검증 단계는 같은 결과끼리 비교하는 구조라 "통과"로 나왔다는 겁니다. 결국 담당자가 이상함을 느끼고 수기로 명세서를 만들었습니다. 지금은 컬럼이 없으면 즉시 멈추게 고쳐져 있습니다.
+첫 번째는 경고 없이 0원으로 나간 정산입니다. 6월 사용분부터 빌링 파일의 계약가 컬럼 이름이 바뀌었습니다. 그런데 프로그램은 그 컬럼을 못 찾자 에러를 내는 대신 조용히 0으로 처리했어요. 그래서 종량 파트너 다섯 곳이 0원으로 정산됐습니다. 더 나빴던 건, 화면에는 "계약 종료"라고 표시돼서 원인이 가려졌고, 검증 단계는 같은 결과끼리 비교하는 구조라 "통과"로 나왔다는 겁니다. 결국 담당자가 이상함을 느끼고 수기로 명세서를 만들었습니다. 지금은 컬럼이 없으면 즉시 멈추게 고쳐져 있습니다.
 
 두 번째는 두레이 태스크 본문 소실입니다. 파트너 태스크 본문에 매출 정보를 덧붙이는 스크립트를 만들었는데, 두레이 목록 API에는 본문이 들어 있지 않다는 걸 몰랐습니다. 그래서 "빈 본문에 매출만 붙여서" 덮어썼고, 두 번에 걸쳐 200건 가까운 본문이 사라졌습니다. 두레이 API로는 되돌릴 수 없어서 백업과 다른 자료로 재구성해야 했습니다.
 
