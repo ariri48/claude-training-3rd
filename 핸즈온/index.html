@@ -325,7 +325,7 @@
 두 번째는 두레이 태스크 본문 소실입니다. 파트너 태스크 본문에 매출 정보를 덧붙이는 스크립트를 만들었는데, 두레이 목록 API에는 본문이 들어 있지 않다는 걸 몰랐습니다. 그래서 "빈 본문에 매출만 붙여서" 덮어썼고, 두 번에 걸쳐 200건 가까운 본문이 사라졌습니다. 두레이 API로는 되돌릴 수 없어서 백업과 다른 자료로 재구성해야 했습니다.
 
 두 사고 모두 에러는 없었습니다. 오늘 실습 데이터의 함정 중 세 개는 이런 실제 정산 사고에서 가져왔습니다. 무엇이 함정인지는 회고 때 공개합니다.</aside></section>
-<section class="slide" id="today"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;flex-direction:column;gap:16px">
+<section class="slide" id="today"><div class="frame"><div class="art" style="word-break:keep-all;background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;flex-direction:column;gap:16px">
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">오늘 만드는 것</p>
 <h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;font-weight:400;line-height:1.15;color:#222222">사용량 파일 한 장에서 결과 리포트까지</h2>
 </div>
@@ -367,7 +367,7 @@
 <p style="font-size:30px;line-height:1.4;color:#222222">가상 회사의 더미 사용량 CSV. 일부러 지저분하게 만들었습니다.</p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#ffeded;border-radius:8px;padding:32px 40px">
-<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:30px;color:#be141e">선</p>
+<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:30px;color:#be141e">오늘 지키는 선</p>
 <p style="font-size:30px;line-height:1.4;color:#222222">기안·법무검토는 임시저장까지만. 메일은 내 주소로만.</p>
 </div>
 </div>
@@ -510,7 +510,7 @@
 <p style="font-size:36px;line-height:1.45;color:#e9f1ff;border-left:6px solid #ffd166;padding-left:28px">잘 돌아가는 줄 알았습니다.<br>그런데 예외가 생기자, 멈추지 않고 그냥 넘어갔습니다.</p>
 </div>
 <h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:104px;font-weight:400;line-height:1.15;color:#ffffff">에러는 없었습니다.<br>금액만 0원이었습니다.</h2>
-<p style="font-size:40px;line-height:1.45;color:#e9f1ff;width:1300px">컬럼 이름 하나가 바뀌자 정산이 "성공"으로 끝나면서<br>종량 파트너 5곳이 0원으로 나왔습니다.<br>화면에는 "계약 종료", 검증은 "통과".</p></div></div><aside class="notes">자동화의 함정입니다. 이 슬라이드는 오늘 제일 먼저 짚을 이야기입니다.
+<p style="font-size:40px;line-height:1.45;color:#e9f1ff;width:1300px">언제나처럼 "성공" 메시지가 떴지만, 파트너 5곳이 0원.<br>확인해 보니, raw data 컬럼 이름이 바뀌면서<br>정산 금액이 뒤틀림.</p></div></div><aside class="notes">자동화의 함정입니다. 이 슬라이드는 오늘 제일 먼저 짚을 이야기입니다.
 
 자동화가 무서운 건 실패할 때가 아니라 조용히 틀릴 때입니다. 에러가 나면 사람이 알아챕니다. 그런데 이번 사고는 에러가 없었습니다. 입력 파일의 형식이 바뀌었는데, 프로그램은 "정상 완료"라고 하고 금액을 0원으로 냈습니다.
 
@@ -541,7 +541,7 @@
 <div style="display:flex;gap:48px;align-items:center;border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;padding:40px 0">
 <p style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:96px;line-height:1;color:#125de6;width:120px">3</p>
 <div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:44px;line-height:1.25">되돌릴 수 없는 행동 앞에는 사람 승인과 차단 장치</p>
+<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:44px;line-height:1.25">되돌릴 수 없는 액션 앞에는 사람 승인과 차단 장치</p>
 <p style="font-size:30px;line-height:1.4;color:#555555">세션 5·6·7 · 발송 전 승인, 가드</p>
 </div>
 </div>
@@ -552,7 +552,7 @@
 
 둘째, AI가 "성공"이라고 해도 직접 검증한다. 방금 본 0원 사고가 그 예입니다. 세션 2부터 4까지 계속 "입력한 값을 다시 읽어서 확인했나"를 체크합니다.
 
-셋째, 되돌릴 수 없는 행동 앞에는 사람 승인과 차단 장치를 둔다. 상신, 등록, 메일 발송, 삭제 같은 건 한 번 하면 못 되돌립니다. 세션 5에서 발송 전 승인을, 세션 6에서 차단 장치인 가드를 만듭니다.
+셋째, 되돌릴 수 없는 액션 앞에는 사람 승인과 차단 장치를 둔다. 상신, 등록, 메일 발송, 삭제 같은 건 한 번 하면 못 되돌립니다. 세션 5에서 발송 전 승인을, 세션 6에서 차단 장치인 가드를 만듭니다.
 
 마지막 회고 때 이 슬라이드를 다시 보여 드리겠습니다.</aside></section>
 <section class="slide" id="s0-axes"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;flex-direction:column;gap:16px">
@@ -1510,7 +1510,7 @@ Try 한 줄을 메모해 두시고, 대시보드 세션 8 카드의 체크리스
 <div style="display:flex;flex-direction:column;gap:40px">
 <p style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;line-height:1.25;color:#ffffff"><span style="color:#84b1ff">1</span>  맡기기 전에 설계하고, 규칙을 남긴다</p>
 <p style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;line-height:1.25;color:#ffffff"><span style="color:#84b1ff">2</span>  "성공"이라고 해도 직접 검증한다</p>
-<p style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;line-height:1.25;color:#ffffff"><span style="color:#84b1ff">3</span>  되돌릴 수 없는 행동 앞에는 사람과 차단 장치</p>
+<p style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;line-height:1.25;color:#ffffff"><span style="color:#84b1ff">3</span>  되돌릴 수 없는 액션 앞에는 사람과 차단 장치</p>
 </div>
 <p style="font-size:36px;line-height:1.4;color:#c8dcff">커피 한 잔 내려놓고 오세요. 돌아오면 끝나 있도록.</p></div></div><aside class="notes">처음에 보여 드린 세 가지로 마무리하겠습니다.
 
@@ -1518,7 +1518,7 @@ Try 한 줄을 메모해 두시고, 대시보드 세션 8 카드의 체크리스
 
 AI가 "성공했습니다"라고 해도 직접 검증한다. 0원 사고, 빈 본문, "등록되었습니다"라는 메시지. 오늘 이 장면을 몇 번이나 보셨습니다.
 
-되돌릴 수 없는 행동 앞에는 사람 승인과 차단 장치를 둔다. 발송 전 승인, 허용 목록 가드, 그리고 스케줄에서 사내 시스템을 뺀 것까지.
+되돌릴 수 없는 액션 앞에는 사람 승인과 차단 장치를 둔다. 발송 전 승인, 허용 목록 가드, 그리고 스케줄에서 사내 시스템을 뺀 것까지.
 
 오늘 만든 건 정산 자동화였지만, 이 세 가지는 여러분 업무 어디에나 그대로 씁니다. 커피 한 잔 내려놓고 오셨을 때 일이 끝나 있으려면, 맡기기 전에 이 세 가지를 먼저 챙기시면 됩니다.
 
