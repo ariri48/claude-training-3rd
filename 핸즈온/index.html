@@ -887,34 +887,49 @@ data 안의 billing CSV는 직접 읽지 않습니다. 두레이에 올릴 재�
 성공 기준은 세 가지입니다. 차단한 건마다 이유가 적혀 있을 것, 테스트가 하나 이상 통과할 것, 그리고 만들어진 명세서를 다시 열어서 report.json 금액과 같은지 확인할 것.
 
 강사 메모: 힌트 1은 "무엇을 살펴볼지"(관점), 힌트 2는 프롬프트 뼈대입니다. 힌트 2까지 열고도 막힌 분이 많으면 report.json 형식(숫자는 따옴표 없는 정수)을 전체에 한 번 짚어 주세요.</aside></section>
-<section class="slide" id="s2-report"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;flex-direction:column;gap:16px">
-<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">세션 2 · 결과 파일</p>
-<h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;font-weight:400;line-height:1.15;color:#222222">report.json이 곧 채점지입니다</h2>
+<section class="slide" id="s2-report"><div class="frame"><div class="art" style="word-break:keep-all;background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:96px 128px 150px;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">세션 2 · 결과 요약 파일 읽기</p>
+<h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;font-weight:400;line-height:1.15;color:#222222;word-break:keep-all">report.json은 정산 결과를 적은 요약표입니다</h2>
 </div>
-<table style="font-size:28px;color:#222222;width:1664px">
-<tr style="background:#f4f4f4"><th style="width:22%">칸</th><th style="width:78%">내용</th></tr>
-<tr><td><b>issues</b></td><td>찾은 문제마다 한 줄: 종류, 파트너 코드, 무엇이 이상했는지</td></tr>
-<tr><td><b>blocked</b></td><td>이상이 있어 정산하지 않고 멈춘 파트너</td></tr>
-<tr><td><b>results</b></td><td>정산한 파트너의 공급가액·세액·합계</td></tr>
-<tr><td><b>month_calc</b></td><td>사용월마다 계산한 정산월</td></tr>
-</table>
+<div style="display:flex;gap:40px;align-items:stretch">
+<div style="flex:none;width:820px;display:flex;flex-direction:column;gap:10px">
+<pre style="font-family:'SFMono-Regular', Menlo, Consolas, monospace;font-size:21px;line-height:1.45;color:#e6e9ef;background:#1f2430;border-radius:8px;padding:22px 28px;margin:0;white-space:pre">{
+  <span style="color:#9ec5ff">"usage_month"</span>: <span style="color:#ffd27a">"2026-05"</span>,
+  <span style="color:#9ec5ff">"issues"</span>: [
+    { <span style="color:#9ec5ff">"type"</span>: <span style="color:#ffd27a">"missing_config"</span>, <span style="color:#9ec5ff">"partner_code"</span>: <span style="color:#ffd27a">999</span>,
+      <span style="color:#9ec5ff">"detail"</span>: <span style="color:#ffd27a">"금액 설정이 비어 있음"</span> }
+  ],
+  <span style="color:#9ec5ff">"blocked"</span>: [<span style="color:#ffd27a">999</span>],
+  <span style="color:#9ec5ff">"results"</span>: [
+    { <span style="color:#9ec5ff">"partner_code"</span>: <span style="color:#ffd27a">998</span>, <span style="color:#9ec5ff">"supply"</span>: <span style="color:#ffd27a">100000</span>,
+      <span style="color:#9ec5ff">"tax"</span>: <span style="color:#ffd27a">10000</span>, <span style="color:#9ec5ff">"total"</span>: <span style="color:#ffd27a">110000</span> }
+  ],
+  <span style="color:#9ec5ff">"month_calc"</span>: { <span style="color:#9ec5ff">"2026-05"</span>: <span style="color:#ffd27a">"2026-07"</span> }
+}</pre>
+<p style="font-size:22px;line-height:1.5;color:#555555;word-break:keep-all">예시 값입니다. <b>{ }</b> 묶음 · <b>[ ]</b> 목록 · <b>"따옴표"</b> 글자 · 따옴표 없는 숫자는 숫자</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;min-width:0">
+<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:26px;color:#555555;padding-bottom:6px">왼쪽 이름을 우리말로 읽으면</p>
+<div style="display:flex;gap:20px;align-items:baseline;padding:14px 0;border-bottom:1px solid #e5e5e5"><p style="font-family:'SFMono-Regular', Menlo, Consolas, monospace;font-size:24px;color:#1446c8;width:190px;flex:none">usage_month</p><p style="font-size:27px;line-height:1.4;color:#222222;word-break:keep-all">몇 월 사용분인지</p></div>
+<div style="display:flex;gap:20px;align-items:baseline;padding:14px 0;border-bottom:1px solid #e5e5e5"><p style="font-family:'SFMono-Regular', Menlo, Consolas, monospace;font-size:24px;color:#1446c8;width:190px;flex:none">issues</p><p style="font-size:27px;line-height:1.4;color:#222222;word-break:keep-all">찾은 문제 목록. 한 줄에 문제 하나와 이유</p></div>
+<div style="display:flex;gap:20px;align-items:baseline;padding:14px 0;border-bottom:1px solid #e5e5e5"><p style="font-family:'SFMono-Regular', Menlo, Consolas, monospace;font-size:24px;color:#1446c8;width:190px;flex:none">blocked</p><p style="font-size:27px;line-height:1.4;color:#222222;word-break:keep-all">이상해서 <b>정산하지 않고 멈춘</b> 파트너</p></div>
+<div style="display:flex;gap:20px;align-items:baseline;padding:14px 0;border-bottom:1px solid #e5e5e5"><p style="font-family:'SFMono-Regular', Menlo, Consolas, monospace;font-size:24px;color:#1446c8;width:190px;flex:none">results</p><p style="font-size:27px;line-height:1.4;color:#222222;word-break:keep-all">정산한 파트너의 공급가액·세액·합계</p></div>
+<div style="display:flex;gap:20px;align-items:baseline;padding:14px 0;border-bottom:1px solid #e5e5e5"><p style="font-family:'SFMono-Regular', Menlo, Consolas, monospace;font-size:24px;color:#1446c8;width:190px;flex:none">month_calc</p><p style="font-size:27px;line-height:1.4;color:#222222;word-break:keep-all">사용월마다 계산한 정산월</p></div>
+</div>
+</div>
 <div style="display:flex;gap:24px">
-<div style="flex:1;display:flex;gap:20px;align-items:center;background:#fffae6;border-radius:8px;padding:28px 36px">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#ed9a00;width:44px;height:44px;flex:none"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
-<p style="font-size:28px;line-height:1.45;color:#222222">숫자 칸은 따옴표 없는 정수. <b>"301"</b>이 아니라 <b>301</b></p>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#e9f1ff;border-radius:8px;padding:22px 30px"><p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:26px;color:#1446c8">직접 읽지 말고 물어보기</p><p style="font-size:26px;line-height:1.45;color:#222222;word-break:keep-all">“out/report.json을 표로 풀어 줘. 숫자는 파일 그대로, 영어 이름은 우리말로”</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e5e5e5;border-radius:8px;padding:22px 30px"><p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:26px;color:#1a7f4b">그다음 내가 하는 확인</p><p style="font-size:26px;line-height:1.45;color:#222222;word-break:keep-all">표의 합계 한 줄을 명세서 PDF와 맞춰 보기. 멈춘 파트너마다 이유가 적혔는지 보기</p></div>
 </div>
-<div style="flex:1;display:flex;gap:20px;align-items:center;background:#e9f1ff;border-radius:8px;padding:28px 36px">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#125de6;width:44px;height:44px;flex:none"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-<p style="font-size:28px;line-height:1.45;color:#222222">문제를 찾았다면 조용히 고치지 말고 기록</p>
-</div>
-</div>
-<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 2</p></div></div><aside class="notes">세션 2의 결과물 중 하나인 report.json입니다. 마지막에 제출하면 이 파일로 자동 채점합니다.
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#555555">Claude Code 업무 자동화 핸즈온 · 세션 2</p></div></div><aside class="notes">정산이 끝나면 out 폴더에 report.json이 생깁니다. 처음 보면 '이게 뭐지?' 싶은 파일입니다. 컴퓨터가 읽기 좋게 적은 결과 요약표라고 보시면 됩니다. 마지막에 제출하면 이 파일로 자동 채점합니다.
 
-네 칸입니다. issues는 찾은 문제 목록입니다. 문제 하나에 한 줄씩, 어떤 종류인지, 어느 파트너인지, 무엇이 이상했는지 적습니다. blocked는 정산하지 않고 멈춘 파트너, results는 정산한 파트너의 금액, month_calc는 정산월 계산 결과입니다.
+왼쪽이 생김새입니다. 중괄호는 묶음, 대괄호는 목록, 따옴표 안은 글자, 따옴표 없는 건 숫자입니다. 이 네 가지만 알면 됩니다. 오른쪽은 칸 이름을 우리말로 읽은 것입니다. issues는 찾은 문제, blocked는 멈춘 파트너, results는 정산 금액, month_calc는 정산월입니다.
 
-두 가지를 꼭 기억해 주세요. 첫째, 숫자 칸은 따옴표 없는 정수입니다. CSV에서 읽은 값은 글자라서 그대로 넣으면 "301"처럼 따옴표가 붙습니다. 이러면 채점에서 틀린 값이 됩니다. 둘째, 문제를 찾았다면 조용히 고치지 말고 issues에 기록하세요. 기록이 곧 점수입니다.
+그런데 직접 읽을 필요는 없습니다. 아래 왼쪽처럼 Claude에게 표로 풀어 달라고 하세요. 대신 숫자는 파일 그대로 옮기라고 꼭 붙입니다. 그리고 오른쪽처럼 합계 한 줄은 명세서 PDF와 직접 맞춰 봅니다. Claude가 풀어 준 표도 '성공' 메시지와 마찬가지로 한 번은 확인합니다.
 
-강사 메모: 형식 상세는 스타터의 REPORT_SPEC.md입니다. 완성 예시는 금액을 ○로 가린 구조만 보여 줍니다.</aside></section>
+채점에서 자주 틀리는 두 가지: 숫자 칸은 따옴표 없는 정수여야 합니다. CSV에서 읽은 값을 그대로 넣으면 "301"처럼 따옴표가 붙어 틀린 값이 됩니다. 그리고 문제를 찾았다면 몰래 고치지 말고 issues에 기록합니다. 기록이 곧 점수입니다.
+
+강사 메모: 형식 상세는 스타터의 REPORT_SPEC.md입니다. 화면의 999·998은 실제 데이터에 없는 예시 코드라 정답을 알려 주지 않습니다.</aside></section>
 <section class="slide" id="s2-success"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:96px 96px 140px;display:flex;flex-direction:column;gap:36px"><div style="display:flex;flex-direction:column;gap:12px">
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">세션 2 · 성공 화면</p>
 <h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:60px;font-weight:400;line-height:1.15;color:#222222">차단 건에 이유가 있고, 숫자가 맞으면 성공</h2>
