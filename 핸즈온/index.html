@@ -418,6 +418,28 @@
 </div></div></div><aside class="notes">용어를 외우는 시간이 아닙니다. 각 단계에서 무엇이 나오는지만 보게 합니다. 보안 설명은 뒤에서 한 번 더 구분표로 정리합니다.
 
 강사 메모: 시간이 모자라면 '업무 흐름'과 '구분표'만 남기고 나머지는 건너뛰어도 됩니다. 자동화 가능한 업무 장과 사고 사례 장은 앞쪽 시작 전 구간에 있습니다.</aside></section>
+<section class="slide kk" id="bg-what"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:96px 128px 140px;display:flex;flex-direction:column;justify-content:space-between"><div style="position:absolute;top:40px;right:64px;z-index:5;font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;color:#ffffff;background:#125de6;padding:8px 24px;border-radius:1000px">7단계 중 1단계 · 오늘 할 일·안전 기준</div><div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">업무 배경 ①</p>
+<h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;font-weight:400;line-height:1.15;color:#222222;word-break:keep-all">정산은 쓴 만큼 계산해서 돈을 주는 일입니다</h2>
+</div>
+<div style="display:flex;justify-content:center;align-items:center;flex:1;min-height:0;margin-top:12px"><img src="images/diagrams/settle-what.svg" alt="정산: 한 달 동안 고객이 파트너 서비스를 쓰고, 월말에 계산해, 명세서와 결재를 거쳐 돈을 준다" style="max-width:100%;max-height:700px;width:auto;height:auto;border:1px solid #e5e5e5;border-radius:14px"></div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#555555">Claude Code 업무 자동화 핸즈온 · 1단계 · 교육용 가정</p></div></div><aside class="notes">정산을 처음 듣는 분을 위한 장입니다. 세 칸만 보면 됩니다.
+
+첫째, 한 달 동안 고객이 파트너사의 서비스를 씁니다. 쓴 만큼 기록이 남습니다. 둘째, 월말에 우리 회사가 그 사용량을 모아 계약한 요율을 곱해 파트너사에 줄 돈을 계산합니다. 셋째, 파트너마다 명세서를 보내고, 결재(기안)를 받아 돈을 줍니다.
+
+아래 줄은 계산 예시입니다. 사용량 100만 원에 요율 10%면 공급가액 10만 원, 세액 1만 원을 더해 11만 원을 줍니다. 교육용 더미 값입니다.
+
+매달 반복되고 파트너가 많을수록 숫자가 많아져서 실수가 나기 쉽습니다. 그래서 자동화할 가치가 있습니다.</aside></section>
+<section class="slide kk" id="bg-flow"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:96px 128px 140px;display:flex;flex-direction:column;justify-content:space-between"><div style="position:absolute;top:40px;right:64px;z-index:5;font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;color:#ffffff;background:#125de6;padding:8px 24px;border-radius:1000px">7단계 중 1단계 · 오늘 할 일·안전 기준</div><div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">업무 배경 ②</p>
+<h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;font-weight:400;line-height:1.15;color:#222222;word-break:keep-all">한 달 흐름 중 오늘 맡기는 곳과 사람이 남기는 결정</h2>
+</div>
+<div style="display:flex;justify-content:center;align-items:center;flex:1;min-height:0;margin-top:12px"><img src="images/diagrams/settle-flow.svg" alt="한 달 흐름 7단계, 이상 건은 차단 후 법무검토, 오늘 Claude Code에게 맡기는 구간, 사람이 남기는 결정" style="max-width:100%;max-height:720px;width:auto;height:auto;border:1px solid #e5e5e5;border-radius:14px"></div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#555555">Claude Code 업무 자동화 핸즈온 · 1단계 · 교육용 가정</p></div></div><aside class="notes">위 줄은 사람이 매달 손으로 하던 일곱 단계입니다. 받기, 점검, 계산, 명세서, 대조, 기안, 메일과 알림. 점검에서 이상한 파트너가 나오면 계산하지 않고 차단한 뒤 법무검토로 넘깁니다. 정상 건만 끝까지 갑니다.
+
+가운데 줄이 오늘 Claude Code에게 맡기는 구간입니다. 2단계에서 받기부터 대조까지를 한 번에, 4~6단계에서 메일과 알림, 7단계에서 기안이나 법무검토를 임시저장까지 합니다.
+
+아래 줄이 오늘 내내 사람이 남기는 결정 네 가지입니다. 무엇이 이상하면 멈출지, 다른 금액과 차단 건을 어떻게 볼지, 보내기 전 승인, 그리고 상신·등록입니다.</aside></section>
 <section class="slide kk" id="today"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:96px 128px 140px;display:flex;flex-direction:column;justify-content:space-between"><div style="position:absolute;top:40px;right:64px;z-index:5;font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;color:#ffffff;background:#125de6;padding:8px 24px;border-radius:1000px">7단계 중 1단계 · 오늘 할 일·안전 기준</div><div style="display:flex;flex-direction:column;gap:16px">
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">오늘 만드는 것</p>
 <h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:56px;font-weight:400;line-height:1.15;color:#222222">사용량 파일 한 장에서 메일·알림·기안까지</h2>
@@ -1968,7 +1990,7 @@ AI가 "성공했습니다"라고 해도 직접 검증한다. 0원 사고, 빈 �
   const btnPrint = document.getElementById('btn-print');
   const btnFullscreen = document.getElementById('btn-fullscreen');
 
-  const STEPMAP = {'cover':0,'howto':0,'s0-check':0,'instructor':0,'instructor-work':0,'vibe':0,'s0-three':0,'n1-div':1,'today':1,'today-dashboard':1,'s0-case':1,'n1-flow':1,'n1-story':1,'n1-dataflow':1,'n1-zones':1,'n1-script':1,'n1-faq':1,'n1-terms':1,'n2-div':2,'s0-axes':2,'s0-prompt':2,'n2-keywords':2,'n2-todo':2,'s1-plan':2,'s1-rules':2,'s1-success':2,'s2-flow':2,'s2-stop':2,'s2-anomaly':2,'vibe-incidents':2,'s2-json':2,'s2-success':2,'n3-div':3,'n3-todo':3,'n3-find':3,'n3-where':3,'n3-principles':3,'n3-report':3,'n-lunch':9,'n4-div':4,'n4-todo':4,'n4-rules':4,'s5-approval':4,'s5-success':4,'n5-div':5,'n5-todo':5,'n5-uiux-steps':5,'n5-compare':5,'n6-div':6,'n6-todo':6,'n6-webhook':6,'n6-more':6,'n7-div':7,'n7-playwriter':7,'s0-browser':7,'n7-choose':7,'n7-apms-todo':7,'s3-task':7,'s3-readback':7,'n7-format':7,'s3-success':7,'n7-slam-todo':7,'s4-screen':7,'s4-delete':7,'s4-success':7,'n8-div':8,'s8-traps':8,'s8-try':8,'n8-reflect':8,'n1-starter':8,'s8-all-done':8,'n-optional':8,'after-study':8,'resources':8,'closing':8};
+  const STEPMAP = {'cover':0,'howto':0,'s0-check':0,'instructor':0,'instructor-work':0,'vibe':0,'s0-three':0,'n1-div':1,'bg-what':1,'bg-flow':1,'today':1,'today-dashboard':1,'s0-case':1,'n1-flow':1,'n1-story':1,'n1-dataflow':1,'n1-zones':1,'n1-script':1,'n1-faq':1,'n1-terms':1,'n2-div':2,'s0-axes':2,'s0-prompt':2,'n2-keywords':2,'n2-todo':2,'s1-plan':2,'s1-rules':2,'s1-success':2,'s2-flow':2,'s2-stop':2,'s2-anomaly':2,'vibe-incidents':2,'s2-json':2,'s2-success':2,'n3-div':3,'n3-todo':3,'n3-find':3,'n3-where':3,'n3-principles':3,'n3-report':3,'n-lunch':9,'n4-div':4,'n4-todo':4,'n4-rules':4,'s5-approval':4,'s5-success':4,'n5-div':5,'n5-todo':5,'n5-uiux-steps':5,'n5-compare':5,'n6-div':6,'n6-todo':6,'n6-webhook':6,'n6-more':6,'n7-div':7,'n7-playwriter':7,'s0-browser':7,'n7-choose':7,'n7-apms-todo':7,'s3-task':7,'s3-readback':7,'n7-format':7,'s3-success':7,'n7-slam-todo':7,'s4-screen':7,'s4-delete':7,'s4-success':7,'n8-div':8,'s8-traps':8,'s8-try':8,'n8-reflect':8,'n1-starter':8,'s8-all-done':8,'n-optional':8,'after-study':8,'resources':8,'closing':8};
   const STEPNAMES = {0:'시작 전',1:'1단계 · 오늘 할 일·안전 기준',2:'2단계 · 대시보드 만들기',3:'3단계 · 부족한 부분 찾아 채우기',4:'4단계 · 메일 발송 버튼과 점검',5:'5단계 · 메일 3종',6:'6단계 · 웹훅 알림',7:'7단계 · APMS 또는 SLAM',8:'마무리',9:'점심',10:'참고 부록'};
   const partOf = (id) => STEPNAMES[STEPMAP[id]] || '';
 
