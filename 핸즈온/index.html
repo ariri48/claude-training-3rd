@@ -120,6 +120,12 @@
   .remote-slide-btn.current{background:#125de6;border-color:#125de6;}
   #remote-notes{max-height:46vh;overflow-y:auto;}
   #remote-notes .notes-body{white-space:pre-line;font-size:13px;line-height:1.65;}
+  #remote-notes-edit{width:100%;min-height:28vh;max-height:38vh;resize:vertical;box-sizing:border-box;font:13px/1.65 'Nanum Gothic',sans-serif;color:#1e293b;background:#fff;border:1px solid #fde68a;border-radius:6px;padding:8px 10px;}
+  #remote-notes-edit:focus{outline:2px solid #f59e0b;outline-offset:0;}
+  .notes-tools{display:flex;gap:6px;align-items:center;margin-top:6px;flex-wrap:wrap;}
+  .notes-tools button{font-size:11px;padding:3px 9px;border:1px solid #e5c76b;background:#fff;color:#92400e;border-radius:5px;cursor:pointer;}
+  .notes-tools button:hover{background:#fef3c7;}
+  #notes-state{font-size:11px;color:#92400e;margin-left:auto;}
 </style>
 </head>
 <body class="text-slate-900">
@@ -158,7 +164,14 @@
     </div>
     <div id="remote-notes">
       <div class="notes-title">📋 설명 노트</div>
-      <div class="notes-body" id="remote-notes-body">슬라이드를 선택하면 설명 내용이 여기에 표시됩니다.</div>
+      <textarea id="remote-notes-edit" spellcheck="false" placeholder="슬라이드를 선택하면 설명 내용이 여기에 표시됩니다."></textarea>
+      <div class="notes-tools">
+        <button type="button" onclick="notesReset()" title="이 장의 노트를 원래 내용으로">원래대로</button>
+        <button type="button" onclick="notesExport()" title="고친 노트를 파일로 받기">내보내기</button>
+        <button type="button" onclick="document.getElementById('notes-import').click()" title="내보낸 파일을 불러오기">가져오기</button>
+        <input type="file" id="notes-import" accept="application/json,.json" style="display:none" onchange="notesImport(this)">
+        <span id="notes-state"></span>
+      </div>
     </div>
     <div class="remote-grid" id="remote-grid"></div>
   </div>
@@ -406,30 +419,28 @@
 화면 아래쪽은 이 기능이 닿는 곳입니다.
 두레이 태스크, 두레이 메신저, APMS와 SLAM, 내 메일함입니다.</aside></section>
 <section class="slide" id="timetable"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px"><div style="display:flex;flex-direction:column;gap:16px">
-<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">4시간 시간표</p>
-<h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;font-weight:400;line-height:1.15;color:#222222">지원은 점점 줄어듭니다</h2>
+<p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">오늘의 순서</p>
+<h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;font-weight:400;line-height:1.15;color:#222222">세션마다 이것을 합니다</h2>
 </div>
 <table style="font-size:26px;color:#222222;width:1664px">
-<tr style="background:#f4f4f4"><th style="width:12%">시간</th><th style="width:30%">세션</th><th style="width:34%">핵심</th><th style="width:24%">지원</th></tr>
-<tr><td>0:00</td><td>0. 도입·세팅</td><td>사례, 기술 4축, 환경 확인</td><td>자료</td></tr>
-<tr><td>0:35</td><td>1. 설계</td><td>Plan 모드, CLAUDE.md</td><td></td></tr>
-<tr><td>1:00</td><td>2. 정제·계산</td><td>이상 건 차단, 명세서</td><td>힌트 1~2</td></tr>
-<tr style="background:#f4f4f4"><td>1:35</td><td>휴식</td><td>20분</td><td></td></tr>
-<tr><td>1:55</td><td>3. APMS 기안</td><td>첫 브라우저 자동화</td><td>힌트 1~3</td></tr>
-<tr><td>2:15</td><td>4. SLAM 법무검토</td><td>스스로 적용해 보기</td><td></td></tr>
-<tr><td>2:45</td><td>5. 메일·태스크</td><td>발송 전 승인</td><td>힌트 1~3</td></tr>
-<tr><td>2:55</td><td>6. 보안 점검·돌발 사고</td><td>가드, 일부러 망가뜨리기</td><td>힌트 1~3</td></tr>
-<tr><td>3:15</td><td>7. 스케줄·리포트</td><td>사람 없이 도는 부분</td><td>시연 중심</td></tr>
-<tr><td>3:30</td><td>8. 제출·회고</td><td>같은 데이터, 다른 결과</td><td>회고</td></tr>
+<tr style="background:#f4f4f4"><th style="width:40%">세션</th><th style="width:60%">핵심</th></tr>
+<tr><td>0. 도입·세팅</td><td>사례, 기술 4축, 환경 확인</td></tr>
+<tr><td>1. 설계</td><td>Plan 모드, CLAUDE.md</td></tr>
+<tr><td>2. 정제·계산</td><td>이상 건 차단, 명세서</td></tr>
+<tr style="background:#f4f4f4"><td>휴식</td><td></td></tr>
+<tr><td>3. APMS 기안</td><td>첫 브라우저 자동화</td></tr>
+<tr><td>4. SLAM 법무검토</td><td>스스로 적용해 보기</td></tr>
+<tr><td>5. 메일·태스크</td><td>발송 전 승인</td></tr>
+<tr><td>6. 보안 점검·돌발 사고</td><td>가드, 일부러 망가뜨리기</td></tr>
+<tr><td>7. 스케줄·리포트</td><td>사람 없이 도는 부분</td></tr>
+<tr><td>8. 제출·회고</td><td>같은 데이터, 다른 결과</td></tr>
 </table>
-<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#555555">Claude Code 업무 자동화 핸즈온</p></div></div><aside class="notes">시간표입니다. 오른쪽 "지원" 칸을 봐 주세요.
-세션 2는 힌트 두 개, 세션 3은 힌트 세 개까지 열립니다.
-칸이 빈 세션 1과 4는 힌트가 없습니다.
-세션 4는 세션 3에서 쓴 방법을 스스로 다른 시스템에 적용해 보는 세션이라서 그렇습니다.
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#555555">Claude Code 업무 자동화 핸즈온</p></div></div><aside class="notes">오늘의 순서입니다. 세션마다 무엇을 하는지만 보시면 됩니다.
+힌트는 세션마다 다르게 열립니다. 세션 1과 4는 힌트가 없습니다. 세션 4는 세션 3에서 쓴 방법을 스스로 다른 시스템에 적용해 보는 세션이라서 그렇습니다.
 
 프롬프트는 각자 쓰셔야 합니다. 정답 프롬프트는 마지막 회고 때 공개합니다. 수업 중에 공개하면 다 같이 복사해서 붙여 넣게 되고, 그러면 오늘 가져가실 게 없어지거든요.
 
-강사 메모: 세션 2(35분)와 세션 6(20분)이 빠듯할 수 있습니다. 강사 화면의 "세션별 소요 시간"에서 배정 시간을 넘는 세션이 보이면 다음 세션의 시연을 줄이세요. 세션 7은 원래 시연 중심이라 시간 조정에 쓰기 좋습니다.</aside></section>
+강사 메모: 세션 2와 세션 6이 빠듯할 수 있습니다. 강사 화면의 "세션별 소요 시간"에서 배정 시간을 넘는 세션이 보이면 다음 세션의 시연을 줄이세요. 세션 7은 원래 시연 중심이라 시간 조정에 쓰기 좋습니다.</aside></section>
 <section class="slide" id="howto"><div class="frame"><div class="art" style="background:#f9f9f9;color:#222222;font-family:'Pretendard', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;flex-direction:column;gap:16px">
 <p style="font-family:'Pretendard SemiBold', Arial, sans-serif;font-size:24px;letter-spacing:3px;color:#125de6">진행 방식</p>
 <h2 style="font-family:'Pretendard ExtraBold', Arial, sans-serif;font-size:64px;font-weight:400;line-height:1.15;color:#222222">대시보드의 세션 카드를 보고 움직입니다</h2>
@@ -1768,6 +1779,15 @@ AI가 "성공했습니다"라고 해도 직접 검증한다. 0원 사고, 빈 �
   // 발표자 노트: 각 슬라이드의 <aside class="notes"> 에서 읽는다
   const speakerNotes = {};
   slides.forEach(s=>{ const n = s.querySelector('aside.notes'); if(n) speakerNotes[s.id] = n.textContent.trim(); });
+  // 고친 노트: 이 브라우저(localStorage)에 장 id별로 저장한다. 원본 파일은 바뀌지 않는다.
+  const NOTES_KEY = 'deck-notes-edit-handson';
+  const originalNotes = Object.assign({}, speakerNotes);
+  let noteEdits = {};
+  try{ noteEdits = JSON.parse(localStorage.getItem(NOTES_KEY) || '{}') || {}; }catch(e){ noteEdits = {}; }
+  Object.keys(noteEdits).forEach(id=>{ speakerNotes[id] = noteEdits[id]; });
+  function saveNoteEdits(){
+    try{ localStorage.setItem(NOTES_KEY, JSON.stringify(noteEdits)); return true; }catch(e){ return false; }
+  }
 
   if(isRemote){
     document.body.classList.add('remote-mode');
@@ -1805,13 +1825,54 @@ AI가 "성공했습니다"라고 해도 직접 검증한다. 0원 사고, 빈 �
       });
       const cur = grid.querySelector('.current');
       if(cur) cur.scrollIntoView({behavior:'smooth',block:'nearest'});
-      const notesBody = document.getElementById('remote-notes-body');
+      const notesEdit = document.getElementById('remote-notes-edit');
       const slideId = slides[i]?.id || '';
-      notesBody.textContent = speakerNotes[slideId] || '(이 슬라이드에 등록된 노트가 없습니다.)';
+      if(notesEdit.dataset.id !== slideId){
+        notesEdit.dataset.id = slideId;
+        notesEdit.value = speakerNotes[slideId] || '';
+        notesEdit.placeholder = '(이 장에는 노트가 없습니다. 여기에 적으면 저장됩니다.)';
+      }
+      notesState();
       previewTitle.textContent = titleOf(slides[i]).slice(0,50);
       if(previewReady){ try{ previewFrame.contentWindow.postMessage({type:'remote-goto', idx:i}, '*'); }catch(e){} }
     }
 
+    function notesState(msg){
+      const el = document.getElementById('notes-state'); if(!el) return;
+      const id = document.getElementById('remote-notes-edit').dataset.id;
+      const n = Object.keys(noteEdits).length;
+      el.textContent = msg || ((id in noteEdits ? '이 장 고침 · ' : '') + (n ? `고친 장 ${n}개 · 이 브라우저에 저장됨` : '원본 그대로'));
+    }
+    const notesEditEl = document.getElementById('remote-notes-edit');
+    notesEditEl.addEventListener('input', ()=>{
+      const id = notesEditEl.dataset.id; if(!id) return;
+      speakerNotes[id] = notesEditEl.value;
+      if(notesEditEl.value === (originalNotes[id] || '')) delete noteEdits[id]; else noteEdits[id] = notesEditEl.value;
+      notesState(saveNoteEdits() ? '' : '저장 실패 · 내보내기로 따로 받아 두세요');
+    });
+    window.notesReset = ()=>{
+      const id = notesEditEl.dataset.id; if(!id || !(id in noteEdits)) return;
+      if(!confirm('이 장의 노트를 원래 내용으로 되돌릴까요?')) return;
+      delete noteEdits[id]; speakerNotes[id] = originalNotes[id] || '';
+      notesEditEl.value = speakerNotes[id]; saveNoteEdits(); notesState();
+    };
+    window.notesExport = ()=>{
+      const titles = {}; slides.forEach(s=>{ if(s.id in noteEdits) titles[s.id] = titleOf(s).replace(/\s+/g,' ').slice(0,40); });
+      const data = {deck:'handson', exported:new Date().toISOString(), titles, notes:noteEdits};
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], {type:'application/json'}));
+      a.download = 'notes-edits-' + new Date().toISOString().slice(0,10) + '.json';
+      document.body.appendChild(a); a.click(); a.remove();
+    };
+    window.notesImport = (input)=>{
+      const f = input.files && input.files[0]; if(!f) return;
+      f.text().then(t=>{
+        const d = JSON.parse(t); const got = (d && d.notes) || {};
+        let n = 0; Object.keys(got).forEach(id=>{ if(typeof got[id]==='string'){ noteEdits[id] = got[id]; speakerNotes[id] = got[id]; n++; } });
+        saveNoteEdits(); notesEditEl.dataset.id = ''; updateRemoteUI(parseInt(localStorage.getItem(REMOTE_KEY)||'0'));
+        notesState(`${n}개 장을 불러왔습니다`);
+      }).catch(()=>notesState('불러오기 실패 · 내보낸 파일인지 확인하세요')).finally(()=>{ input.value=''; });
+    };
     const saved = parseInt(localStorage.getItem(REMOTE_KEY)||'0');
     updateRemoteUI(isNaN(saved)?0:saved);
 
