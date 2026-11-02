@@ -2121,7 +2121,7 @@ AI가 "성공했습니다"라고 해도 직접 검증한다. 0원 사고, 빈 �
       previewFrame.style.transform = `scale(${s})`;
     }
     window.addEventListener('resize', scalePreview);
-    previewFrame.src = location.pathname + '?preview=1';
+    previewFrame.src = location.pathname + '?preview=1&t=' + Date.now();  // 캐시된 예전 사본 대신 늘 새로 받는다
     previewFrame.addEventListener('load', ()=>{
       previewReady = true;
       scalePreview();
@@ -2207,7 +2207,7 @@ AI가 "성공했습니다"라고 해도 직접 검증한다. 0원 사고, 빈 �
       remoteJump(next);
     };
     window.remoteOpenMain = ()=>{
-      window.open(location.pathname, '_blank');
+      window.open(location.pathname + '?t=' + Date.now(), '_blank');
     };
     document.addEventListener('keydown', (e)=>{
       if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return;
