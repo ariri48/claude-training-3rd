@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>정산 자동화 복습 체크리스트</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 /* 레이아웃: 한 줄 읽기 폭의 세로 목록. 단계마다 번호(실제 순서)와 체크 항목, 지킬 것 한 줄 */
 :root {
@@ -20,8 +18,8 @@
   --warn: #b4441b;
   --warn-soft: #fbece5;
   --done: #2d7a4b;
-  --font-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --font-body: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --font-mono: ui-monospace, Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -125,7 +123,7 @@ const STEPS = [
     ], keep: "실제 업무 문서는 열거나 고치지 않습니다." },
   { title: "대시보드 만들기", goal: "받기 → 정제 → 명세서 → 대조를 맡기고 결과를 화면에 띄웁니다.", items: [
       "Plan 모드 켜기 (입력창에서 Shift+Tab)",
-      '<span class="say">“태스크 첨부에서 사용량 CSV를 <code>inbox/</code>로 받아 정제·계산·명세서·대조 계획 세워 줘. 이상하면 멈출 기준부터. 아직 실행하지 마”</span>',
+      '<span class="say">“태스크 첨부에서 다운받아서 정제·계산·명세서·대조 계획 세워 줘. 이상하면 멈출 기준부터. 아직 실행하지 마”</span>',
       "계획을 읽고 고친 뒤 <span class=\"say\">“이대로 실행해. 이상한 파트너는 차단하고 이유를 <code>report.json</code>에”</span>",
       '<span class="say">“정상 파트너마다 <code>statement.py</code>로 명세서 PDF”</span>',
       '<span class="say">“세금계산서 목록과 대조해서 일치·불일치·미수취로 기록. 고치지 마”</span>',
