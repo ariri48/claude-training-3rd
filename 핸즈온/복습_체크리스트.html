@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>정산 자동화 복습 체크리스트</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* 레이아웃: 한 줄 읽기 폭의 세로 목록. 단계마다 번호(실제 순서)와 체크 항목, 지킬 것 한 줄 */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --fg: #1b2230;
+  --muted: #5d6676;
+  --line: #dde1e8;
+  --accent: #1f5fd1;
+  --accent-soft: #e6eefc;
+  --warn: #b4441b;
+  --warn-soft: #fbece5;
+  --done: #2d7a4b;
+  --font-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14171d; --surface: #1c2029; --fg: #e5e8ee; --muted: #9aa3b2; --line: #2d3340;
+    --accent: #7aa7ff; --accent-soft: #1f2a40; --warn: #f0926c; --warn-soft: #3a241c; --done: #6cc890;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14171d; --surface: #1c2029; --fg: #e5e8ee; --muted: #9aa3b2; --line: #2d3340;
+  --accent: #7aa7ff; --accent-soft: #1f2a40; --warn: #f0926c; --warn-soft: #3a241c; --done: #6cc890;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.6;
+}
+.wrap {
+  max-width: 760px; margin: 0 auto;
+  padding-block: 32px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 20px;
+}
+header h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 6px; text-wrap: balance; }
+header p { margin: 0; color: var(--muted); }
+code { font-family: var(--font-mono); font-size: .86em; background: var(--accent-soft); color: var(--fg); padding: 1px 5px; border-radius: 4px; word-break: break-all; }
+
+.progress {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--bg); padding-block: 10px;
+  display: flex; align-items: center; gap: 12px;
+}
+.bar { flex: 1; height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.bar span { display: block; height: 100%; width: 0; background: var(--done); transition: width .2s; }
+.count { font-variant-numeric: tabular-nums; font-weight: 700; min-width: 4.5em; text-align: right; }
+.reset { font: inherit; font-size: .85rem; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 6px; padding: 3px 10px; cursor: pointer; }
+.reset:hover { color: var(--fg); }
+
+.rules { background: var(--warn-soft); border-radius: 10px; padding: 16px 18px; }
+.rules h2 { font-size: 1rem; margin: 0 0 8px; color: var(--warn); }
+.rules ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 18px 14px; display: grid; gap: 10px; }
+.step-head { display: flex; align-items: baseline; gap: 10px; }
+.num { font-family: var(--font-mono); font-weight: 500; color: var(--accent); font-size: .95rem; }
+.step h2 { font-size: 1.1rem; margin: 0; flex: 1; }
+.step-goal { margin: 0; color: var(--muted); font-size: .92rem; }
+.step.complete .num { color: var(--done); }
+.step.complete h2::after { content: " · 완료"; color: var(--done); font-size: .85rem; font-weight: 500; }
+
+.items { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.items label { display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: start; cursor: pointer; padding: 4px 0; }
+.items input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--done); }
+.items input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.items input:checked + span { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--line); }
+.say { color: var(--accent); }
+.keep { margin: 0; font-size: .88rem; color: var(--warn); border-top: 1px dashed var(--line); padding-top: 8px; }
+.keep b { font-weight: 700; }
+.pick { font-size: .85rem; color: var(--muted); margin: 0; }
+footer { color: var(--muted); font-size: .85rem; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <h1>정산 자동화 복습 체크리스트</h1>
+    <p>교육 때 한 순서 그대로입니다. 위에서부터 하나씩 해 보고 체크하세요. 따옴표 안은 Claude에게 할 말의 핵심만 적었습니다. 내 말로 바꿔도 됩니다.</p>
+  </header>
+
+  <div class="progress" aria-live="polite">
+    <div class="bar"><span id="bar"></span></div>
+    <span class="count" id="count">0 / 0</span>
+    <button class="reset" id="reset" type="button">처음부터</button>
+  </div>
+
+  <section class="rules">
+    <h2>매번 지킬 것 4가지</h2>
+    <ul>
+      <li><code>cd ~/claude-code-lab-work</code> 다음 <code>claude</code>로 엽니다. 이 폴더에서 열어야 킷의 규칙과 보안 설정이 적용됩니다.</li>
+      <li>보내기·올리기·저장 전에는 항상 <b>“먼저 보여 줘”</b>. 내가 승인한 뒤에만 실행합니다.</li>
+      <li>비밀번호·토큰·웹훅 주소는 대화창에 쓰지 않고 설정 화면에만 넣습니다.</li>
+      <li>기안·법무검토는 임시저장까지만. 메일 받는 사람은 내 주소 하나.</li>
+    </ul>
+  </section>
+
+  <main id="steps" style="display:grid;gap:14px"></main>
+
+  <footer>체크한 내용은 이 브라우저에만 남습니다. 막히면 대시보드 가이드(용어 카드, AI 보안 설정)를 다시 보세요.</footer>
+</div>
+
+<script>
+const STEPS = [
+  { title: "시작 준비", goal: "스타터 킷을 받아 내 개인 프로젝트에 올립니다.", items: [
+      "스타터 킷 zip 내려받기 (풀지 않아도 됨)",
+      "터미널에서 <code>claude</code> 열기",
+      '<span class="say">“개인 프로젝트 링크는 ○○야. <code>[교육] 정산 입력 - 이름</code> 태스크 만들고 zip 첨부해 줘”</span>',
+      '<span class="say">“zip을 홈 폴더에 풀고 <code>CLAUDE.md</code> 맨 아래에 개인 프로젝트 링크 적어 줘”</span>',
+      "<code>/exit</code> → <code>cd ~/claude-code-lab-work</code> → <code>claude</code>로 다시 열기",
+      '<span class="say">“설치 점검해 줘”</span> → ✗ 있으면 <span class="say">“✗ 항목 고쳐 줘”</span>'
+    ], keep: "실제 업무 문서는 열거나 고치지 않습니다." },
+  { title: "대시보드 만들기", goal: "받기 → 정제 → 명세서 → 대조를 맡기고 결과를 화면에 띄웁니다.", items: [
+      "Plan 모드 켜기 (입력창에서 Shift+Tab)",
+      '<span class="say">“태스크 첨부에서 사용량 CSV를 <code>inbox/</code>로 받아 정제·계산·명세서·대조 계획 세워 줘. 이상하면 멈출 기준부터. 아직 실행하지 마”</span>',
+      "계획을 읽고 고친 뒤 <span class=\"say\">“이대로 실행해. 이상한 파트너는 차단하고 이유를 <code>report.json</code>에”</span>",
+      '<span class="say">“정상 파트너마다 <code>statement.py</code>로 명세서 PDF”</span>',
+      '<span class="say">“세금계산서 목록과 대조해서 일치·불일치·미수취로 기록. 고치지 마”</span>',
+      '<span class="say">“대시보드 화면 만들어 줘. Streamlit 없이, 좁은 창에서도 안 잘리게”</span>',
+      "명세서 PDF 하나를 직접 열어 한글·금액 확인"
+    ], keep: "빈 값을 0원으로 채우지 않기 · 원본(<code>data/</code>, <code>inbox/</code>)은 고치지 않기" },
+  { title: "부족한 부분 채우기", goal: "직접 써 보고 빠진 기능을 찾아 설정 화면을 만듭니다.", items: [
+      "대시보드를 직접 써 보고 빠진 기능 3개 이상 적기",
+      '<span class="say">“내가 찾은 건 ○○, ○○, ○○야. 설정 넣을 곳이 없는 것부터 정리해 줘”</span>',
+      '<span class="say">“메일 설정·웹훅 주소 넣는 설정 화면 만들어 줘. 저장 후엔 다시 보이지 않게”</span>',
+      "비밀값을 설정 화면에 직접 입력하고 저장 → <b>저장됨</b>만 보이는지 확인"
+    ], keep: "이 단계에서는 아직 보내지 않습니다." },
+  { title: "메일 버튼과 점검", goal: "메일 발송 버튼을 넣고 눌러도 안전한지 확인합니다.", items: [
+      '<span class="say">“메일 발송 버튼 넣어 줘. 누르면 미리보기부터”</span>',
+      '<span class="say">“받는 사람은 내 주소 하나, 제목은 <code>[교육테스트]</code>로 시작. 내가 ‘보내’라고 해야만 보내”</span>',
+      '<span class="say">“업체 수·메일 수·첨부 수가 다르면 멈춰”</span>',
+      '<span class="say">“보낸 뒤 IMAP으로 보낸메일함에 저장해 줘”</span>',
+      "1곳만 실제로 보내고 받은편지함·보낸메일함에서 확인"
+    ], keep: "승인 없이 바로 보내는 흐름은 만들지 않습니다." },
+  { title: "메일 3종", goal: "같은 메일을 세 가지 모양으로 보내 나란히 비교합니다.", items: [
+      '텍스트: <span class="say">“글로만 써서 보내 줘. 제목 <code>[교육테스트] 1/3 텍스트</code>”</span>',
+      'HTML/CSS: <span class="say">“합계는 크게, 내역은 표로. 모양은 ○○하게”</span>',
+      'design.md: <span class="say">“NHN <code>design.md</code> 읽고 그 규칙대로 만들어 보내 줘”</span>',
+      "세 통을 나란히 열고 달라진 점 한 줄씩 적기"
+    ], keep: "디자인은 큰 것(분위기)부터 작은 것(버튼) 순서로, 한 번에 하나씩 고칩니다." },
+  { title: "웹훅 알림", goal: "정산 결과 요약을 두레이 메신저로 1건 알립니다.", items: [
+      '<span class="say">“알림 버튼 넣어 줘. 미리보기 보여 주고 승인하면 웹훅으로 1건만”</span>',
+      '<span class="say">“봇 이름은 <code>[교육테스트] ○○봇</code>으로 고정”</span>',
+      '<span class="say">“웹훅 주소는 설정 화면에 저장한 값을 읽어. 대화에는 쓰지 마”</span>',
+      "메신저 도착과 봇 이름 확인"
+    ], keep: "웹훅 주소는 비밀값입니다. 화면·로그·대화 어디에도 나오면 안 됩니다." },
+  { title: "APMS 또는 SLAM 임시저장", goal: "둘 중 하나만 해도 됩니다.", pick: true, items: [
+      "시작 전 메일·인사·고객 정보 탭 모두 닫기",
+      "사내 시스템에 직접 로그인한 크롬 탭을 Playwriter로 연결",
+      '<span class="say">“양식(새 탭·새 창)으로 옮겨서 화면부터 읽어 줘. 아직 입력하지 마”</span>',
+      '<span class="say">“제목은 <code>[교육테스트]</code>로 시작, 본문은 <code>report.json</code> 값 그대로”</span>',
+      "APMS: 정산 피벗 엑셀 + 명세서 PDF 첨부 (홈 폴더 아래 파일만) / SLAM: 법무 자문 끄고 법무 계약지원 체크 후 다시 읽기",
+      '<span class="say">“저장 전에 다시 읽어서 비교하고 [임시저장]만 눌러”</span>',
+      "임시보관함(APMS) 또는 상세 화면의 [임시저장] 라벨(SLAM)과 문서번호 확인"
+    ], keep: "<b>[상신]·[등록]은 누르지 않습니다.</b> 권한 확인은 켠 채로, “항상 허용”은 누르지 않습니다." },
+  { title: "리서치·보고서·주간보고", goal: "보고서와 주간보고 두 개면 충분합니다.", items: [
+      '<span class="say">“<code>report.json</code>과 4·5월 파일로 월간 요약 보고서를 <code>out/report.md</code>에. 숫자는 스크립트로, 사실·추측 나눠서”</span>',
+      "보고서 숫자 3개를 파일과 직접 맞춰 보기",
+      '(선택) <span class="say">“파트너별 막대 차트를 <code>out/stats.html</code>로. 세로축 0부터, 제목에 결론 한 줄”</span>',
+      '<span class="say">“이번 주 내 태스크·댓글과 메일 제목으로 주간보고 초안. 올리기 전에 보여 주고 멈춰”</span>',
+      "읽고 고친 뒤 내 태스크에 댓글 1건으로 올리기"
+    ], keep: "메일은 제목만 읽게 하기 · 주간보고는 내 태스크에만" }
+];
+
+const KEY = "review-checklist-v1";
+let state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { state = {}; }
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+
+const root = document.getElementById("steps");
+STEPS.forEach((s, si) => {
+  const el = document.createElement("section");
+  el.className = "step";
+  el.innerHTML =
+    `<div class="step-head"><span class="num">${String(si + 1).padStart(2, "0")}</span><h2>${s.title}</h2></div>` +
+    `<p class="step-goal">${s.goal}</p>` +
+    `<ul class="items">${s.items.map((t, ii) => {
+      const id = `c-${si}-${ii}`;
+      return `<li><label for="${id}"><input type="checkbox" id="${id}" data-k="${id}"${state[id] ? " checked" : ""}><span>${t}</span></label></li>`;
+    }).join("")}</ul>` +
+    `<p class="keep"><b>지킬 것</b> · ${s.keep}</p>`;
+  root.appendChild(el);
+});
+
+function refresh() {
+  const boxes = [...document.querySelectorAll(".items input")];
+  const done = boxes.filter(b => b.checked).length;
+  document.getElementById("count").textContent = `${done} / ${boxes.length}`;
+  document.getElementById("bar").style.width = `${(done / boxes.length) * 100}%`;
+  document.querySelectorAll(".step").forEach(st => {
+    const bs = [...st.querySelectorAll("input")];
+    st.classList.toggle("complete", bs.every(b => b.checked));
+  });
+}
+root.addEventListener("change", e => {
+  if (e.target.matches("input[data-k]")) { state[e.target.dataset.k] = e.target.checked; save(); refresh(); }
+});
+document.getElementById("reset").addEventListener("click", () => {
+  state = {}; save();
+  document.querySelectorAll(".items input").forEach(b => b.checked = false);
+  refresh();
+});
+refresh();
+</script>
+</body>
+</html>
